@@ -561,24 +561,33 @@
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-8 form-group">
-                                            <label for="dibujo">OT</label>
+                                            <label for="ot">OT</label>
                                             <input class="form-control" id="ot" name="ot" placeholder="" value="" type="text" readonly>
                                         </div>
                                         <div class="col-md-4 form-group">
-                                            <label for="dibujo">Cliente</label>
+                                            <label for="cliente">Cliente</label>
                                             <input class="form-control" id="cliente" name="cliente" placeholder="" value="" type="text" readonly>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 form-group">
-                                            <label for="dibujo">Descripcion</label>
+                                            <label for="descripcion">Descripcion</label>
                                             <input class="form-control" id="descripcion" name="descripcion" placeholder="" value="" type="text" readonly>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 form-group">
-                                            <label for="dibujo">Cantidad de piezas</label>
-                                            <input class="form-control" id="cantidad" name="cantidad" placeholder="" value="" type="text">
+                                            <label for="cantidad_piezas">Cantidad de piezas</label>
+                                            <input class="form-control" id="cantidad_piezas" name="cantidad_piezas" placeholder="" value="" type="text">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <label for="tipo_salida">Tipo de salida</label>
+                                            <option value="">Selecciona una opcion...</option>
+                                            <option value="SALIDA PARCIAL">SALIDA PARCIAL</option>
+                                            <option value="SALIDA FINAL">SALIDA FINAL</option>
                                         </div>
                                     </div>
                                     <br>

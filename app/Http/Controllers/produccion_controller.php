@@ -330,9 +330,23 @@ class produccion_controller extends Controller
     public function salida_produccion(Request $request)
     {
 
+
+        dd($request);
         //Registros salida de produccion
 
-        $orden = models\production::where('id', '=', $request)->first();
+        $orden = models\production::where('ot', '=', $request->ot)->first();
+
+
+        $salida_produccion = new models\salidas_produccion();
+        $salida_produccion->ot = $request->ot;
+        $salida_produccion->cliente = $request->cliente;
+
+        if($request->tipo_salida=='')
+        $salida_produccion->tipo_salida = $request->tipo_salida;
+        $salida_produccion->estatus = "";
+        $salida_produccion->save();
+
+
 
         $ruta = models\jets_rutas::where('ot', '=', $orden->ot)->first();
         $ruta->sistema_produccion = 'DONE';
