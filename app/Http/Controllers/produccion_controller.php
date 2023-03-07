@@ -329,34 +329,36 @@ class produccion_controller extends Controller
 
     public function salida_produccion(Request $request)
     {
-
-
-        dd($request);
-        //Registros salida de produccion
-
-        $orden = models\production::where('ot', '=', $request->ot)->first();
-
-
+        
         $salida_produccion = new models\salidas_produccion();
         $salida_produccion->ot = $request->ot;
         $salida_produccion->cliente = $request->cliente;
-
-        if($request->tipo_salida=='')
         $salida_produccion->tipo_salida = $request->tipo_salida;
-        $salida_produccion->estatus = "";
+
+        if ($request->tipo_salida == 'SALIDA PARCIAL') {
+
+            $registro_jets = new models\jets_registros();
+            $registro_jets->ot = $request->ot;
+            $registro_jets->movimiento = 'S. PRODUCCION - PARCIAL';
+            $registro_jets->responsable = Auth::user()->name;
+            $registro_jets->save();
+
+        } 
+        else {
+
+            $ruta = models\jets_rutas::where('ot', '=', $request->ot)->first();
+            $ruta->sistema_produccion = 'DONE';
+            $ruta->save();
+
+            $registro_jets = new models\jets_registros();
+            $registro_jets->ot = $orden->ot;
+            $registro_jets->movimiento = 'S. PRODUCCION - FINALIZADA';
+            $registro_jets->responsable = Auth::user()->name;
+            $registro_jets->save();
+        }
+
+        $salida_produccion->estatus = "P/CALIDAD";
         $salida_produccion->save();
-
-
-
-        $ruta = models\jets_rutas::where('ot', '=', $orden->ot)->first();
-        $ruta->sistema_produccion = 'DONE';
-        $ruta->save();
-
-        $registro_jets = new models\jets_registros();
-        $registro_jets->ot = $orden->ot;
-        $registro_jets->movimiento = 'S. PRODUCCION - FINALIZADA';
-        $registro_jets->responsable = Auth::user()->name;
-        $registro_jets->save();
 
 
         $orden_programador = models\production::where('id', '=', $orden->ot)->first();
