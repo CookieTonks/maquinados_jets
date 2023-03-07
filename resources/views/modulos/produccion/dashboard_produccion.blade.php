@@ -546,12 +546,11 @@
                     </div>
                 </div>
 
-
                 <div class="modal fade" id="salida_orden" tabindex="-1" role="dialog" aria-labelledby="exampleModalForms" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Salida: Orden de trabajo.</h5>
+                                <h5 class="modal-title">Nueva: Reubicacion de orden.</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
@@ -561,35 +560,37 @@
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-8 form-group">
-                                            <label for="ot">OT</label>
+                                            <label for="dibujo">OT</label>
                                             <input class="form-control" id="ot" name="ot" placeholder="" value="" type="text" readonly>
                                         </div>
                                         <div class="col-md-4 form-group">
-                                            <label for="cliente">Cliente</label>
+                                            <label for="dibujo">Cliente</label>
                                             <input class="form-control" id="cliente" name="cliente" placeholder="" value="" type="text" readonly>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 form-group">
-                                            <label for="descripcion">Descripcion</label>
+                                            <label for="dibujo">Descripcion</label>
                                             <input class="form-control" id="descripcion" name="descripcion" placeholder="" value="" type="text" readonly>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 form-group">
-                                            <label for="cantidad_piezas">Cantidad de piezas</label>
-                                            <input class="form-control" id="cantidad_piezas" name="cantidad_piezas" placeholder="" value="" type="text">
+                                            <label for="cantidad">Cantidad de piezas</label>
+                                            <input class="form-control" id="cantidad" name="cantidad" placeholder="" value="" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <label for="tipo_salida">Maquina</label>
+                                            <select name="tipo_salida" class="form-control custom-select d-block w-100" id="maquina">
+                                                <option value="">Selecciona una opcion...</option>
+                                                <option>SALIDA PARCIAL</option>
+                                                <option>SALIDA FINAL</option>
+                                            </select>
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-12 form-group">
-                                            <label for="tipo_salida">Tipo de salida</label>
-                                            <option value="">Selecciona una opcion...</option>
-                                            <option value="SALIDA PARCIAL">SALIDA PARCIAL</option>
-                                            <option value="SALIDA FINAL">SALIDA FINAL</option>
-                                        </div>
-                                    </div>
                                     <br>
                                     <button type="submit" class="btn btn-block btn-primary">Registrar</button>
                                 </form>
@@ -597,6 +598,9 @@
                         </div>
                     </div>
                 </div>
+
+
+
 
             </div>
 

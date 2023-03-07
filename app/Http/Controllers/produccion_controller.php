@@ -329,11 +329,13 @@ class produccion_controller extends Controller
 
     public function salida_produccion(Request $request)
     {
-        
+
         $salida_produccion = new models\salidas_produccion();
         $salida_produccion->ot = $request->ot;
         $salida_produccion->cliente = $request->cliente;
         $salida_produccion->tipo_salida = $request->tipo_salida;
+        $salida_produccion->cantidad = $request->cantidad;
+
 
         if ($request->tipo_salida == 'SALIDA PARCIAL') {
 
@@ -342,16 +344,14 @@ class produccion_controller extends Controller
             $registro_jets->movimiento = 'S. PRODUCCION - PARCIAL';
             $registro_jets->responsable = Auth::user()->name;
             $registro_jets->save();
-
-        } 
-        else {
+        } else {
 
             $ruta = models\jets_rutas::where('ot', '=', $request->ot)->first();
             $ruta->sistema_produccion = 'DONE';
             $ruta->save();
 
             $registro_jets = new models\jets_registros();
-            $registro_jets->ot = $orden->ot;
+            $registro_jets->ot = $request->ot;
             $registro_jets->movimiento = 'S. PRODUCCION - FINALIZADA';
             $registro_jets->responsable = Auth::user()->name;
             $registro_jets->save();
@@ -361,7 +361,7 @@ class produccion_controller extends Controller
         $salida_produccion->save();
 
 
-        $orden_programador = models\production::where('id', '=', $orden->ot)->first();
+        $orden_programador = models\production::where('id', '=', $request->ot)->first();
         $orden_programador->estatus = 'E.CALIDAD';
         $orden_programador->save();
 
