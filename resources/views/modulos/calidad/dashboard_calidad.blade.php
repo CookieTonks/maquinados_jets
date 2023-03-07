@@ -408,7 +408,7 @@
                                     </div>
 
                                     <div class="row">
-                                    <div class="col-md-12 form-group">
+                                        <div class="col-md-12 form-group">
                                             <label for="ot">Cantidad produccion</label>
                                             <input class="form-control" id="cantpro" name="cantpro" placeholder="" value="" type="text" onlyread>
                                         </div>
@@ -427,6 +427,26 @@
                                             <input class="form-control" id="cant_liberada" name="cant_liberada" placeholder="" value="" type="number" onlyread>
                                         </div>
                                     </div>
+                                    <hr>
+
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <label for="Salida">Servicio externo</label>
+                                            <select name="servicio_externo" id="servicio_externo" class="form-control">
+                                                <option value="REQUERIDO" class="form-control"> REQUERIDO</option>
+                                                <option value="NO REQUERIDO" class="form-control"> NO REQUERIDO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <label for="Salida">Código</label>
+                                            <input class="form-control" id="codigo" name="codigo" placeholder="" value="" type="text">
+
+                                        </div>
+                                    </div>
+                                    <hr>
                                     <div class="row">
                                         <div class="col-md-12 form-group">
                                             <label for="archivo">Archivo</label>
@@ -561,6 +581,20 @@
                     $("#disposicion").prop("disabled", true);
                     $("#num_parte").prop("disabled", true);
                     $("#descripcion").prop("disabled", true);
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(function() {
+            $("#servicio_externo").change(function() {
+                if ($(this).val() == "REQUERIDO") {
+                    $("#codigo").prop("disabled", false);
+
+                } else if ($(this).val() == "NO REQUERIDO") {
+                    $("#codigo").prop("disabled", true);
+
                 }
             });
         });

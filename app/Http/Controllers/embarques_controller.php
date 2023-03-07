@@ -115,41 +115,41 @@ class embarques_controller extends Controller
         }
 
 
-        if ($request->tipo_salida == 'Tratamiento') {
+        // if ($request->tipo_salida == 'Tratamiento') {
 
-            $registro_jets = new models\jets_registros();
-            $registro_jets->ot = $request->ot;
-            $registro_jets->movimiento = 'EMBARQUES - FACTURACIÓN';
-            $registro_jets->responsable = Auth::user()->name;
-            $registro_jets->save();
+        //     $registro_jets = new models\jets_registros();
+        //     $registro_jets->ot = $request->ot;
+        //     $registro_jets->movimiento = 'EMBARQUES - TRATAMIENTO';
+        //     $registro_jets->responsable = Auth::user()->name;
+        //     $registro_jets->save();
 
-            $salida_embarques = new models\salidas_embarques();
-            $salida_embarques->ot = $request->ot;
-            $salida_embarques->tipo_salida = $request->tipo_salida;
-            $salida_embarques->fecha_retorno = $request->fecha_retorno;
-            $salida_embarques->tipo_tratamiento = $request->tipo_tratamiento;
-            $salida_embarques->proveedor = $request->proveedor_tratamiento;
-            $salida_embarques->cantidad = $request->cant_piezas;
-            $salida_embarques->estatus = 'Enviada a tratamiento';
-            $salida_embarques->save();
+        //     $salida_embarques = new models\salidas_embarques();
+        //     $salida_embarques->ot = $request->ot;
+        //     $salida_embarques->tipo_salida = $request->tipo_salida;
+        //     $salida_embarques->fecha_retorno = $request->fecha_retorno;
+        //     $salida_embarques->tipo_tratamiento = $request->tipo_tratamiento;
+        //     $salida_embarques->proveedor = $request->proveedor_tratamiento;
+        //     $salida_embarques->cantidad = $request->cant_piezas;
+        //     $salida_embarques->estatus = 'Enviada a tratamiento';
+        //     $salida_embarques->save();
 
-            $alta_material = new Models\materiales();
-            $alta_material->ot = $request->ot;
-            $alta_material->tipo = 'TRATAMIENTO';
-            $alta_material->material = $request->tipo_salida;
-            $alta_material->cantidad_solicitada = $request->cant_pieza;
-            $alta_material->descripcion = $request->descripcion;
-            $alta_material->proveedor = $request->proveedor_tratamiento;
-            $alta_material->estatus = 'SOLICITADA';
-            $alta_material->save();
+        //     $alta_material = new Models\materiales();
+        //     $alta_material->ot = $request->ot;
+        //     $alta_material->tipo = 'TRATAMIENTO';
+        //     $alta_material->material = $request->tipo_salida;
+        //     $alta_material->cantidad_solicitada = $request->cant_pieza;
+        //     $alta_material->descripcion = $request->descripcion;
+        //     $alta_material->proveedor = $request->proveedor_tratamiento;
+        //     $alta_material->estatus = 'SOLICITADA';
+        //     $alta_material->save();
 
 
-            $orden = models\orders::where('id', '=', $request->ot)->first();
-            $salida = models\salidas_embarques::where('id', '=', $salida_embarques->id)->first();
+        //     $orden = models\orders::where('id', '=', $request->ot)->first();
+        //     $salida = models\salidas_embarques::where('id', '=', $salida_embarques->id)->first();
 
-            $pdf = PDF::loadView('modulos.embarques.tratamiento_embarques', compact('orden', 'salida'));
-            return $pdf->stream($request->ot . '.pdf');
-        }
+        //     $pdf = PDF::loadView('modulos.embarques.tratamiento_embarques', compact('orden', 'salida'));
+        //     return $pdf->stream($request->ot . '.pdf');
+        // }
     }
 
     public function regreso_tratamiento($orden_tratamiento)

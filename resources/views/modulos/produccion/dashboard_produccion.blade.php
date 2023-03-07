@@ -265,6 +265,37 @@
                                             </thead>
                                             <tbody>
                                                 @foreach($ordenes as $orden)
+                                                @if($orden->estatus == 'RETRABAJO')
+                                                <tr class="bg-danger text-white">
+                                                    <th>
+                                                        <a target="_blank" href="{{route('order_pdf', $orden->id)}}" class="btn btn-primary btn-sm"><i class="icon-eye"></i></a>
+                                                        <button type="button" class="btn  btn-sm btn-primary" data-toggle="modal" data-target="#asignacion_maquina" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}}">
+                                                            <i class="icon-plus"></i>
+                                                        </button>
+                                                        <button type="button" class="btn  btn-sm btn-secondary" data-toggle="modal" data-target="#reubicacion_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                            <i class="icon-shuffle"></i>
+                                                        </button>
+
+                                                        <button type="button" class="btn  btn-success btn-sm" data-toggle="modal" data-target="#salida_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                            <i class="icon-check"></i>
+                                                        </button>
+
+                                                    </th>
+                                                    <td> <a target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->id}}</a></td>
+                                                    <td>{{$orden->cliente}}</td>
+                                                    <td>{{$orden->maquina_asignada}}</td>
+                                                    <td>{{$orden->persona_asignada}}</td>
+                                                    <td>{{$orden->cantidad}}</td>
+                                                    <td>{{$orden->cant_entregada}}</td>
+                                                    <td>{{$orden->fecha_cliente}}</td>
+                                                    <td>{{$orden->tiempo_asignado}}</td>
+                                                    <td>{{$orden->tiempo_progreso}}</td>
+                                                    <td>{{$orden->procesos}}</td>
+                                                    <td>{{$orden->prioridad}}</td>
+                                                    <td>{{$orden->estatus}}</td>
+                                                </tr>
+                                                @else
+
                                                 <tr>
                                                     <th>
                                                         <a target="_blank" href="{{route('order_pdf', $orden->id)}}" class="btn btn-primary btn-sm"><i class="icon-eye"></i></a>
@@ -294,6 +325,7 @@
                                                     <td>{{$orden->prioridad}}</td>
                                                     <td>{{$orden->estatus}}</td>
                                                 </tr>
+                                                @endif
                                                 @endforeach
                                             </tbody>
                                             <tfoot>

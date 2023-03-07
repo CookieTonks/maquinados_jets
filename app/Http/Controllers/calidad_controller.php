@@ -46,6 +46,7 @@ class calidad_controller extends Controller
     public function calidad_embarques(Request $request)
     {
 
+        //Parcialidad liberada
 
         if ($request->tipo_inspeccion === 'LIBERADO') {
 
@@ -53,14 +54,49 @@ class calidad_controller extends Controller
             $rutas_jets->sistema_calidad = 'DONE';
             $rutas_jets->save();
 
-            $registro_jets = new models\jets_registros();
-            $registro_jets->ot = $rutas_jets->ot;
-            $registro_jets->movimiento = 'CALIDAD - EMBARQUES';
-            $registro_jets->responsable = Auth::user()->name;
-            $registro_jets->save();
+
+
+            //Parcialidad liberada con tratamiento externo
+            if ($request->servicio_externo == 'REQUERIDO') {
+                $registro_jets = new models\jets_registros();
+                $registro_jets->ot = $request->ot;
+                $registro_jets->movimiento = 'CALIDAD - TRATAMIENTO';
+                $registro_jets->responsable = Auth::user()->name;
+                $registro_jets->save();
+
+                $alta_material = new Models\materiales();
+                $alta_material->ot = $request->ot;
+                $alta_material->tipo = 'TRATAMIENTO';
+                $alta_material->material = 'SALIDA';
+                $alta_material->cantidad_solicitada = $request->cant_pieza;
+                $alta_material->descripcion = $request->descripcion;
+                $alta_material->proveedor = '';
+                $alta_material->estatus = 'SOLICITADA';
+                $alta_material->save();
+            }
+
+            //Parcialidad liberada sin tratamiento externo
+
+            else {
+                $registro_jets = new models\jets_registros();
+                $registro_jets->ot = $request->ot;
+                $registro_jets->movimiento = 'CALIDAD - EMBARQUES';
+                $registro_jets->responsable = Auth::user()->name;
+                $registro_jets->save();
+
+                $calidad_proceso = models\salidas_produccion::where('id', '=', $request->id)->first();
+                $calidad_proceso->estatus = "P/EMBARQUES";
+                $calidad_proceso->save();
+            }
+
+            //Carga de PDF liberación
 
             Storage::disk('public')->putFileAs('liberacion/' . $request->ot, $request->file('doc'), $request->ot . '.pdf');
-        } else if ($request->tipo_inspeccion === 'RETRABAJO') {
+        }
+
+        //Parcialidad para retrabajo
+        
+        else if ($request->tipo_inspeccion === 'RETRABAJO') {
 
             $inspections = new models\inspections();
             $inspections->ot = $request->ot;
@@ -149,6 +185,9 @@ class calidad_controller extends Controller
                 $material->save();
             }
         }
+
+
+
         return back()->with('mensaje-success', '¡Inpección realizada con exito!');
     }
 
