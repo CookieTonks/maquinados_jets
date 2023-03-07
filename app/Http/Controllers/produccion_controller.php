@@ -332,6 +332,8 @@ class produccion_controller extends Controller
 
         $salida_produccion = new models\salidas_produccion();
         $salida_produccion->ot = $request->ot;
+        $salida_produccion->descripcion = $request->descripcion;
+
         $salida_produccion->cliente = $request->cliente;
         $salida_produccion->tipo_salida = $request->tipo_salida;
         $salida_produccion->cantidad = $request->cantidad;

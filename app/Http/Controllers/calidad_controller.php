@@ -20,12 +20,7 @@ class calidad_controller extends Controller
     {
         $notificaciones =  Models\notifications::all();
 
-        $ordenes = DB::table('orders')
-            ->join('jets_rutas', 'orders.id', '=', 'jets_rutas.ot')
-            ->where('jets_rutas.sistema_produccion', '=', 'DONE')
-            ->where('jets_rutas.sistema_calidad', '=', '-')
-            ->select('orders.*')
-            ->get();
+        $ordenes = models\salidas_produccion::where('estatus', '=', 'P/CALIDAD')->get();
 
 
 
@@ -41,7 +36,7 @@ class calidad_controller extends Controller
             ->select('orders.*')
             ->get();
 
-            $notificaciones =  Models\notifications::all();
+        $notificaciones =  Models\notifications::all();
 
 
 
@@ -63,8 +58,8 @@ class calidad_controller extends Controller
             $registro_jets->movimiento = 'CALIDAD - EMBARQUES';
             $registro_jets->responsable = Auth::user()->name;
             $registro_jets->save();
-            
-             Storage::disk('public')->putFileAs('liberacion/' . $request->ot, $request->file('doc'), $request->ot . '.pdf');
+
+            Storage::disk('public')->putFileAs('liberacion/' . $request->ot, $request->file('doc'), $request->ot . '.pdf');
         } else if ($request->tipo_inspeccion === 'RETRABAJO') {
 
             $inspections = new models\inspections();
@@ -94,7 +89,7 @@ class calidad_controller extends Controller
             $rutas_jets->save();
 
             $produccion = models\production::where('ot', '=', $request->ot)->first();
-            $produccion->estatus = 'RETRABAJO';  
+            $produccion->estatus = 'RETRABAJO';
             $produccion->save();
 
             $registro_jets = new models\jets_registros();
@@ -102,9 +97,8 @@ class calidad_controller extends Controller
             $registro_jets->movimiento = 'CALIDAD - RETRABAJO';
             $registro_jets->responsable = Auth::user()->name;
             $registro_jets->save();
-            
-              Storage::disk('public')->putFileAs('retrabajo/' . $request->ot, $request->file('doc'), $request->ot . '.pdf');
 
+            Storage::disk('public')->putFileAs('retrabajo/' . $request->ot, $request->file('doc'), $request->ot . '.pdf');
         } else if ($request->tipo_inspeccion === 'SCRAP') {
 
             $inspections = new models\inspections();
@@ -147,15 +141,13 @@ class calidad_controller extends Controller
             $registro_jets->save();
 
             $material = models\materiales::where('ot', '=', $request->ot)->get();
-            
-              Storage::disk('public')->putFileAs('scrap/' . $request->ot, $request->file('doc'), $request->ot . '.pdf');
+
+            Storage::disk('public')->putFileAs('scrap/' . $request->ot, $request->file('doc'), $request->ot . '.pdf');
 
             foreach ($material as $material) {
                 $material->estatus = 'P/ALMACEN';
                 $material->save();
             }
-
-          
         }
         return back()->with('mensaje-success', '¡Inpección realizada con exito!');
     }
