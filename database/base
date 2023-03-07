@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-03-2023 a las 23:49:09
+-- Tiempo de generación: 07-03-2023 a las 23:35:32
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.0.25
 
@@ -169,7 +169,9 @@ CREATE TABLE `inspections` (
 
 INSERT INTO `inspections` (`id`, `ot`, `tipo_inspeccion`, `cant_scrap`, `cant_liberada`, `cant_retrabajo`, `usuario`, `observaciones`, `created_at`, `updated_at`) VALUES
 (1, '3', 'SCRAP', '20', NULL, NULL, 'ALAIN MASCORRO', NULL, '2023-02-15 14:27:52', '2023-02-15 14:27:52'),
-(2, '1', 'RETRABAJO', NULL, NULL, '1', 'ALAIN MASCORRO', NULL, '2023-02-15 14:36:34', '2023-02-15 14:36:34');
+(2, '1', 'RETRABAJO', NULL, NULL, '1', 'ALAIN MASCORRO', NULL, '2023-02-15 14:36:34', '2023-02-15 14:36:34'),
+(3, '2', 'RETRABAJO', NULL, NULL, '5', 'Miriam Dominguez', NULL, '2023-03-07 22:11:02', '2023-03-07 22:11:02'),
+(4, '2', 'RETRABAJO', NULL, NULL, '5', 'Miriam Dominguez', NULL, '2023-03-07 22:11:22', '2023-03-07 22:11:22');
 
 -- --------------------------------------------------------
 
@@ -284,7 +286,14 @@ INSERT INTO `jets_registros` (`id`, `ot`, `movimiento`, `responsable`, `created_
 (91, '1', 'CALIDAD - EMBARQUES', 'ALAIN MASCORRO', '2023-02-15 15:03:31', '2023-02-15 15:03:31'),
 (92, '1', 'EMBARQUES - FACTURACIÓN', 'ALAIN MASCORRO', '2023-02-15 16:07:01', '2023-02-15 16:07:01'),
 (93, '2', 'CALIDAD - EMBARQUES', 'ALAIN MASCORRO', '2023-02-15 16:09:01', '2023-02-15 16:09:01'),
-(94, '2', 'EMBARQUES - FACTURACIÓN', 'ALAIN MASCORRO', '2023-02-15 16:09:39', '2023-02-15 16:09:39');
+(94, '2', 'EMBARQUES - FACTURACIÓN', 'ALAIN MASCORRO', '2023-02-15 16:09:39', '2023-02-15 16:09:39'),
+(95, '3', 'S. PRODUCCION - PARCIAL', 'Miriam Dominguez', '2023-03-07 15:31:11', '2023-03-07 15:31:11'),
+(96, '9', 'S. PRODUCCION - FINALIZADA', 'Miriam Dominguez', '2023-03-07 15:33:23', '2023-03-07 15:33:23'),
+(97, '10', 'S. PRODUCCION - PARCIAL', 'Miriam Dominguez', '2023-03-07 16:04:53', '2023-03-07 16:04:53'),
+(98, '13', 'S. PRODUCCION - PARCIAL', 'Miriam Dominguez', '2023-03-07 16:06:31', '2023-03-07 16:06:31'),
+(99, '1', 'CALIDAD - PRODUCCION', 'Miriam Dominguez', '2023-03-07 16:27:08', '2023-03-07 16:27:08'),
+(100, '2', 'CALIDAD - RETRABAJO', 'Miriam Dominguez', '2023-03-07 22:11:02', '2023-03-07 22:11:02'),
+(101, '2', 'CALIDAD - RETRABAJO', 'Miriam Dominguez', '2023-03-07 22:11:22', '2023-03-07 22:11:22');
 
 -- --------------------------------------------------------
 
@@ -313,15 +322,15 @@ CREATE TABLE `jets_rutas` (
 --
 
 INSERT INTO `jets_rutas` (`id`, `ot`, `sistema_ot`, `sistema_ingenieria`, `sistema_almacen`, `sistema_compras`, `sistema_almacenr`, `sistema_produccion`, `sistema_calidad`, `sistema_embarques`, `sistema_facturacion`, `created_at`, `updated_at`) VALUES
-(1, '1', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', '-', '2023-02-04 01:16:04', '2023-02-15 16:07:01'),
-(2, '2', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', '-', '-', '2023-02-10 15:54:11', '2023-02-15 16:09:01'),
+(1, '1', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', '-', 'DONE', 'DONE', '-', '2023-02-04 01:16:04', '2023-03-07 16:27:08'),
+(2, '2', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', '-', 'DONE', '-', '-', '2023-02-10 15:54:11', '2023-03-07 22:11:02'),
 (3, '3', 'DONE', 'DONE', '-', '-', '-', '-', '-', '-', '-', '2023-02-10 16:53:19', '2023-02-15 14:27:52'),
 (4, '4', 'DONE', 'DONE', '-', '-', '-', '-', '-', '-', '-', '2023-02-10 17:07:26', '2023-02-10 17:07:48'),
 (5, '5', 'DONE', 'DONE', 'DONE', '-', '-', '-', '-', '-', '-', '2023-02-10 17:13:11', '2023-02-10 17:29:19'),
 (6, '6', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', '-', '-', '-', '2023-02-10 17:47:08', '2023-02-15 14:50:49'),
 (7, '7', 'DONE', 'DONE', '-', '-', '-', '-', '-', '-', '-', '2023-02-10 17:59:02', '2023-02-10 17:59:02'),
 (8, '8', 'DONE', 'DONE', '-', '-', '-', '-', '-', '-', '-', '2023-02-10 17:59:10', '2023-02-10 17:59:10'),
-(9, '9', 'DONE', '-', 'DONE', 'DONE', 'DONE', '-', '-', '-', '-', '2023-02-10 18:07:28', '2023-02-10 18:07:28'),
+(9, '9', 'DONE', '-', 'DONE', 'DONE', 'DONE', 'DONE', '-', '-', '-', '2023-02-10 18:07:28', '2023-03-07 15:33:23'),
 (10, '10', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', '-', '-', '-', '-', '2023-02-10 18:08:31', '2023-02-10 18:12:55'),
 (11, '11', 'DONE', 'DONE', 'DONE', 'DONE', 'DONE', '-', '-', '-', '-', '2023-02-10 18:36:20', '2023-02-10 18:38:32'),
 (12, '12', 'DONE', 'DONE', 'DONE', '-', '-', '-', '-', '-', '-', '2023-02-10 18:42:01', '2023-02-10 18:43:56'),
@@ -587,7 +596,9 @@ CREATE TABLE `pconformes` (
 
 INSERT INTO `pconformes` (`id`, `ot`, `operador`, `num_parte`, `descripcion`, `cant`, `cliente`, `analisis`, `origen`, `disposicion`, `comentarios`, `created_at`, `updated_at`) VALUES
 (1, '3', 'CESAR', 'NVCNM', 'FALLA EN DIMENSIONES', '20', 'BREMBO', 'BMNVKK', 'NVJH', 'VOLVER A FABRICAR', NULL, '2023-02-15 14:27:52', '2023-02-15 14:27:52'),
-(2, '1', 'CARLOS', 'NASNNSA', 'FALTO UNA ROSCA', NULL, 'METALSA SALTILLO', 'NADNASN', 'ADNFNA', 'SE REGRESA A PRODUCCION', NULL, '2023-02-15 14:36:34', '2023-02-15 14:36:34');
+(2, '1', 'CARLOS', 'NASNNSA', 'FALTO UNA ROSCA', NULL, 'METALSA SALTILLO', 'NADNASN', 'ADNFNA', 'SE REGRESA A PRODUCCION', NULL, '2023-02-15 14:36:34', '2023-02-15 14:36:34'),
+(3, '2', 'OPERADOR', 'PARTE', 'DESCRIPCION', NULL, 'ADVANCED STEEL TECHNOLOGY', 'ANALISIS', 'ORIGEN', 'DISPOSICION', NULL, '2023-03-07 22:11:02', '2023-03-07 22:11:02'),
+(4, '2', 'OPERADOR', 'PARTE', 'DESCRIPCION', NULL, 'ADVANCED STEEL TECHNOLOGY', 'ANALISIS', 'ORIGEN', 'DISPOSICION', NULL, '2023-03-07 22:11:22', '2023-03-07 22:11:22');
 
 -- --------------------------------------------------------
 
@@ -679,19 +690,19 @@ CREATE TABLE `productions` (
 --
 
 INSERT INTO `productions` (`id`, `ot`, `cliente`, `descripcion`, `maquina_asignada`, `persona_asignada`, `fecha_cliente`, `fecha_production`, `tiempo_asignado`, `tiempo_progreso`, `tiempo_asignada`, `tiempo_inicio`, `tiempo_final`, `fecha_recepcion`, `estatus`, `prioridad`, `created_at`, `updated_at`) VALUES
-(1, '1', 'METALSA SALTILLO', 'Ø 3/8 X 38\"', 'T-02', 'ALAIN MASCORRO', '2023-02-23', '2023-03-11', '61', '0', '2023-02-15 08:47:46', '2023-02-15 08:49:10', '2023-02-15 08:49:55', '-', 'E.CALIDAD', 'Normal', '2023-02-04 01:16:04', '2023-02-15 14:50:27'),
-(2, '2', 'ACAT MEXICANA', 'FABRICACION DE FLECHA', 'T-01', 'ALAIN MASCORRO', '2023-02-10', '2023-02-10', '100', '5846', '2023-02-10 17:01:37', '2023-02-14 18:31:16', '2023-02-14 18:31:43', '-', 'E.CALIDAD', 'Normal', '2023-02-10 15:54:11', '2023-02-15 00:34:43'),
-(3, '3', 'BREMBO', 'TORNILLOS DE 1/4 X 2 LARGO', 'T-02', 'ALAIN MASCORRO', '2023-02-10', '2023-02-10', '200', '0', '2023-02-10 17:02:29', '2023-02-14 18:30:25', '2023-02-14 18:31:09', '-', 'ASIGNADA', 'Normal', '2023-02-10 16:53:19', '2023-02-15 14:27:52'),
+(1, '1', 'METALSA SALTILLO', 'Ø 3/8 X 38\"', 'T-02', 'ALAIN MASCORRO', '2023-02-23', '2023-03-11', '61', '0', '2023-02-15 08:47:46', '2023-02-15 08:49:10', '2023-02-15 08:49:55', '-', 'L.Produccion', 'Normal', '2023-02-04 01:16:04', '2023-03-07 16:27:08'),
+(2, '2', 'ACAT MEXICANA', 'FABRICACION DE FLECHA', 'T-01', 'ALAIN MASCORRO', '2023-02-10', '2023-02-10', '100', '5846', '2023-02-10 17:01:37', '2023-02-14 18:31:16', '2023-02-14 18:31:43', '-', 'RETRABAJO', 'Normal', '2023-02-10 15:54:11', '2023-03-07 22:11:02'),
+(3, '3', 'BREMBO', 'TORNILLOS DE 1/4 X 2 LARGO', 'T-02', 'ALAIN MASCORRO', '2023-02-10', '2023-02-10', '200', '0', '2023-02-10 17:02:29', '2023-02-14 18:30:25', '2023-02-14 18:31:09', '-', 'E.CALIDAD', 'Normal', '2023-02-10 16:53:19', '2023-03-07 15:31:11'),
 (4, '4', 'ADVANCED STEEL TECHNOLOGY', 'ABRIR DIAMETRO A SPROCKET', '-', '-', '2023-02-10', '2023-02-10', '750', NULL, NULL, NULL, NULL, '-', 'REGISTRADA', 'Normal', '2023-02-10 17:07:26', '2023-02-10 17:07:26'),
 (5, '5', 'JOHNSON CONTROLS ENTERPRISES MEXICO', 'FABRICACION DE FLECHA MOTRIZ', '-', '-', '2023-02-10', '2023-02-10', '450', NULL, NULL, NULL, NULL, '-', 'REGISTRADA', 'Normal', '2023-02-10 17:13:11', '2023-02-10 17:13:11'),
 (6, '6', 'METALSA SALTILLO', 'BALEROS CONVEYOR', '-', '-', '2023-02-10', '2023-02-10', '160', NULL, NULL, NULL, NULL, '-', 'E.CALIDAD', 'Normal', '2023-02-10 17:47:08', '2023-02-15 14:50:49'),
 (7, '7', 'BREMBO', 'MODIFICACION DE BASE', '-', '-', '2023-02-10', '2023-02-10', '150', NULL, NULL, NULL, NULL, '-', 'REGISTRADA', 'Normal', '2023-02-10 17:59:02', '2023-02-10 17:59:02'),
 (8, '8', 'BREMBO', 'MODIFICACION DE BASE', '-', '-', '2023-02-10', '2023-02-10', '150', NULL, NULL, NULL, NULL, '-', 'REGISTRADA', 'Normal', '2023-02-10 17:59:10', '2023-02-10 17:59:10'),
-(9, '9', 'ADVANCED STEEL TECHNOLOGY', '1/2 X 5 X 22-1/8 ESTIRADO EN FRIO', '-', '-', '2023-03-02', '2023-03-03', '183', NULL, NULL, NULL, NULL, '-', 'L.PRODUCCION', 'Normal', '2023-02-10 18:07:28', '2023-02-10 18:07:28'),
-(10, '10', 'MULTIHERRAMIENTAS Y EQUIPOS', 'TORNILLO INOX', '-', '-', '2023-02-10', '2023-02-10', '600', NULL, NULL, NULL, NULL, '-', 'L.PRODUCCION', 'Normal', '2023-02-10 18:08:31', '2023-02-10 18:12:55'),
+(9, '9', 'ADVANCED STEEL TECHNOLOGY', '1/2 X 5 X 22-1/8 ESTIRADO EN FRIO', '-', '-', '2023-03-02', '2023-03-03', '183', NULL, NULL, NULL, NULL, '-', 'E.CALIDAD', 'Normal', '2023-02-10 18:07:28', '2023-03-07 15:33:23'),
+(10, '10', 'MULTIHERRAMIENTAS Y EQUIPOS', 'TORNILLO INOX', '-', '-', '2023-02-10', '2023-02-10', '600', NULL, NULL, NULL, NULL, '-', 'E.CALIDAD', 'Normal', '2023-02-10 18:08:31', '2023-03-07 16:04:53'),
 (11, '11', 'METALSA SALTILLO', 'CANDADO DE PLASTICO', '-', '-', '2023-02-10', '2023-02-10', '1000', NULL, NULL, NULL, NULL, '-', 'REGISTRADA', 'Normal', '2023-02-10 18:36:20', '2023-02-10 18:36:20'),
 (12, '12', 'JOHNSON CONTROLS ENTERPRISES MEXICO', 'MOLDE', '-', '-', '2023-02-10', '2023-02-10', '1850', NULL, NULL, NULL, NULL, '-', 'REGISTRADA', 'Normal', '2023-02-10 18:42:01', '2023-02-10 18:42:01'),
-(13, '13', 'BREMBO', 'TORNILLO INOX', '-', '-', '2023-02-10', '2023-02-10', '400', NULL, NULL, NULL, NULL, '-', 'L.PRODUCCION', 'Normal', '2023-02-10 20:39:34', '2023-02-10 20:46:20');
+(13, '13', 'BREMBO', 'TORNILLO INOX', '-', '-', '2023-02-10', '2023-02-10', '400', NULL, NULL, NULL, NULL, '-', 'E.CALIDAD', 'Normal', '2023-02-10 20:39:34', '2023-03-07 16:06:31');
 
 -- --------------------------------------------------------
 
@@ -874,6 +885,7 @@ INSERT INTO `salidas_embarques` (`id`, `ot`, `tipo_salida`, `tipo_tratamiento`, 
 CREATE TABLE `salidas_produccions` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `ot` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
   `cliente` varchar(255) DEFAULT NULL,
   `cantidad` varchar(255) DEFAULT NULL,
   `tipo_salida` varchar(255) DEFAULT NULL,
@@ -881,6 +893,16 @@ CREATE TABLE `salidas_produccions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `salidas_produccions`
+--
+
+INSERT INTO `salidas_produccions` (`id`, `ot`, `descripcion`, `cliente`, `cantidad`, `tipo_salida`, `estatus`, `created_at`, `updated_at`) VALUES
+(1, '3', NULL, 'BREMBO', NULL, 'SALIDA PARCIAL', 'P/CALIDAD', '2023-03-07 15:31:11', '2023-03-07 15:31:11'),
+(2, '9', NULL, 'ADVANCED STEEL TECHNOLOGY', '10', 'SALIDA FINAL', 'P/CALIDAD', '2023-03-07 15:33:23', '2023-03-07 15:33:23'),
+(3, '10', NULL, 'MULTIHERRAMIENTAS Y EQUIPOS', '10', 'SALIDA PARCIAL', 'P/CALIDAD', '2023-03-07 16:04:53', '2023-03-07 16:04:53'),
+(4, '13', 'TORNILLO INOX', 'BREMBO', '2', 'SALIDA PARCIAL', 'P/CALIDAD', '2023-03-07 16:06:31', '2023-03-07 16:06:31');
 
 -- --------------------------------------------------------
 
@@ -1155,13 +1177,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `inspections`
 --
 ALTER TABLE `inspections`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `jets_registros`
 --
 ALTER TABLE `jets_registros`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT de la tabla `jets_rutas`
@@ -1209,7 +1231,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT de la tabla `pconformes`
 --
 ALTER TABLE `pconformes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `personal_access_tokens`
@@ -1263,7 +1285,7 @@ ALTER TABLE `salidas_embarques`
 -- AUTO_INCREMENT de la tabla `salidas_produccions`
 --
 ALTER TABLE `salidas_produccions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `salidas_tratamientos`
