@@ -340,13 +340,12 @@
                                                 @foreach($ordenes as $orden)
                                                 <tr>
                                                     <td style="width: 200px;">
-                                                        <button type="button" class="btn  btn-sm btn-success" data-toggle="modal" data-target="#nueva_inspeccion" data-ot="{{$orden->id}}" data-cliente="{{$orden->cliente}}">
+                                                        <button type="button" class="btn  btn-sm btn-success" data-toggle="modal" data-target="#nueva_inspeccion" data-ot="{{$orden->id}}" data-cliente="{{$orden->cliente}}" data-cantpro="{{$orden->cantidad}}">
                                                             <i class="icon-check"></i>
                                                         </button>
-                                                        <a href="{{route('calidad_produccion', $orden->id)}}" class="btn btn-danger btn-sm"><i class="icon-close"></i></a>
 
                                                     </td>
-                                                       <td> <a  target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->id}}</a></td>
+                                                    <td> <a target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->id}}</a></td>
                                                     <td>{{$orden->cliente}}</td>
                                                     <td>{{$orden->descripcion}}</td>
                                                     <td>{{$orden->cantidad}}</td>
@@ -405,6 +404,13 @@
                                                 <option value="RETRABAJO" class="form-control" name="almacen"> RETRABAJO</option>
                                                 <option value="LIBERADO" class="form-control" name="produccion"> LIBERADO </option>
                                             </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                    <div class="col-md-12 form-group">
+                                            <label for="ot">Cantidad produccion</label>
+                                            <input class="form-control" id="cantpro" name="cantpro" placeholder="" value="" type="text" onlyread>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -505,6 +511,7 @@
                 var button = $(event.relatedTarget) // Button that triggered the modal
                 var ot = button.data('ot')
                 var cliente = button.data('cliente')
+                var cantpro = button.data('cantpro')
 
 
 
@@ -512,6 +519,7 @@
                 modal.find('.modal-title').text('Nueva inspeccion de calidad')
                 modal.find('#ot').val(ot)
                 modal.find('#cliente').val(cliente)
+                modal.find('#cantpro').val(cantpro)
 
 
             })
