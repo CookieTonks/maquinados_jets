@@ -57,6 +57,8 @@ class calidad_controller extends Controller
 
 
 
+
+
             //Parcialidad liberada con tratamiento externo
             if ($request->servicio_externo == 'REQUERIDO') {
                 $registro_jets = new models\jets_registros();
@@ -88,6 +90,19 @@ class calidad_controller extends Controller
                 $calidad_proceso->estatus = "P/EMBARQUES";
                 $calidad_proceso->save();
             }
+
+
+            //Liberacion de retrabajo
+            $liberacion = models\salidas_produccion::where('id', '=', $request->id)->first();
+            $produccion = models\production::where('ot', '=', $liberacion->ot)->first();
+
+
+            if ($produccion->modalidad === 'RETRABAJO') {
+
+                $produccion->estatus = "L/RETRABAJO";
+                $produccion->save();
+            }
+
 
             //Carga de PDF liberación
 
