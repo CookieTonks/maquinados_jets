@@ -99,7 +99,7 @@ class calidad_controller extends Controller
 
             if ($produccion->modalidad === 'RETRABAJO') {
 
-                $produccion->estatus = "L/RETRABAJO";
+                $produccion->modalidad = "L/RETRABAJO";
                 $produccion->save();
             }
 
@@ -158,6 +158,8 @@ class calidad_controller extends Controller
             $calidad_proceso = models\salidas_produccion::where('id', '=', $request->id)->first();
             $calidad_proceso->estatus = "P\RETRABAJO";
             $calidad_proceso->save();
+
+
 
             Storage::disk('public')->putFileAs('retrabajo/' . $request->ot, $request->file('doc'), $request->ot . '.pdf');
         } else if ($request->tipo_inspeccion === 'SCRAP') {
