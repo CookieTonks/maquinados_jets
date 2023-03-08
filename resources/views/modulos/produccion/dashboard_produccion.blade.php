@@ -265,7 +265,7 @@
                                             </thead>
                                             <tbody>
                                                 @foreach($ordenes as $orden)
-                                                @if($orden->estatus == 'RETRABAJO')
+                                                @if($orden->modalidad == 'RETRABAJO')
                                                 <tr class="bg-danger text-white">
                                                     <th>
                                                         <a target="_blank" href="{{route('order_pdf', $orden->id)}}" class="btn btn-primary btn-sm"><i class="icon-eye"></i></a>

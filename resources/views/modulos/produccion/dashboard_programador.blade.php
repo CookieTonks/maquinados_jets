@@ -276,14 +276,12 @@
                                                     <td>{{$orden->tiempo_progreso}}</td>
                                                     <td>{{$orden->fecha_recepcion}}</td>
                                                     <td>{{$orden->estatus}}</td>
-
                                                 </tr>
                                                 @endforeach
                                             </tbody>
                                             <tfoot>
                                                 <tr>
                                                     <th>
-
                                                     </th>
                                                     <th>OT</th>
                                                     <th>Descripcion</th>

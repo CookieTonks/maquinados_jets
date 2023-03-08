@@ -22,9 +22,10 @@ class calidad_controller extends Controller
 
         $ordenes = models\salidas_produccion::where('estatus', '=', 'P/CALIDAD')->get();
 
+        $retrabajos = models\production::where('modalidad', '=', 'RETRABAJO')->get();
 
 
-        return view('modulos.calidad.dashboard_calidad', compact('ordenes', 'notificaciones'));
+        return view('modulos.calidad.dashboard_calidad', compact('retrabajos', 'ordenes', 'notificaciones'));
     }
 
     public function buscador_calidad()
@@ -96,6 +97,7 @@ class calidad_controller extends Controller
         //Parcialidad para retrabajo
         else if ($request->tipo_inspeccion === 'RETRABAJO') {
 
+
             $inspections = new models\inspections();
             $inspections->ot = $request->ot;
             $inspections->tipo_inspeccion = $request->tipo_inspeccion;
@@ -122,8 +124,10 @@ class calidad_controller extends Controller
             $rutas_jets->sistema_produccion = '-';
             $rutas_jets->save();
 
+
             $produccion = models\production::where('ot', '=', $request->ot)->first();
             $produccion->estatus = 'RETRABAJO';
+            $produccion->modalidad = 'RETRABAJO';
             $produccion->save();
 
             $order = models\orders::where('id', '=', $request->ot)->first();

@@ -318,13 +318,13 @@
                     </div>
                 </form>
 
-                <!-- /Title -->
                 <div class="row">
-                    <div class="col-xl-12">
+                    <div class="col-xl-8">
                         <section class="hk-sec-wrapper">
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="table-wrap">
+
                                         <table id="datable_1" class="table table-hover w-100 display pb-30">
                                             <thead class="thead-primary">
                                                 <tr>
@@ -340,12 +340,11 @@
                                                 @foreach($ordenes as $orden)
                                                 <tr>
                                                     <td style="width: 200px;">
-                                                        <button type="button" class="btn  btn-sm btn-success" data-toggle="modal" data-target="#nueva_inspeccion" data-ot="{{$orden->id}}" data-cliente="{{$orden->cliente}}" data-cantpro="{{$orden->cantidad}}">
+                                                        <button type="button" class="btn  btn-sm btn-success" data-toggle="modal" data-target="#nueva_inspeccion" data-id="{{$orden->id}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-cantpro="{{$orden->cantidad}}">
                                                             <i class="icon-check"></i>
                                                         </button>
-
                                                     </td>
-                                                    <td> <a target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->id}}</a></td>
+                                                    <td> <a target="_blank" href="public/storage/dibujos/{{$orden->ot}}/{{$orden->ot}}.pdf">{{$orden->ot}}</a></td>
                                                     <td>{{$orden->cliente}}</td>
                                                     <td>{{$orden->descripcion}}</td>
                                                     <td>{{$orden->cantidad}}</td>
@@ -364,15 +363,65 @@
                                                 </tr>
                                             </tfoot>
                                         </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+
+                    <div class="col-xl-4">
+                        <section class="hk-sec-wrapper">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="card">
+                                        <div class="card-header card-header-action">
+                                            <h6>Ordenes con retrabajo</h6>
+                                            <div class="d-flex align-items-center card-action-wrap">
+                                                <a href="#" class="inline-block refresh mr-15">
+                                                    <i class="ion ion-md-arrow-down"></i>
+                                                </a>
+                                                <a href="#" class="inline-block full-screen">
+                                                    <i class="ion ion-md-expand"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="card-body pa-0">
+                                            <div class="table-wrap">
+                                                <div class="table-responsive">
+                                                    <table class="table table-sm table-hover mb-0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>OT</th>
+                                                                <th>Cliente</th>
+                                                                <th>Descripcion</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach($retrabajos as $retrabajo)
+                                                            <tr>
+                                                                <td>{{$retrabajo->ot}}</td>
+                                                                <td>{{$retrabajo->cliente}}</td>
+                                                                <td>{{$retrabajo->descripcion}}</td>
+                                                            </tr>
+                                                            @endforeach
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </section>
                         <!-- Modal forms-->
-
-
                     </div>
                 </div>
+
+
+
                 <div class="modal fade" id="nueva_inspeccion" tabindex="-1" role="dialog" aria-labelledby="exampleModalForms" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -385,6 +434,9 @@
                             <div class="modal-body">
                                 <form action="{{route('calidad_embarques')}}" method="post" enctype="multipart/form-data">
                                     @csrf
+                                    <div class="row">
+                                        <input type="hidden" name="id" id="id"></input>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             <label for="ot">OT</label>
@@ -529,6 +581,7 @@
         $(document).ready(function() {
             $('#nueva_inspeccion').on('show.bs.modal', function(event) {
                 var button = $(event.relatedTarget) // Button that triggered the modal
+                var id = button.data('id')
                 var ot = button.data('ot')
                 var cliente = button.data('cliente')
                 var cantpro = button.data('cantpro')
@@ -538,6 +591,7 @@
                 var modal = $(this)
                 modal.find('.modal-title').text('Nueva inspeccion de calidad')
                 modal.find('#ot').val(ot)
+                modal.find('#id').val(id)
                 modal.find('#cliente').val(cliente)
                 modal.find('#cantpro').val(cantpro)
 

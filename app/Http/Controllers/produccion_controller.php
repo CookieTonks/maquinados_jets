@@ -12,6 +12,7 @@ use Carbon\Carbon;
 
 
 
+
 class produccion_controller extends Controller
 {
     public function dashboard_produccion()
@@ -41,6 +42,7 @@ class produccion_controller extends Controller
     {
 
 
+
         $date = Carbon::now();
 
         $maquina = models\maquinas::where('codigo', '=', $request->maquina)->first();
@@ -62,7 +64,7 @@ class produccion_controller extends Controller
 
         if ($ot_produccion->estatus === "RETRABAJO") {
             $ot = models\orders::where('id', '=', $request->ot)->first();
-            $ot->cant_retrabajo = $request->cant_retrabajo;
+            $ot->cant_retrabajo = $request->retrabajo;
             $ot->save();
         }
 
@@ -140,8 +142,14 @@ class produccion_controller extends Controller
         $notificaciones = Models\notifications::all();
 
 
-        $ordenes = models\production::where('persona_asignada', '=', Auth::user()->name)
-            ->where('estatus', '<>', 'Finalizada')->get();
+
+
+        $ordenes = models\production::join('orders', 'orders.id', '=', 'productions.ot')
+            ->where('productions.estatus', '<>', 'Finalizada')
+            ->where('productions.persona_asignada', '=', Auth::user()->name)
+            ->get(['productions.*', 'orders.cant_retrabajo']);
+
+
         return view('modulos.produccion.dashboard_programador', compact('ordenes', 'notificaciones'));
     }
 
