@@ -269,7 +269,7 @@
                                                 <tr class="bg-danger text-white">
                                                     <th>
                                                         <a target="_blank" href="{{route('order_pdf', $orden->id)}}" class="btn btn-primary btn-sm"><i class="icon-eye"></i></a>
-                                                        <button type="button" class="btn  btn-sm btn-primary" data-toggle="modal" data-target="#asignacion_maquina" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}}">
+                                                        <button type="button" class="btn  btn-sm btn-primary" data-toggle="modal" data-target="#asignacion_maquina"  data-retrabajo="{{$orden->cant_retrabajo}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-estatus="{{$orden->estatus}}">
                                                             <i class="icon-plus"></i>
                                                         </button>
                                                         <button type="button" class="btn  btn-sm btn-secondary" data-toggle="modal" data-target="#reubicacion_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
@@ -508,7 +508,7 @@
                                         </div>
                                         <div class="col-md-6 form-group">
                                             <label for="ot">Cant. Retrabajo</label>
-                                            <input class="form-control" id="cant_retrabajo" name="cant_retrabajo" placeholder="" value="" type="number" onlyread>
+                                            <input class="form-control" id="retrabajo" name="retrabajo" placeholder="" value="" type="text" onlyread>
                                         </div>
                                     </div>
                                     <br>
@@ -672,6 +672,7 @@
                 var cliente = button.data('cliente')
                 var descripcion = button.data('descripcion')
                 var estatus = button.data('estatus')
+                var retrabajo = button.data('retrabajo')
 
 
                 var modal = $(this)
@@ -680,6 +681,7 @@
                 modal.find('#cliente').val(cliente)
                 modal.find('#descripcion').val(descripcion)
                 modal.find('#estatus_retrabajo').val(estatus)
+                modal.find('#retrabajo').val(retrabajo)
 
             })
         });
@@ -710,13 +712,14 @@
                 var ot = button.data('ot')
                 var cliente = button.data('cliente')
                 var descripcion = button.data('descripcion')
+                
 
                 var modal = $(this)
                 modal.find('.modal-title').text('Carga de dibujo de OT')
                 modal.find('#ot').val(ot)
                 modal.find('#cliente').val(cliente)
                 modal.find('#descripcion').val(descripcion)
-
+               
 
             })
         });

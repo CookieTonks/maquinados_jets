@@ -16,7 +16,7 @@ class produccion_controller extends Controller
 {
     public function dashboard_produccion()
     {
-        $notificaciones =  Models\notifications::all();
+        $notificaciones = Models\notifications::all();
 
         $ordenes = DB::table('productions')
             ->join('orders', 'orders.id', '=', 'productions.ot')
@@ -26,8 +26,9 @@ class produccion_controller extends Controller
             ->orWhere('productions.estatus', '=', 'EN ESPERA')
             ->orWhere('productions.estatus', '=', 'FINALIZADA')
             ->orWhere('productions.estatus', '=', 'RETRABAJO')
-            ->select('productions.*', 'orders.cantidad', 'orders.cant_entregada', 'orders.procesos')
+            ->select('productions.*', 'orders.cantidad', 'orders.cant_entregada', 'orders.procesos', 'orders.cant_retrabajo')
             ->get();
+
 
         $usuarios = models\user::where('role', '=', 'Administrador')->get();
 
@@ -50,7 +51,7 @@ class produccion_controller extends Controller
         $maquina->ultima_ot = $request->ot;
         $maquina->save();
 
-        $registro_maquina  = new models\registros_maquinas();
+        $registro_maquina = new models\registros_maquinas();
         $registro_maquina->ot = $request->ot;
         $registro_maquina->maquina = $request->maquina;
         $registro_maquina->responsable = $programador->name;
@@ -101,7 +102,7 @@ class produccion_controller extends Controller
 
 
 
-        $registro_maquina  = new models\registros_maquinas();
+        $registro_maquina = new models\registros_maquinas();
         $registro_maquina->ot = $request->ot;
         $registro_maquina->maquina = $request->maquina;
         $registro_maquina->responsable = $programador->name;
@@ -136,7 +137,7 @@ class produccion_controller extends Controller
 
     public function dashboard_programador()
     {
-        $notificaciones =  Models\notifications::all();
+        $notificaciones = Models\notifications::all();
 
 
         $ordenes = models\production::where('persona_asignada', '=', Auth::user()->name)
@@ -187,7 +188,7 @@ class produccion_controller extends Controller
 
         $orden_programador = models\production::where('id', '=', $orden)->first();
 
-        $registro_maquina  = new models\registros_maquinas();
+        $registro_maquina = new models\registros_maquinas();
         $registro_maquina->ot = $orden_programador->ot;
         $registro_maquina->tipo = 'INICIO';
         $registro_maquina->maquina = $orden_programador->maquina_asignada;
@@ -228,7 +229,7 @@ class produccion_controller extends Controller
             return back()->with('mensaje-error', '¡La OT no ha sido iniciada!');
         } else {
 
-            $registro_maquina  = new models\registros_maquinas();
+            $registro_maquina = new models\registros_maquinas();
             $registro_maquina->ot = $orden_programador->ot;
             $registro_maquina->tipo = 'PAUSADA';
             $registro_maquina->maquina = $orden_programador->maquina_asignada;
@@ -279,7 +280,7 @@ class produccion_controller extends Controller
             return back()->with('mensaje-error', '¡La OT no ha sido iniciada!');
         } else {
 
-            $registro_maquina  = new models\registros_maquinas();
+            $registro_maquina = new models\registros_maquinas();
             $registro_maquina->ot = $orden_programador->ot;
             $registro_maquina->tipo = 'FINALIZADA';
             $registro_maquina->maquina = $orden_programador->maquina_asignada;

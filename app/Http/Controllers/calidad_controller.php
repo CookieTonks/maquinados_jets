@@ -18,7 +18,7 @@ class calidad_controller extends Controller
 {
     public function dashboard_calidad()
     {
-        $notificaciones =  Models\notifications::all();
+        $notificaciones = Models\notifications::all();
 
         $ordenes = models\salidas_produccion::where('estatus', '=', 'P/CALIDAD')->get();
 
@@ -36,7 +36,7 @@ class calidad_controller extends Controller
             ->select('orders.*')
             ->get();
 
-        $notificaciones =  Models\notifications::all();
+        $notificaciones = Models\notifications::all();
 
 
 
@@ -76,7 +76,6 @@ class calidad_controller extends Controller
             }
 
             //Parcialidad liberada sin tratamiento externo
-
             else {
                 $registro_jets = new models\jets_registros();
                 $registro_jets->ot = $request->ot;
@@ -95,7 +94,6 @@ class calidad_controller extends Controller
         }
 
         //Parcialidad para retrabajo
-        
         else if ($request->tipo_inspeccion === 'RETRABAJO') {
 
             $inspections = new models\inspections();
@@ -104,7 +102,7 @@ class calidad_controller extends Controller
             $inspections->cant_scrap = $request->cant_scrap;
             $inspections->cant_liberada = $request->cant_liberada;
             $inspections->cant_retrabajo = $request->cant_retrabajo;
-            $inspections->usuario =  Auth::user()->name;
+            $inspections->usuario = Auth::user()->name;
             $inspections->observaciones = $request->observaciones;
             $inspections->save();
 
@@ -128,11 +126,19 @@ class calidad_controller extends Controller
             $produccion->estatus = 'RETRABAJO';
             $produccion->save();
 
+            $order = models\orders::where('id', '=', $request->ot)->first();
+            $order->cant_retrabajo = $request->cant_retrabajo;
+            $order->save();
+
             $registro_jets = new models\jets_registros();
             $registro_jets->ot = $rutas_jets->ot;
             $registro_jets->movimiento = 'CALIDAD - RETRABAJO';
             $registro_jets->responsable = Auth::user()->name;
             $registro_jets->save();
+
+            $calidad_proceso = models\salidas_produccion::where('id', '=', $request->id)->first();
+            $calidad_proceso->estatus = "P\RETRABAJO";
+            $calidad_proceso->save();
 
             Storage::disk('public')->putFileAs('retrabajo/' . $request->ot, $request->file('doc'), $request->ot . '.pdf');
         } else if ($request->tipo_inspeccion === 'SCRAP') {
@@ -143,7 +149,7 @@ class calidad_controller extends Controller
             $inspections->cant_scrap = $request->cant_scrap;
             $inspections->cant_liberada = $request->cant_liberada;
             $inspections->cant_retrabajo = $request->cant_retrabajo;
-            $inspections->usuario =  Auth::user()->name;
+            $inspections->usuario = Auth::user()->name;
             $inspections->observaciones = $request->observaciones;
             $inspections->save();
 
