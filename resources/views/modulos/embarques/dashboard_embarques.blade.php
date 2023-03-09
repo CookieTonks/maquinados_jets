@@ -235,7 +235,7 @@
                 </div>
                 <!-- /Title -->
                 <div class="row">
-                    <div class="col-xl-8">
+                    <div class="col-xl-12">
                         <section class="hk-sec-wrapper">
                             <div class="row">
                                 <div class="col-sm">
@@ -256,11 +256,11 @@
                                                 @foreach ($ordenes as $orden)
                                                 <tr>
                                                     <th>
-                                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#salida_embarques" data-ot="{{$orden->id}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-tsolcitado="{{$orden->tratamiento}}">
+                                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#salida_embarques" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-cantidad="{{$orden->cantidad}}">
                                                             <i class="icon-plus"></i>
                                                         </button>
                                                     </th>
-                                                    <th> <a target="_blank" href="storage/app/public/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->id}}</a>
+                                                    <th> <a target="_blank" href="storage/app/public/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->ot}}</a>
                                                     </th>
                                                     <th>{{$orden->cliente}}</th>
                                                     <th>{{$orden->descripcion}}</th>
@@ -285,7 +285,7 @@
                         </section>
                     </div>
 
-                    <div class="col-xl-4">
+                    <!-- <div class="col-xl-4">
                         <section class="hk-sec-wrapper">
                             <div class="row">
                                 <div class="col-sm">
@@ -377,7 +377,7 @@
                                 </div>
                             </div>
                         </section>
-                        <!-- Modal forms-->
+                        Modal forms -->
 
 
                     </div>
@@ -417,19 +417,18 @@
                                         <div class="col-md-12 form-group">
                                             <label for="tipo_salida">Tipo salida</label>
                                             <select id="tipo_salida" name="tipo_salida" class="form-control custom-select d-block w-100" id="maquina">
-                                                <option value="Tratamiento">Tratamiento</option>
                                                 <option value="Remision">Remisión</option>
                                                 <option value="Factura">Factura</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-md-12 form-group">
                                             <label for="descripcion">Tratamiento solicitado</label>
                                             <input class="form-control" id="tsolcitado" name="tsolcitado" placeholder="" value="" type="text" readonly>
                                         </div>
-                                    </div>
-                                    <div class="row">
+                                    </div> -->
+                                    <!-- <div class="row">
                                         <div class="col-md-4 form-group">
                                             <label for="tipo_tratamiento">Tipo tratamiento</label>
                                             <input class="form-control" id="tipo_tratamiento" name="tipo_tratamiento" placeholder="" type="text" required>
@@ -447,11 +446,14 @@
                                             <label>Fecha retorno</label>
                                             <input class="form-control" id="fecha_retorno" name="fecha_retorno" placeholder="" type="date" required>
                                         </div>
-                                    </div>
+                                    </div> -->
+
+                                 
+
                                     <div class="row">
                                         <div class="col-md-12 form-group">
                                             <label for="cant_piezas">Cant. Piezas</label>
-                                            <input class="form-control" id="cant_piezas" name="cant_piezas" placeholder="" type="number" required>
+                                            <input class="form-control" id="cantidad" name="cantidad" placeholder="" type="number" required>
                                         </div>
                                     </div>
 
@@ -506,14 +508,14 @@
                 var ot = button.data('ot')
                 var cliente = button.data('cliente')
                 var descripcion = button.data('descripcion')
-                var tsolcitado = button.data('tsolcitado')
+                var cantidad = button.data('cantidad')
 
                 var modal = $(this)
                 modal.find('.modal-title').text('OT: Salida de embarques')
                 modal.find('#ot').val(ot)
                 modal.find('#cliente').val(cliente)
                 modal.find('#descripcion').val(descripcion)
-                modal.find('#tsolcitado').val(tsolcitado)
+                modal.find('#cantidad').val(cantidad)
 
             })
         });

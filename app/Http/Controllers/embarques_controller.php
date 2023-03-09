@@ -18,14 +18,17 @@ class embarques_controller extends Controller
 
     public function dashboard_embarques()
     {
-        $ordenes = DB::table('orders')
-            ->join('jets_rutas', 'orders.id', '=', 'jets_rutas.ot')
-            ->where('jets_rutas.sistema_calidad', '=', 'DONE')
-            ->where('jets_rutas.sistema_embarques', '=', '-')
-            ->select('orders.*')
-            ->get();
+        // $ordenes = DB::table('orders')
+        //     ->join('jets_rutas', 'orders.id', '=', 'jets_rutas.ot')
+        //     ->where('jets_rutas.sistema_calidad', '=', 'DONE')
+        //     ->where('jets_rutas.sistema_embarques', '=', '-')
+        //     ->select('orders.*')
+        //     ->get();
 
-        $notificaciones =  Models\notifications::all();
+
+        $ordenes = models\salidas_produccion::where('estatus', '=', 'P/EMBARQUES')->get();
+
+        $notificaciones = Models\notifications::all();
 
 
 
@@ -40,7 +43,7 @@ class embarques_controller extends Controller
 
     public function buscador_embarques()
     {
-        $notificaciones =  Models\notifications::all();
+        $notificaciones = Models\notifications::all();
 
         $ordenes_salidas = models\salidas_embarques::all();
 
@@ -66,7 +69,7 @@ class embarques_controller extends Controller
             $salida_embarques->save();
 
             $orden = models\orders::where('id', '=', $request->ot)->first();
-            $oc =  $orden->cant_entregada;
+            $oc = $orden->cant_entregada;
             $piezas = $request->cant_piezas;
             $suma = $oc + $piezas;
             $orden->cant_entregada = $suma;
@@ -100,7 +103,7 @@ class embarques_controller extends Controller
             $rutas_jets->save();
 
             $orden = models\orders::where('id', '=', $request->ot)->first();
-            $oc =  $orden->cant_entregada;
+            $oc = $orden->cant_entregada;
             $piezas = $request->cant_piezas;
             $suma = $oc + $piezas;
             $orden->cant_entregada = $suma;
