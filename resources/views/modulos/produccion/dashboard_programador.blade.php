@@ -247,6 +247,7 @@
                                                     </th>
                                                     <th>OT</th>
                                                     <th>Descripcion</th>
+                                                    <th>Cant. OC</th>
                                                     <th>Cliente</th>
                                                     <th>Fecha limite</th>
                                                     <th>Tiempo trabajado</th>
@@ -259,6 +260,30 @@
                                             </thead>
                                             <tbody>
                                                 @foreach($ordenes as $orden)
+                                                @if($orden->modalidad == 'RETRABAJO' || $orden->modalidad == 'SCRAP' )
+
+                                                <tr class="bg-danger text-white">
+                                                    <td style="width: 200px;">
+                                                        <a href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="icon-eye"></i></a>
+                                                        <a href="{{route('inicio_ot', $orden)}}" class="btn btn-primary btn-sm"><i class="icon-control-play"></i></a>
+                                                        <a href="{{route('pausa_ot', $orden)}}" class="btn btn-warning btn-sm"><i class="icon-control-pause"></i></a>
+                                                        <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#salida_produccion" data-id="{{$orden->id}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
+                                                            <i class="icon-check"></i>
+                                                        </button>
+                                                    </td>
+                                                    <td> <a target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->id}}</a></td>
+                                                    <td>{{$orden->descripcion}}</td>
+                                                    <td>{{$orden->cantidad}}</td>
+
+                                                    <td>{{$orden->cliente}}</td>
+                                                    <td>{{$orden->fecha_production}}</td>
+                                                    <td>{{$orden->tiempo_progreso}}</td>
+                                                    <td>{{$orden->fecha_recepcion}}</td>
+                                                    <td>{{$orden->estatus}}</td>
+                                                    <td>{{$orden->cant_retrabajo}}</td>
+
+                                                </tr>
+                                                @else
                                                 <tr>
                                                     <td style="width: 200px;">
                                                         <a href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="icon-eye"></i></a>
@@ -270,14 +295,17 @@
                                                     </td>
                                                     <td> <a target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->id}}</a></td>
                                                     <td>{{$orden->descripcion}}</td>
+                                                    <td>{{$orden->cantidad}}</td>
+
                                                     <td>{{$orden->cliente}}</td>
                                                     <td>{{$orden->fecha_production}}</td>
                                                     <td>{{$orden->tiempo_progreso}}</td>
                                                     <td>{{$orden->fecha_recepcion}}</td>
                                                     <td>{{$orden->estatus}}</td>
                                                     <td>{{$orden->cant_retrabajo}}</td>
-
                                                 </tr>
+                                                @endif
+
                                                 @endforeach
                                             </tbody>
                                             <tfoot>
@@ -286,6 +314,7 @@
                                                     </th>
                                                     <th>OT</th>
                                                     <th>Descripcion</th>
+                                                    <th>Cant.OC</th>
                                                     <th>Cliente</th>
                                                     <th>Fecha limite</th>
                                                     <th>Tiempo trabajado</th>

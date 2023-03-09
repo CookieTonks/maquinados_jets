@@ -147,7 +147,7 @@ class produccion_controller extends Controller
         $ordenes = models\production::join('orders', 'orders.id', '=', 'productions.ot')
             ->where('productions.estatus', '<>', 'Finalizada')
             ->where('productions.persona_asignada', '=', Auth::user()->name)
-            ->get(['productions.*', 'orders.cant_retrabajo']);
+            ->get(['productions.*', 'orders.cant_retrabajo', 'orders.cantidad']);
 
 
         return view('modulos.produccion.dashboard_programador', compact('ordenes', 'notificaciones'));
