@@ -64,17 +64,21 @@ class embarques_controller extends Controller
             $salida_embarques->tipo_salida = $request->tipo_salida;
             $salida_embarques->tipo_tratamiento = '-';
             $salida_embarques->proveedor = '-';
-            $salida_embarques->cantidad = $request->cant_piezas;
+            $salida_embarques->cantidad = $request->cantidad;
             $salida_embarques->estatus = 'Enviada por remision';
             $salida_embarques->save();
 
             $orden = models\orders::where('id', '=', $request->ot)->first();
             $oc = $orden->cant_entregada;
-            $piezas = $request->cant_piezas;
+            $piezas = $request->cantidad;
             $suma = $oc + $piezas;
             $orden->cant_entregada = $suma;
             $orden->save();
-            $salida = models\salidas_embarques::where('id', '=', $salida_embarques->id)->first();
+
+            $salida = models\salidas_produccion::where('id', '=', $request->id)->first();
+            $salida->estatus = "L/FACTURAR";
+            $salida->save();
+
 
             $pdf = PDF::loadView('modulos.embarques.remision_embarques', compact('orden', 'salida'));
             return $pdf->stream($request->ot . '.pdf');
@@ -98,6 +102,7 @@ class embarques_controller extends Controller
             $salida_embarques->save();
 
 
+
             $rutas_jets = models\jets_rutas::where('ot', '=', $request->ot)->first();
             $rutas_jets->sistema_embarques = 'DONE';
             $rutas_jets->save();
@@ -108,6 +113,10 @@ class embarques_controller extends Controller
             $suma = $oc + $piezas;
             $orden->cant_entregada = $suma;
             $orden->save();
+
+            $salida = models\salidas_produccion::where('id', '=', $salida_embarques->id)->first();
+            $salida->estatus = "L/FACTURAR";
+            $salida->save();
 
             $evento_cliente = models\Events::where('title', '=', 'EC: ' . $request->ot)->delete();
             $evento_produccion = models\Events::where('title', '=', 'SP: ' . $request->ot)->delete();

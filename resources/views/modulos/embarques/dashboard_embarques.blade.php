@@ -256,7 +256,7 @@
                                                 @foreach ($ordenes as $orden)
                                                 <tr>
                                                     <th>
-                                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#salida_embarques" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-cantidad="{{$orden->cantidad}}">
+                                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#salida_embarques" data-id="{{$orden->id}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}" data-cantidad="{{$orden->cantidad}}">
                                                             <i class="icon-plus"></i>
                                                         </button>
                                                     </th>
@@ -380,55 +380,60 @@
                         Modal forms -->
 
 
-                    </div>
                 </div>
+            </div>
 
 
-                <div class="modal fade" id="salida_embarques" tabindex="-1" role="dialog" aria-labelledby="exampleModalForms" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Salida: Orden de Trabajo.</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="{{route('salida_tratamiento')}}" method="post">
-                                    @csrf
-                                    <div class="row">
-                                        <div class="col-md-8 form-group">
-                                            <label for="ot">OT</label>
-                                            <input class="form-control" id="ot" name="ot" placeholder="" value="" type="text" readonly>
-                                        </div>
-                                        <div class="col-md-4 form-group">
-                                            <label for="cliente">Cliente</label>
-                                            <input class="form-control" id="cliente" name="cliente" placeholder="" value="" type="text" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 form-group">
-                                            <label for="descripcion">Descripcion</label>
-                                            <input class="form-control" id="descripcion" name="descripcion" placeholder="" value="" type="text" readonly>
-                                        </div>
-                                    </div>
+            <div class="modal fade" id="salida_embarques" tabindex="-1" role="dialog" aria-labelledby="exampleModalForms" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Salida: Orden de Trabajo.</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{route('salida_tratamiento')}}" method="post">
+                                @csrf
 
-                                    <div class="row">
-                                        <div class="col-md-12 form-group">
-                                            <label for="tipo_salida">Tipo salida</label>
-                                            <select id="tipo_salida" name="tipo_salida" class="form-control custom-select d-block w-100" id="maquina">
-                                                <option value="Remision">Remisión</option>
-                                                <option value="Factura">Factura</option>
-                                            </select>
-                                        </div>
+                                <div class="row">
+                                    <input type="hidden" name="id" id="id"></input>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-8 form-group">
+                                        <label for="ot">OT</label>
+                                        <input class="form-control" id="ot" name="ot" placeholder="" value="" type="text" readonly>
                                     </div>
-                                    <!-- <div class="row">
+                                    <div class="col-md-4 form-group">
+                                        <label for="cliente">Cliente</label>
+                                        <input class="form-control" id="cliente" name="cliente" placeholder="" value="" type="text" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <label for="descripcion">Descripcion</label>
+                                        <input class="form-control" id="descripcion" name="descripcion" placeholder="" value="" type="text" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <label for="tipo_salida">Tipo salida</label>
+                                        <select id="tipo_salida" name="tipo_salida" class="form-control custom-select d-block w-100" id="maquina">
+                                            <option value="Remision">Remisión</option>
+                                            <option value="Factura">Factura</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- <div class="row">
                                         <div class="col-md-12 form-group">
                                             <label for="descripcion">Tratamiento solicitado</label>
                                             <input class="form-control" id="tsolcitado" name="tsolcitado" placeholder="" value="" type="text" readonly>
                                         </div>
                                     </div> -->
-                                    <!-- <div class="row">
+                                <!-- <div class="row">
                                         <div class="col-md-4 form-group">
                                             <label for="tipo_tratamiento">Tipo tratamiento</label>
                                             <input class="form-control" id="tipo_tratamiento" name="tipo_tratamiento" placeholder="" type="text" required>
@@ -448,51 +453,51 @@
                                         </div>
                                     </div> -->
 
-                                 
 
-                                    <div class="row">
-                                        <div class="col-md-12 form-group">
-                                            <label for="cant_piezas">Cant. Piezas</label>
-                                            <input class="form-control" id="cantidad" name="cantidad" placeholder="" type="number" required>
-                                        </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <label for="cant_piezas">Cant. Piezas</label>
+                                        <input class="form-control" id="cantidad" name="cantidad" placeholder="" type="number" required>
                                     </div>
+                                </div>
 
-                                    <br>
-                                    <button type="submit" class="btn btn-block btn-primary">Registrar</button>
-                                </form>
-                            </div>
+                                <br>
+                                <button type="submit" class="btn btn-block btn-primary">Registrar</button>
+                            </form>
                         </div>
                     </div>
                 </div>
-
-
-
-
             </div>
 
 
 
-            <!-- /Container -->
-
-            <!-- Footer -->
-            <div class="hk-footer-wrap container-fluid">
-                <footer class="footer">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <p class="d-inline-block">Siguenos</p>
-                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-facebook"></i></span></a>
-                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-twitter"></i></span></a>
-                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-google-plus"></i></span></a>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-            <!-- /Footer -->
 
         </div>
-        <!-- /Main Content -->
+
+
+
+        <!-- /Container -->
+
+        <!-- Footer -->
+        <div class="hk-footer-wrap container-fluid">
+            <footer class="footer">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <p class="d-inline-block">Siguenos</p>
+                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-facebook"></i></span></a>
+                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-twitter"></i></span></a>
+                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-google-plus"></i></span></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- /Footer -->
+
+    </div>
+    <!-- /Main Content -->
 
     </div>
 
@@ -506,6 +511,7 @@
             $('#salida_embarques').on('show.bs.modal', function(event) {
                 var button = $(event.relatedTarget) // Button that triggered the modal
                 var ot = button.data('ot')
+                var id = button.data('id')
                 var cliente = button.data('cliente')
                 var descripcion = button.data('descripcion')
                 var cantidad = button.data('cantidad')
@@ -513,6 +519,7 @@
                 var modal = $(this)
                 modal.find('.modal-title').text('OT: Salida de embarques')
                 modal.find('#ot').val(ot)
+                modal.find('#id').val(id)
                 modal.find('#cliente').val(cliente)
                 modal.find('#descripcion').val(descripcion)
                 modal.find('#cantidad').val(cantidad)
