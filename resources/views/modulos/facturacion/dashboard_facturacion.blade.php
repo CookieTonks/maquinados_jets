@@ -174,7 +174,7 @@
                             </a>
                             <div class="dropdown-divider"></div>
                             @endforeach
-                         
+
                         </div>
                     </div>
                 </li>
@@ -250,6 +250,11 @@
 
                                                     </th>
                                                     <th>OT</th>
+                                                    <th>Cliente</th>
+                                                    <th>Descripcion</th>
+                                                    <th>Cant. OC</th>
+
+
 
                                                 </tr>
                                             </thead>
@@ -262,6 +267,9 @@
                                                         </button>
                                                     </td>
                                                     <td>{{$orden->id}}</td>
+                                                    <td>{{$orden->cliente}}</td>
+                                                    <td>{{$orden->descripcion}}</td>
+                                                    <td>{{$orden->cantidad}}</td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>
@@ -269,6 +277,9 @@
                                                 <tr>
                                                     <th>+</th>
                                                     <th>OT</th>
+                                                    <th>Cliente</th>
+                                                    <th>Descripcion</th>
+                                                    <th>Cant. OC</th>
                                                 </tr>
                                             </tfoot>
                                         </table>
