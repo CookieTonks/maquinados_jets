@@ -265,7 +265,7 @@
                                             </thead>
                                             <tbody>
                                                 @foreach($ordenes as $orden)
-                                                @if($orden->modalidad == 'RETRABAJO')
+                                                @if($orden->modalidad == 'RETRABAJO' || $orden->modalidad == 'SCRAP' )
                                                 <tr class="bg-danger text-white">
                                                     <th>
                                                         <a target="_blank" href="{{route('order_pdf', $orden->id)}}" class="btn btn-primary btn-sm"><i class="icon-eye"></i></a>
@@ -295,7 +295,6 @@
                                                     <td>{{$orden->estatus}}</td>
                                                 </tr>
                                                 @else
-
                                                 <tr>
                                                     <th>
                                                         <a target="_blank" href="{{route('order_pdf', $orden->id)}}" class="btn btn-primary btn-sm"><i class="icon-eye"></i></a>

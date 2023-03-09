@@ -194,7 +194,8 @@ class calidad_controller extends Controller
             $rutas_jets->save();
 
             $produccion = models\production::where('ot', '=', $request->ot)->first();
-            $produccion->estatus = 'ASIGNADA';
+            $produccion->estatus = "REGISTRADA";
+            $produccion->modalidad = "SCRAP";
             $produccion->save();
 
             $registro_jets = new models\jets_registros();
@@ -202,6 +203,12 @@ class calidad_controller extends Controller
             $registro_jets->movimiento = 'CALIDAD - SCRAP';
             $registro_jets->responsable = Auth::user()->name;
             $registro_jets->save();
+
+
+            $calidad_proceso = models\salidas_produccion::where('id', '=', $request->id)->first();
+            $calidad_proceso->estatus = "P\SCRAP";
+            $calidad_proceso->save();
+
 
             $material = models\materiales::where('ot', '=', $request->ot)->get();
 
