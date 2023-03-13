@@ -348,7 +348,7 @@ class produccion_controller extends Controller
         $salida_produccion->cantidad = $request->cantidad;
 
 
-        if ($request->tipo_salida == 'SALIDA PARCIAL') {
+        if ($request->tipo_salida === 'SALIDA PARCIAL') {
 
             $registro_jets = new models\jets_registros();
             $registro_jets->ot = $request->ot;
@@ -366,15 +366,22 @@ class produccion_controller extends Controller
             $registro_jets->movimiento = 'S. PRODUCCION - FINALIZADA';
             $registro_jets->responsable = Auth::user()->name;
             $registro_jets->save();
+            
+  
+        
+           $orden_programador = models\production::where('id', '=', $request->ot)->first();
+           
+        $orden_programador->estatus = 'E.CALIDAD';
+        $orden_programador->save();
         }
-
-        $salida_produccion->estatus = "P/CALIDAD";
+        
+              $salida_produccion->estatus = "P/CALIDAD";
         $salida_produccion->save();
 
 
-        $orden_programador = models\production::where('id', '=', $request->ot)->first();
-        $orden_programador->estatus = 'E.CALIDAD';
-        $orden_programador->save();
+
+
+     
 
         return back()->with('mensaje-success', '¡Orden de trabajo enviada a calidad!');
     }

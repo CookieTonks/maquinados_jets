@@ -613,7 +613,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 form-group">
-                                            <label for="tipo_salida">Maquina</label>
+                                            <label for="tipo_salida">Tipo Salida</label>
                                             <select name="tipo_salida" class="form-control custom-select d-block w-100" id="maquina">
                                                 <option value="">Selecciona una opcion...</option>
                                                 <option>SALIDA PARCIAL</option>
