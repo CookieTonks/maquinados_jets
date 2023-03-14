@@ -613,6 +613,9 @@
                     $("#disposicion").prop("disabled", false);
                     $("#num_parte").prop("disabled", false);
                     $("#descripcion").prop("disabled", false);
+                    $("#servicio_externo").prop("disabled", true);
+                    $("#codigo").prop("disabled", true);
+
                 } else if ($(this).val() == "RETRABAJO") {
                     $("#cant_scrap").prop("disabled", true);
                     $("#cant_retrabajo").prop("disabled", false);
@@ -623,6 +626,8 @@
                     $("#disposicion").prop("disabled", false);
                     $("#num_parte").prop("disabled", false);
                     $("#descripcion").prop("disabled", false);
+                    $("#servicio_externo").prop("disabled", true);
+                    $("#codigo").prop("disabled", true);
 
 
                 } else if ($(this).val() == "LIBERADO") {
@@ -635,6 +640,8 @@
                     $("#disposicion").prop("disabled", true);
                     $("#num_parte").prop("disabled", true);
                     $("#descripcion").prop("disabled", true);
+                    $("#servicio_externo").prop("disabled", false);
+                    $("#codigo").prop("disabled", false);
                 }
             });
         });
