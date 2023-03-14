@@ -451,7 +451,7 @@
                                     <div class="row">
                                         <div class="col-md-12 form-group">
                                             <label for="Salida">Tipo de inspeccion</label>
-                                            <select name="tipo_inspeccion" id="tipo_inspeccion" class="form-control">
+                                            <select name="tipo_inspeccion" id="tipo_inspeccion" class="form-control" required>
                                                 <option value="SCRAP" class="form-control" name="-"> SCRAP</option>
                                                 <option value="RETRABAJO" class="form-control" name="almacen"> RETRABAJO</option>
                                                 <option value="LIBERADO" class="form-control" name="produccion"> LIBERADO </option>
@@ -468,15 +468,15 @@
                                     <div class="row">
                                         <div class="col-md-4 form-group">
                                             <label for="">Cant. Scrap</label>
-                                            <input class="form-control" id="cant_scrap" name="cant_scrap" placeholder="" value="" type="number" onlyread>
+                                            <input required class="form-control" id="cant_scrap" name="cant_scrap" placeholder="" value=""  type="number" onlyread>
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label for="ot">Cant. Retrabajo</label>
-                                            <input class="form-control" id="cant_retrabajo" name="cant_retrabajo" placeholder="" value="" type="number" onlyread>
+                                            <input required class="form-control" id="cant_retrabajo" name="cant_retrabajo" placeholder="" value="" type="number" onlyread>
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label for="ot">Cant. Liberada</label>
-                                            <input class="form-control" id="cant_liberada" name="cant_liberada" placeholder="" value="" type="number" onlyread>
+                                            <input required class="form-control" id="cant_liberada" name="cant_liberada" placeholder="" value="" type="number" onlyread>
                                         </div>
                                     </div>
                                     <hr>
@@ -484,7 +484,7 @@
                                     <div class="row">
                                         <div class="col-md-12 form-group">
                                             <label for="Salida">Servicio externo</label>
-                                            <select name="servicio_externo" id="servicio_externo" class="form-control">
+                                            <select required name="servicio_externo" id="servicio_externo" class="form-control">
                                                 <option value="REQUERIDO" class="form-control"> REQUERIDO</option>
                                                 <option value="NO REQUERIDO" class="form-control"> NO REQUERIDO</option>
                                             </select>
@@ -494,7 +494,7 @@
                                     <div class="row">
                                         <div class="col-md-12 form-group">
                                             <label for="Salida">Código</label>
-                                            <input class="form-control" id="codigo" name="codigo" placeholder="" value="" type="text">
+                                            <input required class="form-control" id="codigo" name="codigo" placeholder="" value="" type="text">
 
                                         </div>
                                     </div>
@@ -502,38 +502,38 @@
                                     <div class="row">
                                         <div class="col-md-12 form-group">
                                             <label for="archivo">Archivo</label>
-                                            <input class="form-control" id="doc" name="doc" placeholder="" value="" type="file">
+                                            <input required class="form-control" id="doc" name="doc" placeholder="" value="" type="file">
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             <label for="operador">Operador</label>
-                                            <input class="form-control" id="operador" name="operador" placeholder="" value="" type="text">
+                                            <input required class="form-control" id="operador" name="operador" placeholder="" value="" type="text">
                                         </div>
                                         <div class="col-md-6 form-group">
                                             <label for="descripcion">Descripcion</label>
-                                            <input class="form-control" id="descripcion" name="descripcion" placeholder="" value="" type="text">
+                                            <input required class="form-control" id="descripcion" name="descripcion" placeholder="" value="" type="text">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4 form-group">
                                             <label for="num_parte"># Parte</label>
-                                            <input class="form-control" id="num_parte" name="num_parte" placeholder="" value="" type="text">
+                                            <input required class="form-control" id="num_parte" name="num_parte" placeholder="" value="" type="text">
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label for="analisis">Analisis</label>
-                                            <input class="form-control" id="analisis" name="analisis" placeholder="" value="" type="text">
+                                            <input required class="form-control" id="analisis" name="analisis" placeholder="" value="" type="text">
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label for="origen">Origen</label>
-                                            <input class="form-control" id="origen" name="origen" placeholder="" value="" type="text">
+                                            <input required class="form-control" id="origen" name="origen" placeholder="" value="" type="text">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 form-group">
                                             <label for="disposicion">Disposicion</label>
-                                            <input class="form-control" id="disposicion" name="disposicion" placeholder="" value="" type="text">
+                                            <input  required class="form-control" id="disposicion" name="disposicion" placeholder="" value="" type="text">
                                         </div>
 
                                     </div>
