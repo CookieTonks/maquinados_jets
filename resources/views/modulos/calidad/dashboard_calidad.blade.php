@@ -586,7 +586,7 @@
                 var cliente = button.data('cliente')
                 var cantpro = button.data('cantpro')
 
-
+                hi
 
                 var modal = $(this)
                 modal.find('.modal-title').text('Nueva inspeccion de calidad')
