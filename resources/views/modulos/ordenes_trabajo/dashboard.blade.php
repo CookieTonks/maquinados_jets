@@ -13,6 +13,15 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
+
+    <!-- Recursos -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Plantillas -->
+    <link href="template/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
     <!-- select2 CSS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Data Table CSS -->
@@ -26,6 +35,8 @@
     <!-- Custom CSS -->
     <link href="../plantilla/dist/css/style.css" rel="stylesheet" type="text/css">
     <link href="../plantilla/vendors/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
+    @livewireStyles
+
 </head>
 
 <body>
@@ -174,7 +185,7 @@
                             </a>
                             <div class="dropdown-divider"></div>
                             @endforeach
-                         
+
                         </div>
                     </div>
                 </li>
@@ -324,6 +335,9 @@
                                             </select>
                                         </div>
                                     </div>
+
+                                    <livewire:country-dropdown />
+
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             <label for="cliente">Cliente</label>
@@ -402,7 +416,7 @@
                                     <div class="row">
                                         <div class="col-md-4 form-group">
                                             <label for="Monto">P/U</label>
-                                            <input class="form-control" id="monto" name="monto" placeholder="" value="" type="number" required >
+                                            <input class="form-control" id="monto" name="monto" placeholder="" value="" type="number" required>
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label for="Moneda">Moneda</label>
@@ -619,6 +633,7 @@
 
     <!-- Init JavaScript -->
     <script src="../plantilla/dist/js/init.js"></script>
+    @livewireStyles
 
 </body>
 

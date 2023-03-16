@@ -32,6 +32,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::view('states-city','livewire.home');
 
 
 // Route::get('/dashboard_administrador', [App\Http\Controllers\admin_controller::class, 'dashboard'])->name('dashboard_administrador');
