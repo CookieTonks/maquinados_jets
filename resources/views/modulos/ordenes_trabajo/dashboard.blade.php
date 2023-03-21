@@ -337,28 +337,7 @@
                                     </div>
 
                                     <livewire:country-dropdown />
-
-                                    <div class="row">
-                                        <div class="col-md-6 form-group">
-                                            <label for="cliente">Cliente</label>
-                                            <select name="cliente" class="form-control custom-select d-block w-100" id="cliente" required>
-                                                <option value="">Selecciona una opcion...</option>
-                                                @foreach ($clientes as $cliente)
-                                                <option value="{{$cliente->cliente}}">{{$cliente->cliente}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 form-group">
-                                            <label for="usuario">Usuario</label>
-                                            <select name="usuario" class="form-control custom-select d-block w-100" id="usuario" required>
-                                                <option value="">Selecciona una opcion...</option>
-                                                @foreach ($usuarios as $usuario)
-                                                <option value="{{$usuario->nombre}}"> {{$usuario->cliente}}-{{$usuario->nombre}} </option>
-                                                @endforeach
-
-                                            </select>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             <label for="oc">OC</label>

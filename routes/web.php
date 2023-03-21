@@ -76,6 +76,8 @@ Route::get('/dashboard_almacen', [App\Http\Controllers\almacen_controller::class
 Route::post('/dashboard_almacen', [App\Http\Controllers\almacen_controller::class, 'recepcion_material'])->name('recepcion_material')->middleware('almacen_middleware');
 Route::post('/material_produccion', [App\Http\Controllers\almacen_controller::class, 'material_produccion'])->name('material_produccion')->middleware('almacen_middleware');
 Route::post('/material_compras', [App\Http\Controllers\almacen_controller::class, 'material_compras'])->name('material_compras')->middleware('almacen_middleware');
+Route::post('/envio_tratamiento', [App\Http\Controllers\almacen_controller::class, 'envio_tratamiento'])->name('envio_tratamiento')->middleware('almacen_middleware');
+Route::post('/regreso_tratamiento_almacen', [App\Http\Controllers\almacen_controller::class, 'regreso_tratamiento_almacen'])->name('regreso_tratamiento_almacen')->middleware('almacen_middleware');
 
 
 Route::get('/dashboard_produccion', [App\Http\Controllers\produccion_controller::class, 'dashboard_produccion'])->name('dashboard_produccion')->middleware('produccion_middleware');

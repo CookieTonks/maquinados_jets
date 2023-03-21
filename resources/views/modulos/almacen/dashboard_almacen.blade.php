@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang"es">
 
 <head>
     <meta charset="UTF-8" />
@@ -29,26 +29,30 @@
 </head>
 
 <body>
-    <!-- Preloader -->
+    <!-- Peloader -->
     <div class="preloader-it">
         <div class="loader-pendulums"></div>
     </div>
     <!-- /Preloader -->
 
-    <!-- HK Wrapper -->
+    <!-- H Wrapper -->
     <div class="hk-wrapper hk-alt-nav">
 
         <!-- Top Navbar -->
         <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar hk-navbar-alt">
-            <a class="navbar-toggle-btn nav-link-hover navbar-toggler" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarCollapseAlt" aria-controls="navbarCollapseAlt" aria-expanded="false" aria-label="Toggle navigation"><span class="feather-icon"><i data-feather="menu"></i></span></a>
+            <a class="navbar-toggle-btn nav-link-hover navbar-toggler" href="javascript:void(0);" data-toggle="collapse"
+                data-target="#navbarCollapseAlt" aria-controls="navbarCollapseAlt" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="feather-icon"><i data-feather="menu"></i></span></a>
             <a class="navbar-brand" href="{{route ('dashboard')}}">
-                <img class="brand-img d-inline-block align-top" style="width: 100px;" src="images\logo.png" alt="JETS" />
+                <img class="brand-img d-inline-block align-top" style="width: 100px;" src="images\logo.png"
+                    alt="JETS" />
             </a>
             <div class="collapse navbar-collapse" id="navbarCollapseAlt">
                 <div class="navbar-collapse collapse show" id="navbarCollapseAlt">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown show-on-hover">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                                 Ordenes de trabajo
                             </a>
                             <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
@@ -57,16 +61,19 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown show-on-hover">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                                 Ingenieria
                             </a>
                             <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                                 <a class="dropdown-item" href="{{route ('dashboard_ingenieria')}}">Módulo Ingenieria</a>
-                                <a class="dropdown-item" href="{{route ('buscador_ingenieria')}}">Buscador Ingenieria</a>
+                                <a class="dropdown-item" href="{{route ('buscador_ingenieria')}}">Buscador
+                                    Ingenieria</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown show-on-hover">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                                 Almacen
                             </a>
                             <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
@@ -75,7 +82,8 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown show-on-hover">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                                 Compras
                             </a>
                             <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
@@ -84,7 +92,8 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown show-on-hover">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                                 Producción
                             </a>
                             <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
@@ -95,7 +104,8 @@
 
 
                         <li class="nav-item dropdown show-on-hover">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                                 Calidad
                             </a>
                             <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
@@ -105,7 +115,8 @@
                         </li>
 
                         <li class="nav-item dropdown show-on-hover">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                                 Embarques
                             </a>
                             <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
@@ -115,21 +126,26 @@
                         </li>
 
                         <li class="nav-item dropdown show-on-hover">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                                 Facturación
                             </a>
                             <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                <a class="dropdown-item" href="{{route ('dashboard_produccion')}}">Módulo Facturación</a>
-                                <a class="dropdown-item" href="{{route ('buscador_facturacion')}}">Buscador Facturación</a>
+                                <a class="dropdown-item" href="{{route ('dashboard_produccion')}}">Módulo
+                                    Facturación</a>
+                                <a class="dropdown-item" href="{{route ('buscador_facturacion')}}">Buscador
+                                    Facturación</a>
                             </div>
                         </li>
 
                         <li class="nav-item dropdown show-on-hover">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                                 Administrador
                             </a>
                             <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                <a class="dropdown-item" href="{{route ('dashboard_administrador')}}">Módulo Administrador</a>
+                                <a class="dropdown-item" href="{{route ('dashboard_administrador')}}">Módulo
+                                    Administrador</a>
                             </div>
                         </li>
 
@@ -141,7 +157,8 @@
                 <form class="navbar-search-alt">
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><span class="feather-icon"><i data-feather="search"></i></span></span>
+                            <span class="input-group-text"><span class="feather-icon"><i
+                                        data-feather="search"></i></span></span>
                         </div>
                         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                     </div>
@@ -149,24 +166,34 @@
             </div>
             <ul class="navbar-nav hk-navbar-content">
                 <li class="nav-item">
-                    <a id="settings_toggle_btn" class="nav-link nav-link-hover" href="javascript:void(0);"><span class="feather-icon"><i data-feather="settings"></i></span></a>
+                    <a id="settings_toggle_btn" class="nav-link nav-link-hover" href="javascript:void(0);"><span
+                            class="feather-icon"><i data-feather="settings"></i></span></a>
                 </li>
                 <li class="nav-item dropdown dropdown-notifications">
-                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="feather-icon"><i data-feather="bell"></i></span><span class="badge-wrap"><span class="badge badge-success badge-indicator badge-indicator-sm badge-pill pulse"></span></span></a>
-                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                        <h6 class="dropdown-header">Notifications <a href="javascript:void(0);" class="">Ver todas</a></h6>
+                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><span class="feather-icon"><i
+                                data-feather="bell"></i></span><span class="badge-wrap"><span
+                                class="badge badge-success badge-indicator badge-indicator-sm badge-pill pulse"></span></span></a>
+                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="fadeIn"
+                        data-dropdown-out="fadeOut">
+                        <h6 class="dropdown-header">Notifications <a href="javascript:void(0);" class="">Ver todas</a>
+                        </h6>
                         <div class="notifications-nicescroll-bar">
                             @foreach($notificaciones as $notificacion)
                             <a href="javascript:void(0);" class="dropdown-item">
                                 <div class="media">
                                     <div class="media-img-wrap">
                                         <div class="avatar avatar-sm">
-                                            <img src="../images/iconos/urgencia.avif" alt="user" class="avatar-img rounded-circle">
+                                            <img src="../images/iconos/urgencia.avif" alt="user"
+                                                class="avatar-img rounded-circle">
                                         </div>
                                     </div>
                                     <div class="media-body">
                                         <div>
-                                            <div class="notifications-text"><span class="text-dark text-capitalize">OT: {{$notificacion->ot}} <br> Cliente: {{$notificacion->cliente}}</span> fue registrada como urgencia.</div>
+                                            <div class="notifications-text"><span class="text-dark text-capitalize">OT:
+                                                    {{$notificacion->ot}} <br> Cliente:
+                                                    {{$notificacion->cliente}}</span> fue registrada como urgencia.
+                                            </div>
                                             <div class="notifications-time">{{$notificacion->created_at}}</div>
                                         </div>
                                     </div>
@@ -174,31 +201,40 @@
                             </a>
                             <div class="dropdown-divider"></div>
                             @endforeach
-                         
+
                         </div>
                     </div>
                 </li>
                 <li class="nav-item dropdown dropdown-authentication">
-                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         <div class="media">
                             <div class="media-img-wrap">
                                 <div class="avatar">
-                                    <img src="../images/empleados/{{ Auth::user()->id }}.jpg" alt="" class="avatar-img rounded-circle">
+                                    <img src="../images/empleados/{{ Auth::user()->id }}.jpg" alt=""
+                                        class="avatar-img rounded-circle">
                                 </div>
                                 <span class="badge badge-success badge-indicator"></span>
                             </div>
                             <div class="media-body">
+
+
                                 <span>{{ Auth::user()->name }}<i class="zmdi zmdi-chevron-down"></i></span>
                             </div>
                         </div>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
-                        <a class="dropdown-item" href="{{route ('logout')}}"><i class="dropdown-icon zmdi zmdi-power"></i><span>Log out</span></a>
+
+                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="flipInX"
+                        data-dropdown-out="flipOutX">
                     </div>
+
+
                 </li>
             </ul>
         </nav>
+
         <!-- /Top Navbar -->
+
 
 
         <!-- Main Content -->
@@ -220,21 +256,22 @@
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     {{session('mensaje-error')}}
                     <script type="text/javascript">
-                        $('.alert').alert()
+                    $('.alert').alert()
                     </script>
                 </div>
                 @elseif (session('mensaje-success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{session('mensaje-success')}}
                     <script type="text/javascript">
-                        $('.alert').alert()
+                    $('.alert').alert()
                     </script>
                 </div>
                 @endif
 
                 <!-- Title -->
                 <div class="hk-pg-header">
-                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"></span></span>Módulo Almacén </h4>
+                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"></span></span>Módulo
+                        Almacén </h4>
                 </div>
                 <!-- /Title -->
                 <div class="row">
@@ -248,9 +285,9 @@
                                             <thead class="thead-primary">
                                                 <tr>
                                                     <th>
-
                                                     </th>
                                                     <th>OT</th>
+                                                    <th>TIPO</th>
                                                     <th>CANTIDAD</th>
                                                     <th>UM</th>
                                                     <th>CODIGO</th>
@@ -261,16 +298,44 @@
                                             <tbody>
                                                 @foreach($materiales_revision as $material)
                                                 <tr>
-                                                    <td style="width: 200px;">
-                                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#aprobacion_material" data-id="{{$material->id}}" data-ot="{{$material->ot}}" data-descripcion="{{$material->descripcion}}" data-cantidad="{{$material->cantidad_solicitada}}" data-oc="{{$material->oc}}" data-proveedor="{{$material->proveedor }}">
+                                                    @if($material->tipo === "TRATAMIENTO EXTERNO")
+                                                    <td>
+                                                        <button type="button" class="btn btn-success"
+                                                            data-toggle="modal" data-target="#tratamiento_salida"
+                                                            data-id="{{$material->id}}" data-ot="{{$material->ot}}"
+                                                            data-descripcion="{{$material->descripcion}}"
+                                                            data-cantidad="{{$material->cantidad_solicitada}}"
+                                                            data-oc="{{$material->oc}}" data-codigo="{{$material->codigo}}"
+                                                            data-proveedor="{{$material->proveedor }}"> 
                                                             <i class="icon-check"></i>
                                                         </button>
-                                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#material_compras" data-id="{{$material->id}}" data-ot="{{$material->ot}}" data-descripcion="{{$material->descripcion}}" data-cantidad="{{$material->cantidad_solicitada}}" data-oc="{{$material->oc}}" data-proveedor="{{$material->proveedor }}">
+                                                    </td>
+                                                    @else
+                                                    <td style="width: 200px;">
+                                                        <button type="button" class="btn btn-success"
+                                                            data-toggle="modal" data-target="#aprobacion_material"
+                                                            data-id="{{$material->id}}" data-ot="{{$material->ot}}"
+                                                            data-descripcion="{{$material->descripcion}}"
+                                                            data-cantidad="{{$material->cantidad_solicitada}}"
+                                                            data-oc="{{$material->oc}}"
+                                                            data-proveedor="{{$material->proveedor }}">
+                                                            <i class="icon-check"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-warning"
+                                                            data-toggle="modal" data-target="#material_compras"
+                                                            data-id="{{$material->id}}" data-ot="{{$material->ot}}"
+                                                            data-descripcion="{{$material->descripcion}}"
+                                                            data-cantidad="{{$material->cantidad_solicitada}}"
+                                                            data-oc="{{$material->oc}}"
+                                                            data-proveedor="{{$material->proveedor }}">
                                                             <i class="icon-bell"></i>
                                                         </button>
                                                     </td>
+                                                    @endif
+
                                                     <td>{{$material->ot}}</td>
-                                                    <td>{{$material->cantidad}}</td>
+                                                    <td>{{$material->tipo}}</td>
+                                                    <td>{{$material->cantidad_solicitada}}</td>
                                                     <td>{{$material->um}}</td>
                                                     <td>{{$material->codigo}}</td>
                                                     <td>{{$material->descripcion}}</td>
@@ -283,6 +348,7 @@
                                                     <th>
                                                     </th>
                                                     <th>OT</th>
+                                                    <th>TIPO</th>
                                                     <th>CANTIDAD</th>
                                                     <th>UM</th>
                                                     <th>CODIGO</th>
@@ -313,6 +379,7 @@
                                                     <th>
                                                     </th>
                                                     <th>OT</th>
+                                                    <th>TIPO</th>
                                                     <th>CANTIDAD</th>
                                                     <th>UM</th>
                                                     <th>CODIGO</th>
@@ -324,13 +391,36 @@
                                             <tbody>
                                                 @foreach($materiales_recepcion as $material)
                                                 <tr>
+                                                @if($material->tipo === 'MATERIAL')
                                                     <td style="width: 200px;">
-                                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#recepcion_material" data-id="{{$material->id}}" data-ot="{{$material->ot}}" data-descripcion="{{$material->descripcion}}" data-cantidad="{{$material->cantidad_solicitada}}" data-cantidad_recibida="{{$material->cantidad_recibida}}" data-oc="{{$material->oc}}" data-proveedor="{{$material->proveedor}}">
+                                                        <button type="button" class="btn btn-success"
+                                                            data-toggle="modal" data-target="#recepcion_material"
+                                                            data-id="{{$material->id}}" data-ot="{{$material->ot}}" 
+                                                            data-descripcion="{{$material->descripcion}}"
+                                                            data-cantidad="{{$material->cantidad_solicitada}}"
+                                                            data-cantidad_recibida="{{$material->cantidad_recibida}}"
+                                                            data-oc="{{$material->oc}}"
+                                                            data-proveedor="{{$material->proveedor}}">
                                                             <i class="icon-check"></i>
                                                         </button>
                                                     </td>
+                                                    @else
+                                                    <td>
+                                                    <button type="button" class="btn btn-success"
+                                                            data-toggle="modal" data-target="#regreso_tratamiento"
+                                                            data-id="{{$material->id}}" data-ot="{{$material->ot}}" 
+                                                            data-descripcion="{{$material->descripcion}}"
+                                                            data-cantidad="{{$material->cantidad_solicitada}}"
+                                                            data-cantidad_recibida="{{$material->cantidad_recibida}}"
+                                                            data-oc="{{$material->oc}}"
+                                                            data-proveedor="{{$material->proveedor}}">
+                                                            <i class="icon-check"></i>
+                                                        </button>
+                                                    </td>
+                                                    @endif
                                                     <td>{{$material->ot}}</td>
-                                                    <td>{{$material->cantidad}}</td>
+<td>{{$material->tipo}}</td>
+                                                    <td>{{$material->cantidad_solicitada}}</td>
                                                     <td>{{$material->um}}</td>
                                                     <td>{{$material->codigo}}</td>
                                                     <td>{{$material->descripcion}}</td>
@@ -341,10 +431,10 @@
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <th>
-
+                                                    <th>  
                                                     </th>
                                                     <th>OT</th>
+                                                    <th>TIPO</th>
                                                     <th>CANTIDAD</th>
                                                     <th>UM</th>
                                                     <th>CODIGO</th>
@@ -363,52 +453,76 @@
                 </div>
 
 
-
-
-
-
-                <div class="modal fade" id="aprobacion_material" tabindex="-1" role="dialog" aria-labelledby="exampleModalForms" aria-hidden="true">
+                <div class="modal fade" id="tratamiento_salida" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalForms" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Nueva: Carga de dibujo.</h5>
+                                <h5 class="modal-title">Tratamiento: Salida de almacen</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="{{route('material_produccion')}}" method="post" enctype="multipart/form-data">
+                                <form action="{{route('envio_tratamiento')}}" method="post"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-0 form-group">
-                                            <input class="form-control" id="id" name="id" placeholder="" value="" type="text" hidden>
+                                            <input class="form-control" id="id" name="id" placeholder="" value=""
+                                                type="text" hidden>
                                         </div>
                                         <div class="col-md-2 form-group">
                                             <label for="dibujo">OT</label>
-                                            <input class="form-control" id="ot" name="ot" placeholder="" value="" type="text" readonly>
+                                            <input class="form-control" id="ot" name="ot" placeholder="" value=""
+                                                type="text" readonly>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <label for="dibujo">Descripcion</label>
-                                            <input class="form-control" id="descripcion" name="descripcion" placeholder="" value="" type="text" readonly>
+                                            <label for="descripcion">Descripcion</label>
+                                            <input class="form-control" id="descripcion" name="descripcion"
+                                                placeholder="" value="" type="text" readonly>
                                         </div>
                                         <div class="col-md-2 form-group">
-                                            <label for="dibujo">Cantidad</label>
-                                            <input class="form-control" id="cantidad" name="cantidad" placeholder="" value="" type="text" readonly>
+                                            <label for="cantidad">Cantidad</label>
+                                            <input class="form-control" id="cantidad" name="cantidad" placeholder=""
+                                                value="" type="text" readonly>
                                         </div>
                                     </div>
+
+
                                     <div class="row">
                                         <div class="col-md-6 form-group">
-                                            <label for="cantidad_recibida">Cantidad almacen</label>
-                                            <input class="form-control" id="cantidad_almacen" name="cantidad_almacen" placeholder="" value="" type="text" required>
+                                            <label for="codigo">Codigo</label>
+                                            <input class="form-control" id="codigo" name="codigo"
+                                                placeholder="" value="" type="text" required>
                                         </div>
                                         <div class="col-md-6 form-group">
-                                            <label for="Salida">Salida</label>
-                                            <select name="tipo_entrega" id="tipo_entrega" class="form-control" required>
-      <option selected disabled value="">Selecciona...</option>
-                                                <option value="ALMACEN" class="form-control" name="almacen"> Almacen</option>
-                                                
+                                            <label for="proveedor">Proveedor</label>
+                                            <select name="proveedor" id="proveedor" class="form-control" required>
+                                                <option selected disabled value="">Selecciona...</option>
+                                                @foreach($proveedores as $proveedor)
+                                                <option value="{{$proveedor->nombre}}" class="form-control" name="proveedor"> {{$proveedor->nombre}}
+                                                </option>
+                                                @endforeach
+
                                             </select>
                                         </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 form-group">
+                                            <label for="fecha_retorno">Fecha de retorno</label>
+                                            <input class="form-control" id="fecha_retorno" name="fecha_retorno"
+                                                placeholder="" value="" type="date" required>
+
+
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="chofer">Chofer</label>
+                                            <input class="form-control" id="chofer" name="chofer"
+                                                placeholder="" value="" type="text" required>
+                                        </div>
+
                                     </div>
                                     <br>
                                     <button type="submit" class="btn btn-block btn-primary">Registrar</button>
@@ -418,60 +532,9 @@
                     </div>
                 </div>
 
-                <div class="modal fade" id="material_compras" tabindex="-1" role="dialog" aria-labelledby="exampleModalForms" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title"></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="{{route('envio_material')}}" method="post" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="row">
-                                        <div class="col-md-0 form-group">
-                                            <input class="form-control" id="id" name="id" placeholder="" value="" type="text" hidden>
-                                        </div>
-                                        <div class="col-md-6 form-group">
-                                            <label for="dibujo">OT</label>
-                                            <input class="form-control" id="ot" name="ot" placeholder="" value="" type="text" readonly>
-                                        </div>
-                                        <div class="col-md-6 form-group">
-                                            <label for="dibujo">Cantidad</label>
-                                            <input class="form-control" id="cantidad" name="cantidad" placeholder="" value="" type="text" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 form-group">
-                                            <label for="dibujo">Descripcion</label>
-                                            <input class="form-control" id="descripcion" name="descripcion" placeholder="" value="" type="text" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 form-group">
-                                            <label for="Factura">Cantidad para comprar</label>
-                                            <input class="form-control" id="cantidad_almacen" name="cantidad_almacen" placeholder="" value="" type="text">
-                                        </div>
-                                        <div class="col-md-6 form-group">
-                                            <label for="Salida">Salida</label>
-                                            <select name="tipo_entrega" id="tipo_entrega" class="form-control">
-                                                <option value="-" class="form-control" name="-"> Selecciona</option>
-                                                <option value="almacen" class="form-control" name="almacen"> Almacen</option>
-                                                <option value="produccion" class="form-control" name="produccion"> Producccion </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <button type="submit" class="btn btn-block btn-primary">Registrar</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="modal fade" id="recepcion_material" tabindex="-1" role="dialog" aria-labelledby="exampleModalForms" aria-hidden="true">
+                <div class="modal fade" id="regreso_tratamiento" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalForms" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -481,45 +544,239 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="{{route('recepcion_material')}}" method="post" enctype="multipart/form-data">
+                                <form action="{{route('regreso_tratamiento_almacen')}}" method="post"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-0 form-group">
-                                            <input class="form-control" id="id" name="id" placeholder="" value="" type="text" hidden>
+                                            <input class="form-control" id="id" name="id" placeholder="" value=""
+                                                type="text" hidden>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <label for="dibujo">Descripcion</label>
-                                            <input class="form-control" id="descripcion" name="descripcion" placeholder="" value="" type="text" readonly>
+                                            <input class="form-control" id="descripcion" name="descripcion"
+                                                placeholder="" value="" type="text" readonly>
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label for="dibujo">Cantidad</label>
-                                            <input class="form-control" id="cantidad" name="cantidad" placeholder="" value="" type="text" readonly>
+                                            <input class="form-control" id="cantidad" name="cantidad" placeholder=""
+                                                value="" type="text" readonly>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4 form-group">
                                             <label for="dibujo">OT</label>
-                                            <input class="form-control" id="ot" name="ot" placeholder="" value="" type="text" readonly>
+                                            <input class="form-control" id="ot" name="ot" placeholder="" value=""
+                                                type="text" readonly>
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label for="dibujo">OC</label>
-                                            <input class="form-control" id="oc" name="oc" placeholder="" value="" type="text" readonly>
+                                            <input class="form-control" id="oc" name="oc" placeholder="" value=""
+                                                type="text" readonly>
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label for="dibujo">Proveedor</label>
-                                            <input class="form-control" id="proveedor" name="proveedor" placeholder="" value="" type="text" readonly>
+                                            <input class="form-control" id="proveedor" name="proveedor" placeholder=""
+                                                value="" type="text" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <label for="Factura">Factura</label>
+                                            <input class="form-control" id="factura" name="factura" placeholder=""
+                                                value="" type="text">
+                                        </div>
+                                      </div>
+                                    <br>
+                                    <button type="submit" class="btn btn-block btn-primary">Registrar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="modal fade" id="aprobacion_material" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalForms" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Material: En inventario.</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{route('material_produccion')}}" method="post"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-md-0 form-group">
+                                            <input class="form-control" id="id" name="id" placeholder="" value=""
+                                                type="text" hidden>
+                                        </div>
+                                        <div class="col-md-2 form-group">
+                                            <label for="dibujo">OT</label>
+                                            <input class="form-control" id="ot" name="ot" placeholder="" value=""
+                                                type="text" readonly>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <label for="dibujo">Descripcion</label>
+                                            <input class="form-control" id="descripcion" name="descripcion"
+                                                placeholder="" value="" type="text" readonly>
+                                        </div>
+                                        <div class="col-md-2 form-group">
+                                            <label for="dibujo">Cantidad</label>
+                                            <input class="form-control" id="cantidad" name="cantidad" placeholder=""
+                                                value="" type="text" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 form-group">
+                                            <label for="cantidad_recibida">Cantidad almacen</label>
+                                            <input class="form-control" id="cantidad_almacen" name="cantidad_almacen"
+                                                placeholder="" value="" type="text" required>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="Salida">Salida</label>
+                                            <select name="tipo_entrega" id="tipo_entrega" class="form-control" required>
+                                                <option selected disabled value="">Selecciona...</option>
+                                                <option value="ALMACEN" class="form-control" name="almacen"> Almacen
+                                                </option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <button type="submit" class="btn btn-block btn-primary">Registrar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="material_compras" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalForms" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Material: Solicitar a compras</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{route('envio_material')}}" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-md-0 form-group">
+                                            <input class="form-control" id="id" name="id" placeholder="" value=""
+                                                type="text" hidden>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="dibujo">OT</label>
+                                            <input class="form-control" id="ot" name="ot" placeholder="" value=""
+                                                type="text" readonly>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="dibujo">Cantidad</label>
+                                            <input class="form-control" id="cantidad" name="cantidad" placeholder=""
+                                                value="" type="text" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <label for="dibujo">Descripcion</label>
+                                            <input class="form-control" id="descripcion" name="descripcion"
+                                                placeholder="" value="" type="text" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 form-group">
+                                            <label for="Factura">Cantidad para comprar</label>
+                                            <input class="form-control" id="cantidad_almacen" name="cantidad_almacen"
+                                                placeholder="" value="" type="text">
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="Salida">Salida</label>
+                                            <select name="tipo_entrega" id="tipo_entrega" class="form-control">
+                                                <option value="-" class="form-control" name="-"> Selecciona</option>
+                                                <option value="almacen" class="form-control" name="almacen"> Almacen
+                                                </option>
+                                                <option value="produccion" class="form-control" name="produccion">
+                                                    Producccion </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <button type="submit" class="btn btn-block btn-primary">Registrar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="recepcion_material" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalForms" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Recepcion de material</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{route('recepcion_material')}}" method="post"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-md-0 form-group">
+                                            <input class="form-control" id="id" name="id" placeholder="" value=""
+                                                type="text" hidden>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <label for="dibujo">Descripcion</label>
+                                            <input class="form-control" id="descripcion" name="descripcion"
+                                                placeholder="" value="" type="text" readonly>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label for="dibujo">Cantidad</label>
+                                            <input class="form-control" id="cantidad" name="cantidad" placeholder=""
+                                                value="" type="text" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 form-group">
+                                            <label for="dibujo">OT</label>
+                                            <input class="form-control" id="ot" name="ot" placeholder="" value=""
+                                                type="text" readonly>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label for="dibujo">OC</label>
+                                            <input class="form-control" id="oc" name="oc" placeholder="" value=""
+                                                type="text" readonly>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label for="dibujo">Proveedor</label>
+                                            <input class="form-control" id="proveedor" name="proveedor" placeholder=""
+                                                value="" type="text" readonly>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             <label for="Factura">Factura</label>
-                                            <input class="form-control" id="factura" name="factura" placeholder="" value="" type="text">
+                                            <input class="form-control" id="factura" name="factura" placeholder=""
+                                                value="" type="text">
                                         </div>
 
                                         <div class="col-md-6 form-group">
                                             <label for="cantidad_recibida">Cantidad recibida</label>
-                                            <input class="form-control" id="cantidad_recibida" name="cantidad_recibida" placeholder="" type="text">
+                                            <input class="form-control" id="cantidad_recibida" name="cantidad_recibida"
+                                                placeholder="" type="text">
                                         </div>
                                     </div>
 
@@ -528,16 +785,20 @@
                                             <label for="tipo_recepcion">Recepcion</label>
                                             <select name="tipo_recepcion" id="tipo_recepcion" class="form-control">
                                                 <option value="-" class="form-control" name="-"> Selecciona</option>
-                                                <option value="PARCIAL" class="form-control" name="parcial"> Entrega parcial</option>
-                                                <option value="FINAL" class="form-control" name="final"> Entrega final</option>
+                                                <option value="PARCIAL" class="form-control" name="parcial"> Entrega
+                                                    parcial</option>
+                                                <option value="FINAL" class="form-control" name="final"> Entrega final
+                                                </option>
                                             </select>
                                         </div>
                                         <div class="col-md-6 form-group">
                                             <label for="Salida">Salida</label>
                                             <select name="tipo_entrega" id="tipo_entrega" class="form-control">
                                                 <option value="-" class="form-control" name="-"> Selecciona</option>
-                                                <option value="ALMACEN" class="form-control" name="almacen"> Almacen</option>
-                                                <option value="PRODUCCION" class="form-control" name="produccion"> Producccion </option>
+                                                <option value="ALMACEN" class="form-control" name="almacen"> Almacen
+                                                </option>
+                                                <option value="PRODUCCION" class="form-control" name="produccion">
+                                                    Producccion </option>
                                             </select>
                                         </div>
                                     </div>
@@ -564,9 +825,15 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <p class="d-inline-block">Siguenos</p>
-                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-facebook"></i></span></a>
-                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-twitter"></i></span></a>
-                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-google-plus"></i></span></a>
+                            <a href="#"
+                                class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span
+                                    class="btn-icon-wrap"><i class="fa fa-facebook"></i></span></a>
+                            <a href="#"
+                                class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span
+                                    class="btn-icon-wrap"><i class="fa fa-twitter"></i></span></a>
+                            <a href="#"
+                                class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span
+                                    class="btn-icon-wrap"><i class="fa fa-google-plus"></i></span></a>
                         </div>
                     </div>
                 </footer>
@@ -582,83 +849,137 @@
 
 
     <script>
-        $(document).ready(function() {
-            $('#recepcion_material').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget) // Button that triggered the modal
-                var ot = button.data('ot')
-                var id = button.data('id')
-                var descripcion = button.data('descripcion')
-                var cantidad = button.data('cantidad')
-                var cantidad_recibida = button.data('cantidad_recibida')
+    $(document).ready(function() {
+        $('#recepcion_material').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var ot = button.data('ot')
+            var id = button.data('id')
+            var descripcion = button.data('descripcion')
+            var cantidad = button.data('cantidad')
+            var cantidad_recibida = button.data('cantidad_recibida')
 
-                var oc = button.data('oc')
-                var proveedor = button.data('proveedor')
-
-
-                var modal = $(this)
-                modal.find('.modal-title').text('Recepcion de material')
-                modal.find('#ot').val(ot)
-                modal.find('#id').val(id)
-                modal.find('#descripcion').val(descripcion)
-                modal.find('#cantidad').val(cantidad)
-                modal.find('#cantidad_recibida').val(cantidad_recibida)
-                modal.find('#oc').val(oc)
-                modal.find('#proveedor').val(proveedor)
+            var oc = button.data('oc')
+            var proveedor = button.data('proveedor')
 
 
-            })
-        });
+            var modal = $(this)
+            modal.find('.modal-title').text('Recepcion de material')
+            modal.find('#ot').val(ot)
+            modal.find('#id').val(id)
+            modal.find('#descripcion').val(descripcion)
+            modal.find('#cantidad').val(cantidad)
+            modal.find('#cantidad_recibida').val(cantidad_recibida)
+            modal.find('#oc').val(oc)
+            modal.find('#proveedor').val(proveedor)
+
+
+        })
+    });
     </script>
 
     <script>
-        $(document).ready(function() {
-            $('#aprobacion_material').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget) // Button that triggered the modal
-                var ot = button.data('ot')
-                var id = button.data('id')
-                var descripcion = button.data('descripcion')
-                var cantidad = button.data('cantidad')
+    $(document).ready(function() {
+        $('#aprobacion_material').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var ot = button.data('ot')
+            var id = button.data('id')
+            var descripcion = button.data('descripcion')
+            var cantidad = button.data('cantidad')
 
 
-                var modal = $(this)
-                modal.find('.modal-title').text('Recepcion: Hay material en almacen')
-                modal.find('#ot').val(ot)
-                modal.find('#id').val(id)
-                modal.find('#descripcion').val(descripcion)
-                modal.find('#cantidad').val(cantidad)
+            var modal = $(this)
+            modal.find('.modal-title').text('Recepcion: Hay material en almacen')
+            modal.find('#ot').val(ot)
+            modal.find('#id').val(id)
+            modal.find('#descripcion').val(descripcion)
+            modal.find('#cantidad').val(cantidad)
 
 
-            })
-        });
+        })
+    });
     </script>
 
 
     <script>
-        $(document).ready(function() {
-            $('#material_compras ').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget) // Button that triggered the modal
-                var ot = button.data('ot')
-                var id = button.data('id')
-                var descripcion = button.data('descripcion')
-                var cantidad = button.data('cantidad')
-                var oc = button.data('oc')
-                var proveedor = button.data('proveedor')
+    $(document).ready(function() {
+        $('#tratamiento_salida ').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var ot = button.data('ot')
+            var id = button.data('id')
+            var descripcion = button.data('descripcion')
+            var cantidad = button.data('cantidad')
+            var codigo = button.data('codigo')
 
 
-                var modal = $(this)
-                modal.find('.modal-title').text('Compra de material')
-                modal.find('#ot').val(ot)
-                modal.find('#id').val(id)
-                modal.find('#descripcion').val(descripcion)
-                modal.find('#cantidad').val(cantidad)
-                modal.find('#oc').val(oc)
-                modal.find('#proveedor').val(proveedor)
+            var modal = $(this)
+            modal.find('.modal-title').text('Tratamiento: Salida de almacen')
+            modal.find('#ot').val(ot)
+            modal.find('#id').val(id)
+            modal.find('#descripcion').val(descripcion)
+            modal.find('#cantidad').val(cantidad)
+            modal.find('#codigo').val(codigo)
 
 
-            })
-        });
+        })
+    });
     </script>
 
+    
+<script>
+    $(document).ready(function() {
+        $('#regreso_tratamiento ').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var ot = button.data('ot')
+            var id = button.data('id')
+            var oc = button.data('oc')
+            var descripcion = button.data('descripcion')
+            var cantidad = button.data('cantidad')
+            var proveedor = button.data('proveedor')
+
+
+            var modal = $(this)
+            modal.find('.modal-title').text('Tratamiento: Regreso a almacen')
+            modal.find('#ot').val(ot)
+            modal.find('#id').val(id)
+            modal.find('#oc').val(oc)
+            modal.find('#descripcion').val(descripcion)
+            modal.find('#cantidad').val(cantidad)
+            modal.find('#proveedor').val(proveedor)
+
+
+        })
+    });
+    </script>
+
+    
+
+<script>
+    $(document).ready(function() {
+        $('#material_compras ').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var ot = button.data('ot')
+            var id = button.data('id')
+            var descripcion = button.data('descripcion')
+            var cantidad = button.data('cantidad')
+            var oc = button.data('oc')
+            var proveedor = button.data('proveedor')
+
+
+            var modal = $(this)
+            modal.find('.modal-title').text('Compra de material')
+            modal.find('#ot').val(ot)
+            modal.find('#id').val(id)
+            modal.find('#descripcion').val(descripcion)
+            modal.find('#cantidad').val(cantidad)
+            modal.find('#oc').val(oc)
+            modal.find('#proveedor').val(proveedor)
+
+
+        })
+    });
+    </script>
+
+   
     <!-- Select2 JavaScript -->
     <script src="../plantilla/vendors/select2/dist/js/select2.full.min.js"></script>
     <script src="../plantilla/dist/js/select2-data.js"></script>
@@ -701,7 +1022,6 @@
 
     <!-- Init JavaScript -->
     <script src="../plantilla/dist/js/init.js"></script>
-
 </body>
 
 </html>

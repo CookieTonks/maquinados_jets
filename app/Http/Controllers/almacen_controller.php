@@ -18,35 +18,36 @@ class almacen_controller extends Controller
     //Maybe we going to delete this
     public function filtro_almacen()
     {
-        $notificaciones =  Models\notifications::all();
+        $notificaciones = Models\notifications::all();
 
         $materiales = models\materiales::where('estatus', '=', 'P.REVISION')
             ->where('estatus', '=', 'ASI')
             ->get();
-        return view('modulos.almacen.filtro_almacen', compact('materiales', 'notificaciones'));
+        
+            
+        return view('modulos.almacen.filtro_almacen', compact('materiales', 'notificaciones', 'proveedores'));
     }
 
     public function buscador_almacen()
     {
-        $notificaciones =  Models\notifications::all();
+        $notificaciones = Models\notifications::all();
 
         $materiales = models\materiales::all();
         return view('modulos.almacen.buscador_almacen', compact('materiales', 'notificaciones'));
     }
     public function dashboard_almacen()
     {
-        $materiales_revision =  models\materiales::where('estatus', '=', 'P/ALMACEN')
-            ->Where('tipo', '=', 'MATERIAL')
+        $materiales_revision = models\materiales::where('estatus', '=', 'P/ALMACEN')
             ->get();
 
-        $materiales_recepcion =  models\materiales::where('estatus', '=', 'ASIGNADA')
-            ->Where('tipo', '=', 'MATERIAL')
-            ->orwhere('estatus', '=', 'PARCIAL')
+        $materiales_recepcion = models\materiales::where('estatus', '=', 'ASIGNADA')
             ->get();
 
-            $notificaciones =  Models\notifications::all();
+        $notificaciones = Models\notifications::all();
 
-        return view('modulos.almacen.dashboard_almacen ', compact('materiales_revision', 'materiales_recepcion', 'notificaciones'));
+        $proveedores = models\proveedor::all();
+
+        return view('modulos.almacen.dashboard_almacen ', compact('proveedores','materiales_revision', 'materiales_recepcion', 'notificaciones'));
     }
 
     public function recepcion_material(Request $request)
@@ -87,20 +88,20 @@ class almacen_controller extends Controller
         }
 
         if ($registro_material->tipo_entrega === 'PRODUCCION') {
-            
-              $registro_jets = new models\jets_registros();
-        $registro_jets->ot = $request->ot;
-        $registro_jets->movimiento = 'ALMACEN - PRODUCCION';
-        $registro_jets->responsable = Auth::user()->name;
-        $registro_jets->save();
 
-        $ruta = models\jets_rutas::where('ot', '=', $request->ot)->first();
-        $ruta->sistema_almacenr = 'DONE';
-        $ruta->sistema_compras = 'DONE';
-        $ruta->sistema_almacen = 'DONE';
-        $ruta->save();
+            $registro_jets = new models\jets_registros();
+            $registro_jets->ot = $request->ot;
+            $registro_jets->movimiento = 'ALMACEN - PRODUCCION';
+            $registro_jets->responsable = Auth::user()->name;
+            $registro_jets->save();
 
-            
+            $ruta = models\jets_rutas::where('ot', '=', $request->ot)->first();
+            $ruta->sistema_almacenr = 'DONE';
+            $ruta->sistema_compras = 'DONE';
+            $ruta->sistema_almacen = 'DONE';
+            $ruta->save();
+
+
             $produccion = models\production::where('ot', '=', $request->ot)->first();
             if ($produccion->estatus === 'REGISTRADA') {
 
@@ -111,6 +112,38 @@ class almacen_controller extends Controller
 
         return back()->with('mensaje-success', '¡Alta de material registrada!');
     }
+
+
+    public function regreso_tratamiento_almacen(Request $request)
+    {
+
+        $material = models\materiales::where('id', '=', $request->id)->first();
+        $material->estatus = "RECIBIDA";
+        $material->factura = $request->factura;
+        $material->save();
+
+        $busqueda_ot = models\orders::where('id', '=', $request->ot)->first();
+        
+
+        $salida_produccion = new models\salidas_produccion();
+        $salida_produccion->ot = $request->ot;
+        $salida_produccion->descripcion = $busqueda_ot->descripcion;
+        $salida_produccion->cliente = $busqueda_ot->cliente;
+        $salida_produccion->tipo_salida = "REGRESO DE TRATAMIENTO";
+        $salida_produccion->cantidad = $request->cantidad;    
+        $salida_produccion->estatus = "P/CALIDAD";
+        $salida_produccion->save();
+
+        $registro_jets = new models\jets_registros();
+        $registro_jets->ot = $request->ot;
+        $registro_jets->movimiento = 'TRATAMIENTO (ALMACEN - EMBARQUES)';
+        $registro_jets->responsable = Auth::user()->name;
+        $registro_jets->save();
+
+        return back()->with('mensaje-success', '¡Orden de trabajo enviada a calidad!');
+
+    }
+    
 
     public function envio_material(Request $request)
     {
@@ -133,17 +166,17 @@ class almacen_controller extends Controller
         $recepcion_material->fecha_almacen = $date;
         $recepcion_material->personal_almacen = Auth::user()->name;
         $recepcion_material->save();
-        
-    $material = Models\materiales::where('ot', '=', $request->ot)->count();
-    $material_solicitado = Models\materiales::where('ot', '=', $request->ot)->where('estatus', '=', 'SOLICITADA')->count();
-    
-    
- 
-     $ruta = models\jets_rutas::where('ot', '=', $request->ot)->first();
+
+        $material = Models\materiales::where('ot', '=', $request->ot)->count();
+        $material_solicitado = Models\materiales::where('ot', '=', $request->ot)->where('estatus', '=', 'SOLICITADA')->count();
+
+
+
+        $ruta = models\jets_rutas::where('ot', '=', $request->ot)->first();
         $ruta->sistema_almacen = 'DONE';
         $ruta->save();
-    
-     $registro_jets = new models\jets_registros();
+
+        $registro_jets = new models\jets_registros();
         $registro_jets->ot = $request->ot;
         $registro_jets->movimiento = 'ALMACEN - COMPRAS';
         $registro_jets->responsable = Auth::user()->name;
@@ -160,6 +193,17 @@ class almacen_controller extends Controller
         }
         return back()->with('mensaje-success', '¡Alta de material registrada!');
     }
+    
+    public function envio_tratamiento(Request $request)
+    {
+$tratamiento = models\materiales::where('id', '=', $request->id)->first();
+$tratamiento->estatus = 'SOLICITADA';
+$tratamiento->proveedor= $request->proveedor;
+$tratamiento->save();
+
+return back()->with('mensaje-success', '¡Enviada a tratamiento con exito!');
+
+    }
 
 
     //Hay material va para compras
@@ -172,25 +216,24 @@ class almacen_controller extends Controller
         $recepcion_material->fecha_almacen = $date;
         $recepcion_material->personal_almacen = Auth::user()->name;
         $recepcion_material->save();
-        
-            $material = Models\materiales::where('ot', '=', $request->ot)->count();
-    $material_solicitado = Models\materiales::where('ot', '=', $request->ot)->where('estatus', '=', 'RECIBIDA')->count();
-    
-    
-    if($material == $material_solicitado)
-{
-    $registro_jets = new models\jets_registros();
-        $registro_jets->ot = $request->ot;
-        $registro_jets->movimiento = 'ALMACEN - PRODUCCION';
-        $registro_jets->responsable = Auth::user()->name;
-        $registro_jets->save();
 
-        $ruta = models\jets_rutas::where('ot', '=', $request->ot)->first();
-        $ruta->sistema_almacenr = 'DONE';
-        $ruta->sistema_compras = 'DONE';
-        $ruta->sistema_almacen = 'DONE';
-        $ruta->save();
-}
+        $material = Models\materiales::where('ot', '=', $request->ot)->count();
+        $material_solicitado = Models\materiales::where('ot', '=', $request->ot)->where('estatus', '=', 'RECIBIDA')->count();
+
+
+        if ($material == $material_solicitado) {
+            $registro_jets = new models\jets_registros();
+            $registro_jets->ot = $request->ot;
+            $registro_jets->movimiento = 'ALMACEN - PRODUCCION';
+            $registro_jets->responsable = Auth::user()->name;
+            $registro_jets->save();
+
+            $ruta = models\jets_rutas::where('ot', '=', $request->ot)->first();
+            $ruta->sistema_almacenr = 'DONE';
+            $ruta->sistema_compras = 'DONE';
+            $ruta->sistema_almacen = 'DONE';
+            $ruta->save();
+        }
 
 
         $registro_material = new models\registros_almacen();
@@ -212,7 +255,7 @@ class almacen_controller extends Controller
                 $produccion->save();
             }
         }
-       
+
 
         return back()->with('mensaje-success', '¡Alta de material registrada!');
     }
@@ -252,8 +295,8 @@ class almacen_controller extends Controller
         $registro_jets->movimiento = 'ALMACEN - COMPRAS';
         $registro_jets->responsable = Auth::user()->name;
         $registro_jets->save();
-        
-        
+
+
 
         $ruta = models\jets_rutas::where('ot', '=', $request->ot)->first();
         $ruta->sistema_almacenr = 'DONE';

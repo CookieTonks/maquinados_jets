@@ -55,8 +55,7 @@ class calidad_controller extends Controller
             $rutas_jets->sistema_calidad = 'DONE';
             $rutas_jets->save();
 
-
-
+            $orden_datos = models\orders::where('id', '=', $request->ot)->first();
 
 
             //Parcialidad liberada con tratamiento externo
@@ -67,14 +66,23 @@ class calidad_controller extends Controller
                 $registro_jets->responsable = Auth::user()->name;
                 $registro_jets->save();
 
+
+                $salida = models\salidas_produccion::where('id', '=', $request->id)->first();
+                $salida->estatus = "ENVIADA A TRATAMIENTO";
+                $salida->save();
+
+
+
                 $alta_material = new Models\materiales();
                 $alta_material->ot = $request->ot;
-                $alta_material->tipo = 'TRATAMIENTO';
-                $alta_material->material = 'SALIDA';
-                $alta_material->cantidad_solicitada = $request->cant_pieza;
-                $alta_material->descripcion = $request->descripcion;
-                $alta_material->proveedor = '';
-                $alta_material->estatus = 'SOLICITADA';
+                $alta_material->descripcion = $orden_datos->descripcion;
+                $alta_material->tipo = 'TRATAMIENTO EXTERNO';
+                $alta_material->codigo = $request->codigo;
+                $alta_material->cantidad_solicitada = $request->cant_liberada;
+                $alta_material->proveedor = '-';
+                $alta_material->um = "PZA";
+                $alta_material->empresa = $orden_datos->empresa;
+                $alta_material->estatus = 'P/ALMACEN';
                 $alta_material->save();
             }
 

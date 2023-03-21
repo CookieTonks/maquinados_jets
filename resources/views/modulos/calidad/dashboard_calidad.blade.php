@@ -331,6 +331,7 @@
                                                     <th>
                                                     </th>
                                                     <th>OT</th>
+                                                    <th>Tipo</th>
                                                     <th>Cliente</th>
                                                     <th>Descripcion</th>
                                                     <th>Cantidad</th>
@@ -345,6 +346,7 @@
                                                         </button>
                                                     </td>
                                                     <td> <a target="_blank" href="public/storage/dibujos/{{$orden->ot}}/{{$orden->ot}}.pdf">{{$orden->ot}}</a></td>
+                                                    <td>{{$orden->tipo_salida}}</td>
                                                     <td>{{$orden->cliente}}</td>
                                                     <td>{{$orden->descripcion}}</td>
                                                     <td>{{$orden->cantidad}}</td>
@@ -354,9 +356,9 @@
                                             <tfoot>
                                                 <tr>
                                                     <th>
-
                                                     </th>
                                                     <th>OT</th>
+                                                    <th>Tipo</th>
                                                     <th>Cliente</th>
                                                     <th>Descripcion</th>
                                                     <th>Cantidad</th>
@@ -418,6 +420,7 @@
                         </section>
                         <!-- Modal forms-->
                     </div>
+                    
                 </div>
 
 
@@ -586,7 +589,7 @@
                 var cliente = button.data('cliente')
                 var cantpro = button.data('cantpro')
 
-                hi
+            
 
                 var modal = $(this)
                 modal.find('.modal-title').text('Nueva inspeccion de calidad')
