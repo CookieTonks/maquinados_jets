@@ -30,21 +30,22 @@ class compras_controller extends Controller
     public function buscador_compras()
     {
         $notificaciones =  Models\notifications::all();
+        $materiales =  models\materiales::all();
 
         $ocompras =  models\ocompras::all();
-        return view('modulos.compras.buscador_compras', compact('ocompras', 'notificaciones'));
+
+        return view('modulos.compras.buscador_compras', compact('materiales', 'notificaciones'));
     }
-    
+
     public function buscador_material($id)
     {
-                $notificaciones =  Models\notifications::all();
+        $notificaciones =  Models\notifications::all();
 
-        $ocompras = models\ocompras::where('id', '=', $id)->first();
-$materiales_asignados =  Models\materiales::where('oc', '=', $id)->get(); 
+        $materiales =  models\materiales::all();
 
-return view('modulos.compras.buscador_material', compact('ocompras', 'materiales_asignados', 'notificaciones'));
+        $materiales_asignados =  Models\materiales::where('oc', '=', $id)->get();
 
-        
+        return view('modulos.compras.buscador_material', compact('ocompras', 'materiales', 'notificaciones'));
     }
 
     public function alta_oc(Request $request)
@@ -66,20 +67,20 @@ return view('modulos.compras.buscador_material', compact('ocompras', 'materiales
             $partida->personal_oc = Auth::user()->name;
             $partida->estatus = 'ASIGNADA';
             $partida->save();
-            
-        $ruta = models\jets_rutas::where('ot', '=', $partida->ot)->first();
-        $ruta->sistema_compras = 'DONE';
-        $ruta->save();
-        
-            
-        $registro_jets = new models\jets_registros();
-        $registro_jets->ot = $partida->ot;
-        $registro_jets->movimiento = 'COMPRAS - OC';
-        $registro_jets->responsable = Auth::user()->name;
-        $registro_jets->save();
+
+            $ruta = models\jets_rutas::where('ot', '=', $partida->ot)->first();
+            $ruta->sistema_compras = 'DONE';
+            $ruta->save();
+
+
+            $registro_jets = new models\jets_registros();
+            $registro_jets->ot = $partida->ot;
+            $registro_jets->movimiento = 'COMPRAS - OC';
+            $registro_jets->responsable = Auth::user()->name;
+            $registro_jets->save();
         }
 
-          
+
         return back()->with('mensaje-success', '¡Alta de OC realizada con éxito!');
     }
     public function material_oc($id)

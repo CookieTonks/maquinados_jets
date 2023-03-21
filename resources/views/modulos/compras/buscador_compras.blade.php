@@ -237,86 +237,123 @@
                     <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"></span></span>Módulo Compras </h4>
                 </div>
                 <!-- /Title -->
-                <div class="row">
-                    <div class="col-xl-12">
-                        <section class="hk-sec-wrapper">
-                            <div class="row">
-                                <div class="col-sm">
-                                    <div class="table-wrap">
-                                        <table id="datable_1" class="table table-hover w-100 display pb-30">
-                                            <thead class="thead-primary">
-                                                <tr>
-                                                    <th></th>
-                                                    <th>OC</th>
-                                                    <th>TIPO OC</th>
-                                                    <th>PROVEEDOR</th>
-                                                    <th>USUARIO</th>
-                                                    <th>CERTIFICADO</th>
 
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($ocompras as $ocompra)
-                                                <tr>
-                                                    <td><a href="{{route('buscador_material', $ocompra->id)}}" class="btn btn-primary btn-sm"><i class="icon-eye"></i></a></td>
-                                                    <td>{{$ocompra->id}}</td>
-                                                    <td>{{$ocompra->tipo_oc}}</td>
-                                                    <td>{{$ocompra->proveedor}}</td>
-                                                    <td>{{$ocompra->usuario_alta}}</td>
-                                                    <td> <a href="storage/app/public/certificados/{{$ocompra->id}}/{{$ocompra->id}}.pdf">{{$ocompra->certificado}}</a></td>
-                                                </tr>
-                                                @endforeach
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                   <th></th>
-                                                    <th>OC</th>
-                                                    <th>TIPO OC</th>
-                                                    <th>PROVEEDOR</th>
-                                                    <th>USUARIO</th>
-                                                    <th>CERTIFICADO</th>
 
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                    </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <section class="hk-sec-wrapper">
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="table-wrap">
+                                    <table id="datable_1" class="table table-hover w-100 display pb-30">
+                                        <thead class="thead-primary">
+                                            <tr>
+                                                <th>
+
+                                                </th>
+                                                <th>OT</th>
+                                                <th>TIPO</th>
+                                                <th>MATERIAL</th>
+                                                <th>DESCRIPCION</th>
+                                                <th>OC</th>
+                                                <th>PROVEEDOR</th>
+                                                <th>CANTIDAD SOLICITADA</th>
+                                                <th>CANTIDAD ALMACEN</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($materiales as $material)
+                                            <tr>
+                                                <td>
+                                                    
+                                                </td>
+                                                <td>{{$material->ot}}</td>
+                                                <td>{{$material->tipo}}</td>
+                                                <td>{{$material->material}}</td>
+                                                <td>{{$material->descripcion}}</td>
+                                                <td>{{$material->oc}}</td>
+                                                <td>{{$material->proveedor}}</td>
+                                                <td>{{$material->cantidad_solicitada}}</td>
+                                                <td>{{$material->cantidad_almacen}}</td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th></th>
+                                                <th>OT</th>
+                                                <th>TIPO</th>
+                                                <th>MATERIAL</th>
+                                                <th>DESCRIPCION</th>
+                                                <th>OC</th>
+                                                <th>PROVEEDOR</th>
+                                                <th>CANTIDAD SOLICITADA</th>
+                                                <th>CANTIDAD ALMACEN</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
                                 </div>
                             </div>
-                        </section>
-                        <!-- Modal forms-->
-                    </div>
+                        </div>
+                    </section>
+                    <!-- Modal forms-->
+
+
                 </div>
-              
-
             </div>
 
+        
 
 
-            <!-- /Container -->
 
-            <!-- Footer -->
-            <div class="hk-footer-wrap container-fluid">
-                <footer class="footer">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <p class="d-inline-block">Siguenos</p>
-                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-facebook"></i></span></a>
-                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-twitter"></i></span></a>
-                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-google-plus"></i></span></a>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-            <!-- /Footer -->
+
 
         </div>
-        <!-- /Main Content -->
+
+
+
+        <!-- /Container -->
+
+        <!-- Footer -->
+        <div class="hk-footer-wrap container-fluid">
+            <footer class="footer">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <p class="d-inline-block">Siguenos</p>
+                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-facebook"></i></span></a>
+                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-twitter"></i></span></a>
+                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-google-plus"></i></span></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- /Footer -->
+
+    </div>
+    <!-- /Main Content -->
 
     </div>
 
- 
+
+
+
+    <script>
+        $(document).ready(function() {
+            $('#alta_oc').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget) // Button that triggered the modal
+                var ot = button.data('ot')
+
+
+                var modal = $(this)
+                modal.find('.modal-title').text('Nueva: Orden de compra')
+                modal.find('#ot').val(ot)
+
+            })
+        });
+    </script>
 
     <!-- Select2 JavaScript -->
     <script src="../plantilla/vendors/select2/dist/js/select2.full.min.js"></script>
