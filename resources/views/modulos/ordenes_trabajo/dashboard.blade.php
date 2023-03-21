@@ -20,7 +20,6 @@
 
     <!-- Plantillas -->
     <link href="template/css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
     <!-- select2 CSS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -35,8 +34,8 @@
     <!-- Custom CSS -->
     <link href="../plantilla/dist/css/style.css" rel="stylesheet" type="text/css">
     <link href="../plantilla/vendors/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
-    @livewireStyles
-
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+ <livewire:styles/>
 </head>
 
 <body>
@@ -337,7 +336,8 @@
                                     </div>
 
                                     <livewire:country-dropdown />
-                                    
+
+
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             <label for="oc">OC</label>
@@ -612,8 +612,7 @@
 
     <!-- Init JavaScript -->
     <script src="../plantilla/dist/js/init.js"></script>
-    @livewireStyles
-
+    <livewire:scripts/>
 </body>
 
 </html>

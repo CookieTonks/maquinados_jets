@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\cliente;
 use App\Models\usuarios;
+use App\Models\cliente;
 use Livewire\Component;
 
 class CountryDropdown extends Component

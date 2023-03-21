@@ -1,3 +1,0 @@
-<div>
-    {{$usuarios}}
-</div>

@@ -4,7 +4,7 @@
         <select id="cliente" name="cliente" class="form-control" wire:model="country">
             <option>--- Selecciona un cliente ---</option>
             @foreach($countries as $country)
-            <option value="{{$country->nombre}}">{{$country->nombre}}</option>
+            <option value="{{$country->cliente}}">{{$country->cliente}}</option>
             @endforeach
         </select>
     </div>
@@ -16,7 +16,7 @@
             <option>Selecciona cliente primero</option>
             @endif
             @foreach($cities as $city)
-            <option value="{{$city->usuario}}">{{$city->usuario}}</option>
+            <option value="{{$city->nombre}}">{{$city->nombre}}</option>
             @endforeach
         </select>
     </div>
