@@ -174,7 +174,7 @@
                             </a>
                             <div class="dropdown-divider"></div>
                             @endforeach
-                         
+
                         </div>
                     </div>
                 </li>
@@ -236,6 +236,10 @@
                 <div class="hk-pg-header">
                     <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"></span></span>Buscador Calidad </h4>
                 </div>
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800"> </h1>
+                    <a href="{{route('ordenes_exports')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generar reporte</a>
+                </div>
                 <!-- /Title -->
                 <div class="row">
                     <div class="col-xl-12">
@@ -246,7 +250,7 @@
                                         <table id="datable_1" class="table table-hover w-100 display pb-30">
                                             <thead class="thead-primary">
                                                 <tr>
-                                                    
+
                                                     <th>OT</th>
                                                     <th>Cliente</th>
                                                     <th>Descripcion</th>
@@ -256,8 +260,8 @@
                                             <tbody>
                                                 @foreach($ordenes as $orden)
                                                 <tr>
-                                                    
-                                                  <td> <a target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->id}}</a></td>
+
+                                                    <td> <a target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->id}}</a></td>
                                                     <td>{{$orden->cliente}}</td>
                                                     <td>{{$orden->descripcion}}</td>
                                                     <td>{{$orden->cantidad}}</td>
@@ -266,7 +270,7 @@
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                  
+
                                                     <th>OT</th>
                                                     <th>Cliente</th>
                                                     <th>Descripcion</th>
@@ -283,7 +287,7 @@
 
                     </div>
                 </div>
-               
+
 
             </div>
 
