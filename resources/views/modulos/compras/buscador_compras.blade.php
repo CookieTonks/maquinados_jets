@@ -266,7 +266,6 @@
                                             @foreach($materiales as $material)
                                             <tr>
                                                 <td>
-                                                    
                                                 </td>
                                                 <td>{{$material->ot}}</td>
                                                 <td>{{$material->tipo}}</td>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ordenes_exports;
 use Illuminate\Database\Events\ModelsPruned;
 use Illuminate\Http\Request;
 use App\Models;
@@ -13,6 +14,8 @@ use Mail;
 use App\Mail\DemoMail;
 use Illuminate\Support\Facades\Storage;
 use finfo;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class ordenes_controller extends Controller
@@ -383,5 +386,9 @@ if($alta_orden->prioridad == 'Urgente')
         $produccion = models\production::where('ot', '=', $id)->first();
         $registros = models\jets_registros::where('ot', '=', $id)->get();
         return view('modulos.ordenes_trabajo.ruta_ot', compact('notificaciones', 'ordenes', 'registros', 'produccion'));
+    }
+
+    public function ordenes_exports(){
+        return Excel::download(new ordenes_exports, 'ordenes.xlsx');
     }
 }
