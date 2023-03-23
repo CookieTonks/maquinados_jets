@@ -35,7 +35,7 @@
     <link href="../plantilla/dist/css/style.css" rel="stylesheet" type="text/css">
     <link href="../plantilla/vendors/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
- <livewire:styles/>
+    <livewire:styles />
 </head>
 
 <body>
@@ -245,6 +245,11 @@
                 <!-- Title -->
                 <div class="hk-pg-header">
                     <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"></span></span>Ordenes de trabajo </h4>
+                </div>
+
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800"> </h1>
+                    <a href="{{route('ordenes_exports')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generar reporte</a>
                 </div>
                 <!-- /Title -->
                 <div class="row">
@@ -612,7 +617,7 @@
 
     <!-- Init JavaScript -->
     <script src="../plantilla/dist/js/init.js"></script>
-    <livewire:scripts/>
+    <livewire:scripts />
 </body>
 
 </html>

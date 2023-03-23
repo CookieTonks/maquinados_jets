@@ -51,9 +51,12 @@ Route::get('/material_order/{id}', [App\Http\Controllers\ordenes_controller::cla
 Route::post('/material_register/}', [App\Http\Controllers\ordenes_controller::class, 'material_register'])->name('material_register')->middleware('ordenes_middleware');
 Route::get('/material_delete/{id}', [App\Http\Controllers\ordenes_controller::class, 'material_delete'])->name('material_delete')->middleware('ordenes_middleware');
 Route::get('/ruta_ot/{id}', [App\Http\Controllers\ordenes_controller::class, 'ruta_ot'])->name('ruta_ot')->middleware('ordenes_middleware');
+Route::get('/ordenes_exports/', [App\Http\Controllers\ordenes_controller::class, 'ordenes_exports'])->name('ordenes_exports')->middleware('ordenes_middleware');
+
 
 Route::get('/dashboard_ingenieria', [App\Http\Controllers\ingenieria_controller::class, 'dashboard_ingenieria'])->name('dashboard_ingenieria')->middleware('ingenieria_middleware');
 Route::post('/carga_dibujo', [App\Http\Controllers\ingenieria_controller::class, 'carga_dibujo'])->name('carga_dibujo')->middleware('ingenieria_middleware');
+Route::get('/dibujos_exports', [App\Http\Controllers\ingenieria_controller::class, 'dibujos_exports'])->name('dibujos_exports')->middleware('ingenieria_middleware');
 
 Route::get('/dashboard_compras', [App\Http\Controllers\compras_controller::class, 'dashboard_compras'])->name('dashboard_compras')->middleware('compras_middleware');
 Route::post('/dashboard_compras', [App\Http\Controllers\compras_controller::class, 'alta_oc'])->name('alta_oc')->middleware('compras_middleware');

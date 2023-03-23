@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Events\ModelsPruned;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
-
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\dibujos_exports;
+use App\Exports\ordenes_exports;
 use finfo;
-
 use App\Models;
 
 
@@ -36,7 +37,7 @@ class ingenieria_controller extends Controller
     public function carga_dibujo(Request $request)
     {
 
-      Storage::disk('public')->putFileAs('dibujos/' . $request->ot, $request->file('dibujo'), $request->ot . '.pdf');
+        Storage::disk('public')->putFileAs('dibujos/' . $request->ot, $request->file('dibujo'), $request->ot . '.pdf');
 
         $alta_dibujo = Models\dibujos::where('ot', '=', $request->ot)->first();
         $alta_dibujo->estatus = 'Cargada';
@@ -53,5 +54,10 @@ class ingenieria_controller extends Controller
         $registro_jets->save();
 
         return back()->with('mensaje-success', '¡Dibujo cargado con éxito!');
+    }
+
+    public function dibujos_exports()
+    {
+        return Excel::download(new dibujos_exports, 'dibujos.xlsx');
     }
 }

@@ -174,7 +174,7 @@
                             </a>
                             <div class="dropdown-divider"></div>
                             @endforeach
-                         
+
                         </div>
                     </div>
                 </li>
@@ -195,7 +195,7 @@
                     <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
                         <a class="dropdown-item" href="{{route ('logout')}}"><i class="dropdown-icon zmdi zmdi-power"></i><span>Log out</span></a>
                     </div>
-                </li>
+                    < </li>
             </ul>
         </nav>
         <!-- /Top Navbar -->
@@ -235,6 +235,11 @@
                 <!-- Title -->
                 <div class="hk-pg-header">
                     <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"></span></span>Módulo Ingenieria </h4>
+                </div>
+
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800"> </h1>
+                    <a href="{{route('dibujos_exports')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generar reporte</a>
                 </div>
                 <!-- /Title -->
                 <div class="row">
