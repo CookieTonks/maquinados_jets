@@ -563,7 +563,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 form-group">
-                                            <label for="programador">Programador</label>
+                                            <label for="programador">Tecnico</label>
                                             <select name="programador" class="form-control custom-select d-block w-100" id="maquina">
                                                 <option value="">Selecciona una opcion...</option>
                                                 @foreach($usuarios as $usuario)
