@@ -456,7 +456,6 @@
                                             <label for="Salida">Tipo de inspeccion</label>
                                             <select name="tipo_inspeccion" id="tipo_inspeccion" class="form-control" required>
                                             <option value="LIBERADO" class="form-control" name="produccion"> LIBERADO </option>
-    
                                             <option value="SCRAP" class="form-control" name="-"> SCRAP</option>
                                                 <option value="RETRABAJO" class="form-control" name="almacen"> RETRABAJO</option>
                                             </select>

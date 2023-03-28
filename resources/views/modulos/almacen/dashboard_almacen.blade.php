@@ -289,9 +289,7 @@
                                                     </td>
                                                     @else
                                                     <td style="width: 200px;">
-                                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#aprobacion_material" data-id="{{$material->id}}" data-ot="{{$material->ot}}" data-descripcion="{{$material->descripcion}}" data-cantidad="{{$material->cantidad_solicitada}}" data-oc="{{$material->oc}}" data-proveedor="{{$material->proveedor }}">
-                                                            <i class="icon-check"></i>
-                                                        </button>
+                                                    
                                                         <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#material_compras" data-id="{{$material->id}}" data-ot="{{$material->ot}}" data-descripcion="{{$material->descripcion}}" data-cantidad="{{$material->cantidad_solicitada}}" data-oc="{{$material->oc}}" data-proveedor="{{$material->proveedor }}">
                                                             <i class="icon-bell"></i>
                                                         </button>
