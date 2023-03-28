@@ -699,7 +699,7 @@
                 var descripcion = button.data('descripcion')
 
                 var modal = $(this)
-                modal.find('.modal-title').text('Carga de dibujo de OT')
+                modal.find('.modal-title').text('Reasignación de OT')
                 modal.find('#ot').val(ot)
                 modal.find('#cliente').val(cliente)
                 modal.find('#descripcion').val(descripcion)
@@ -718,7 +718,7 @@
 
 
                 var modal = $(this)
-                modal.find('.modal-title').text('Carga de dibujo de OT')
+                modal.find('.modal-title').text('Validación de supervisor OT')
                 modal.find('#ot').val(ot)
                 modal.find('#cliente').val(cliente)
                 modal.find('#descripcion').val(descripcion)
