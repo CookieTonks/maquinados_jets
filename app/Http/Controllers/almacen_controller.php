@@ -23,8 +23,8 @@ class almacen_controller extends Controller
         $materiales = models\materiales::where('estatus', '=', 'P.REVISION')
             ->where('estatus', '=', 'ASI')
             ->get();
-        
-            
+
+
         return view('modulos.almacen.filtro_almacen', compact('materiales', 'notificaciones', 'proveedores'));
     }
 
@@ -47,15 +47,12 @@ class almacen_controller extends Controller
 
         $proveedores = models\proveedor::all();
 
-        return view('modulos.almacen.dashboard_almacen ', compact('proveedores','materiales_revision', 'materiales_recepcion', 'notificaciones'));
+        return view('modulos.almacen.dashboard_almacen ', compact('proveedores', 'materiales_revision', 'materiales_recepcion', 'notificaciones'));
     }
 
     public function recepcion_material(Request $request)
     {
-
-
         $date = Carbon::now();
-
         $registro_material = new models\registros_almacen();
         $registro_material->id_material = $request->id;
         $registro_material->ot = $request->ot;
@@ -77,13 +74,19 @@ class almacen_controller extends Controller
             $recepcion_material->personal_almacen = Auth::user()->name;
             $recepcion_material->save();
         } elseif ($request->tipo_recepcion === 'FINAL') {
+
             $recepcion_material = models\materiales::where('id', '=', $request->id)->first();
-            $recepcion_material->estatus = 'RECIBIDA';
-            $recepcion_material->fecha_almacen = $date;
             $cantidad_total = $recepcion_material->cantidad_recibida + $request->cantidad_recibida;
-            $recepcion_material->cantidad_recibida = $cantidad_total;
-            $recepcion_material->personal_almacen = Auth::user()->name;
-            $recepcion_material->save();
+
+            if ($cantidad_total === $recepcion_material->cantidad) {
+                $recepcion_material->estatus = 'RECIBIDA';
+                $recepcion_material->fecha_almacen = $date;
+                $recepcion_material->cantidad_recibida = $cantidad_total;
+                $recepcion_material->personal_almacen = Auth::user()->name;
+                $recepcion_material->save();
+            } else {
+                return back()->with('mensaje-success', '¡La cantidad no es igual a la solicitada!');
+            }
         }
 
         if ($registro_material->tipo_entrega === 'PRODUCCION') {
@@ -122,14 +125,14 @@ class almacen_controller extends Controller
         $material->save();
 
         $busqueda_ot = models\orders::where('id', '=', $request->ot)->first();
-        
+
 
         $salida_produccion = new models\salidas_produccion();
         $salida_produccion->ot = $request->ot;
         $salida_produccion->descripcion = $busqueda_ot->descripcion;
         $salida_produccion->cliente = $busqueda_ot->cliente;
         $salida_produccion->tipo_salida = "REGRESO DE TRATAMIENTO";
-        $salida_produccion->cantidad = $request->cantidad;    
+        $salida_produccion->cantidad = $request->cantidad;
         $salida_produccion->estatus = "P/CALIDAD";
         $salida_produccion->save();
 
@@ -140,9 +143,8 @@ class almacen_controller extends Controller
         $registro_jets->save();
 
         return back()->with('mensaje-success', '¡Orden de trabajo enviada a calidad!');
-
     }
-    
+
 
     public function envio_material(Request $request)
     {
@@ -192,16 +194,15 @@ class almacen_controller extends Controller
         }
         return back()->with('mensaje-success', '¡Alta de material registrada!');
     }
-    
+
     public function envio_tratamiento(Request $request)
     {
-$tratamiento = models\materiales::where('id', '=', $request->id)->first();
-$tratamiento->estatus = 'SOLICITADA';
-$tratamiento->proveedor= $request->proveedor;
-$tratamiento->save();
+        $tratamiento = models\materiales::where('id', '=', $request->id)->first();
+        $tratamiento->estatus = 'SOLICITADA';
+        $tratamiento->proveedor = $request->proveedor;
+        $tratamiento->save();
 
-return back()->with('mensaje-success', '¡Enviada a tratamiento con exito!');
-
+        return back()->with('mensaje-success', '¡Enviada a tratamiento con exito!');
     }
 
 
