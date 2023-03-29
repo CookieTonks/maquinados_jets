@@ -254,14 +254,11 @@
                                                     <th>Dia asignado</th>
                                                     <th>Estatus</th>
                                                     <th>Cant. Retrabajo</th>
-
-
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach($ordenes as $orden)
                                                 @if($orden->modalidad == 'RETRABAJO' || $orden->modalidad == 'SCRAP' )
-
                                                 <tr class="bg-danger text-white">
                                                     <td style="width: 200px;">
                                                         <a href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="icon-eye"></i></a>

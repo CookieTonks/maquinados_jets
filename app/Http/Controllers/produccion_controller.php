@@ -42,7 +42,6 @@ class produccion_controller extends Controller
     {
 
 
-
         $date = Carbon::now();
 
         $maquina = models\maquinas::where('codigo', '=', $request->maquina)->first();
@@ -316,6 +315,7 @@ class produccion_controller extends Controller
 
             $orden_programador_limpia = models\production::where('id', '=', $request->id)->first();
             $orden_programador_limpia->tiempo_final = $now;
+            $orden_programador_limpia->pr = $orden_programador_limpia->pr + 1;
             $orden_programador_limpia->save();
 
             $maquina = models\maquinas::where('codigo', '=', $orden_programador_limpia->maquina_asignada)->first();
@@ -339,50 +339,53 @@ class produccion_controller extends Controller
     public function salida_produccion(Request $request)
     {
 
-        $salida_produccion = new models\salidas_produccion();
-        $salida_produccion->ot = $request->ot;
-        $salida_produccion->descripcion = $request->descripcion;
+        $orden_programador = models\production::where('ot', '=', $request->ot)->first();
 
-        $salida_produccion->cliente = $request->cliente;
-        $salida_produccion->tipo_salida = $request->tipo_salida;
-        $salida_produccion->cantidad = $request->cantidad;
+        if ($orden_programador->pp == $orden_programador->pr) {
+            $piezas = models\salidas_produccion::where('ot', '=', $request->ot)->sum('cantidad');
+            $oc = models\orders::where('id', '=', $request->ot)->first();
 
+            $suma = $piezas + $request->cantidad;
 
-        if ($request->tipo_salida === 'SALIDA PARCIAL') {
+            if ($suma <= $oc->cantidad) {
 
-            $registro_jets = new models\jets_registros();
-            $registro_jets->ot = $request->ot;
-            $registro_jets->movimiento = 'S. PRODUCCION - PARCIAL';
-            $registro_jets->responsable = Auth::user()->name;
-            $registro_jets->save();
+                $salida_produccion = new models\salidas_produccion();
+                $salida_produccion->ot = $request->ot;
+                $salida_produccion->descripcion = $request->descripcion;
+
+                $salida_produccion->cliente = $request->cliente;
+                $salida_produccion->tipo_salida = $request->tipo_salida;
+                $salida_produccion->cantidad = $request->cantidad;
+                if ($request->tipo_salida === 'SALIDA PARCIAL') {
+
+                    $registro_jets = new models\jets_registros();
+                    $registro_jets->ot = $request->ot;
+                    $registro_jets->movimiento = 'S. PRODUCCION - PARCIAL';
+                    $registro_jets->responsable = Auth::user()->name;
+                    $registro_jets->save();
+
+                    return back()->with('mensaje-success', '¡Validacion parcial registrada con exito!');
+                } else {
+
+                    $ruta = models\jets_rutas::where('ot', '=', $request->ot)->first();
+                    $ruta->sistema_produccion = 'DONE';
+                    $ruta->save();
+
+                    $registro_jets = new models\jets_registros();
+                    $registro_jets->ot = $request->ot;
+                    $registro_jets->movimiento = 'S. PRODUCCION - FINALIZADA';
+                    $registro_jets->responsable = Auth::user()->name;
+                    $registro_jets->save();
+
+                    $orden_programador->estatus = 'E.CALIDAD';
+                    $orden_programador->save();
+                    return back()->with('mensaje-success', '¡Validacion final registrada con exito!');
+                }
+            } else {
+                return back()->with('mensaje-error', '¡Las piezas no coinciden con la orden de compra!');
+            }
         } else {
-
-            $ruta = models\jets_rutas::where('ot', '=', $request->ot)->first();
-            $ruta->sistema_produccion = 'DONE';
-            $ruta->save();
-
-            $registro_jets = new models\jets_registros();
-            $registro_jets->ot = $request->ot;
-            $registro_jets->movimiento = 'S. PRODUCCION - FINALIZADA';
-            $registro_jets->responsable = Auth::user()->name;
-            $registro_jets->save();
-            
-  
-        
-           $orden_programador = models\production::where('id', '=', $request->ot)->first();
-           
-        $orden_programador->estatus = 'E.CALIDAD';
-        $orden_programador->save();
+            return back()->with('mensaje-error', '¡Revisa los procesos asignados con los realizados!');
         }
-        
-              $salida_produccion->estatus = "P/CALIDAD";
-        $salida_produccion->save();
-
-
-
-
-     
-
-        return back()->with('mensaje-success', '¡Orden de trabajo enviada a calidad!');
     }
 }

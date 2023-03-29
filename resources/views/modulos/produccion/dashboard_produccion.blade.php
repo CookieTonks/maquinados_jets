@@ -251,7 +251,6 @@
                                             <thead class="thead-primary">
                                                 <tr>
                                                     <th>
-
                                                     </th>
                                                     <th>OT</th>
                                                     <th>Cliente</th>
@@ -263,6 +262,7 @@
                                                     <th>Tiempo estimado</th>
                                                     <th>Tiempo progreso</th>
                                                     <th>Procesos</th>
+                                                    <th>Avance</th>
                                                     <th>Prioridad</th>
                                                     <th>Estatus</th>
                                                 </tr>
@@ -279,11 +279,9 @@
                                                         <button type="button" class="btn  btn-sm btn-secondary" data-toggle="modal" data-target="#reubicacion_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
                                                             <i class="icon-shuffle"></i>
                                                         </button>
-
                                                         <button type="button" class="btn  btn-success btn-sm" data-toggle="modal" data-target="#salida_orden" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
                                                             <i class="icon-check"></i>
                                                         </button>
-
                                                     </th>
                                                     <td> <a target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->id}}</a></td>
                                                     <td>{{$orden->cliente}}</td>
@@ -295,6 +293,7 @@
                                                     <td>{{$orden->tiempo_asignado}}</td>
                                                     <td>{{$orden->tiempo_progreso}}</td>
                                                     <td>{{$orden->procesos}}</td>
+                                                    <td>{{$orden->pp}}/{{$orden->pr}}</td>
                                                     <td>{{$orden->prioridad}}</td>
                                                     <td>{{$orden->estatus}}</td>
                                                 </tr>
@@ -325,6 +324,7 @@
                                                     <td>{{$orden->tiempo_asignado}}</td>
                                                     <td>{{$orden->tiempo_progreso}}</td>
                                                     <td>{{$orden->procesos}}</td>
+                                                    <td>{{$orden->pp}}/{{$orden->pr}}</td>
                                                     <td>{{$orden->prioridad}}</td>
                                                     <td>{{$orden->estatus}}</td>
                                                 </tr>
@@ -345,6 +345,7 @@
                                                     <th>Tiempo estimado</th>
                                                     <th>Tiempo progreso</th>
                                                     <th>Procesos</th>
+                                                    <th>Avance</th>
                                                     <th>Prioridad</th>
                                                     <th>Estatus</th>
                                                 </tr>

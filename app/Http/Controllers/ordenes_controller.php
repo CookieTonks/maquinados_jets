@@ -83,6 +83,7 @@ class ordenes_controller extends Controller
         $arrlength = count($array_proceso);
 
         $minutos_ot = 0;
+        $suma_procesos = 0;
 
         for ($i = 0; $i < $arrlength; $i++) {
             $horas = intval($array_hora[$i]);
@@ -108,6 +109,8 @@ class ordenes_controller extends Controller
             $minutos_ot = $minutos_ot + $minutos_totales;
 
             $minutos_totales = 0;
+
+            $suma_procesos = $suma_procesos + 1;
         }
 
 
@@ -142,6 +145,8 @@ class ordenes_controller extends Controller
         $alta_produccion->tiempo_asignado = $minutos_ot;
         $alta_produccion->persona_asignada = '-';
         $alta_produccion->estatus = 'REGISTRADA';
+        $alta_produccion->pp = $suma_procesos;
+        $alta_produccion->pr = 0;
         $alta_produccion->prioridad = $alta_orden->prioridad;
         $alta_produccion->fecha_production = $alta_orden->salida_produccion;
         $alta_produccion->fecha_cliente = $alta_orden->salida_cliente;

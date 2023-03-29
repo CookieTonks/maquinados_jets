@@ -71,7 +71,6 @@ class almacen_controller extends Controller
 
         if ($request->tipo_recepcion === 'PARCIAL') {
             $recepcion_material = models\materiales::where('id', '=', $request->id)->first();
-            $recepcion_material->estatus = 'PARCIAL';
             $recepcion_material->fecha_almacen = $date;
             $cantidad_total = $recepcion_material->cantidad_recibida + $request->cantidad_recibida;
             $recepcion_material->cantidad_recibida = $cantidad_total;
