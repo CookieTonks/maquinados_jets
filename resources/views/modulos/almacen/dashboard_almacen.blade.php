@@ -450,13 +450,10 @@
                                             </select>
                                         </div>
                                     </div>
-
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             <label for="fecha_retorno">Fecha de retorno</label>
                                             <input class="form-control" id="fecha_retorno" name="fecha_retorno" placeholder="" value="" type="date" required>
-
-
                                         </div>
                                         <div class="col-md-6 form-group">
                                             <label for="chofer">Chofer</label>

@@ -202,6 +202,19 @@ class almacen_controller extends Controller
         $tratamiento->proveedor = $request->proveedor;
         $tratamiento->save();
 
+
+        $salida_embarques = new models\salidas_embarques();
+        $salida_embarques->ot = $request->ot;
+        $salida_embarques->tipo_salida = 'TRATAMIENTO EXTERNO';
+        $salida_embarques->tipo_tratamiento = '-';
+        $salida_embarques->proveedor = $request->proveedor;
+        $salida_embarques->cantidad = $request->cantidad;
+        $salida_embarques->chofer = $request->chofer;
+        $salida_embarques->estatus = 'Enviada tratamiento';
+        $salida_embarques->save();
+
+
+
         return back()->with('mensaje-success', '¡Enviada a tratamiento con exito!');
     }
 

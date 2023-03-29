@@ -84,6 +84,7 @@ class calidad_controller extends Controller
                 $alta_material->empresa = $orden_datos->empresa;
                 $alta_material->estatus = 'P/ALMACEN';
                 $alta_material->save();
+
             }
 
             //Parcialidad liberada sin tratamiento externo
