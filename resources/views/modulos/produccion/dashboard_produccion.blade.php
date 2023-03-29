@@ -564,7 +564,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 form-group">
-                                            <label for="programador">Programador</label>
+                                            <label for="programador">Tecnico</label>
                                             <select name="programador" class="form-control custom-select d-block w-100" id="maquina">
                                                 <option value="">Selecciona una opcion...</option>
                                                 @foreach($usuarios as $usuario)
@@ -700,7 +700,7 @@
                 var descripcion = button.data('descripcion')
 
                 var modal = $(this)
-                modal.find('.modal-title').text('Carga de dibujo de OT')
+                modal.find('.modal-title').text('Reasignación de OT')
                 modal.find('#ot').val(ot)
                 modal.find('#cliente').val(cliente)
                 modal.find('#descripcion').val(descripcion)
@@ -719,7 +719,7 @@
 
 
                 var modal = $(this)
-                modal.find('.modal-title').text('Carga de dibujo de OT')
+                modal.find('.modal-title').text('Validación de supervisor OT')
                 modal.find('#ot').val(ot)
                 modal.find('#cliente').val(cliente)
                 modal.find('#descripcion').val(descripcion)

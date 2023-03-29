@@ -261,7 +261,7 @@
                                                 @if($orden->modalidad == 'RETRABAJO' || $orden->modalidad == 'SCRAP' )
                                                 <tr class="bg-danger text-white">
                                                     <td style="width: 200px;">
-                                                        <a href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="icon-eye"></i></a>
+                                                        <a target="_blank" href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="icon-eye"></i></a>
                                                         <a href="{{route('inicio_ot', $orden)}}" class="btn btn-primary btn-sm"><i class="icon-control-play"></i></a>
                                                         <a href="{{route('pausa_ot', $orden)}}" class="btn btn-warning btn-sm"><i class="icon-control-pause"></i></a>
                                                         <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#salida_produccion" data-id="{{$orden->id}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
@@ -283,7 +283,7 @@
                                                 @else
                                                 <tr>
                                                     <td style="width: 200px;">
-                                                        <a href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="icon-eye"></i></a>
+                                                        <a target="_blank" href="{{route('order_pdf', $orden->ot)}}" class="btn btn-primary btn-sm"><i class="icon-eye"></i></a>
                                                         <a href="{{route('inicio_ot', $orden)}}" class="btn btn-primary btn-sm"><i class="icon-control-play"></i></a>
                                                         <a href="{{route('pausa_ot', $orden)}}" class="btn btn-warning btn-sm"><i class="icon-control-pause"></i></a>
                                                         <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#salida_produccion" data-id="{{$orden->id}}" data-ot="{{$orden->ot}}" data-cliente="{{$orden->cliente}}" data-descripcion="{{$orden->descripcion}}">
