@@ -213,6 +213,8 @@ class almacen_controller extends Controller
         $salida_embarques->estatus = 'Enviada tratamiento';
         $salida_embarques->save();
 
+        //cambio
+
 
 
         return back()->with('mensaje-success', '¡Enviada a tratamiento con exito!');
