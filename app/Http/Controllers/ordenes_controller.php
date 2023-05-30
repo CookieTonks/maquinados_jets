@@ -47,8 +47,6 @@ class ordenes_controller extends Controller
     }
     public function dashboard_ordenes_register(Request $request)
     {
-
-
         $alta_orden = new Models\orders;
         $alta_orden->empresa = $request->empresa;
         $alta_orden->cliente = $request->cliente;

@@ -4,7 +4,7 @@
         <select name="country" wire:model="country" class="form-control custom-select d-block w-100">
             <option value=''>Choose a country</option>
             @foreach($countries as $country)
-                <option value={{ $country->name}}>{{ $country->name }}</option>
+                <option value={{ $country->id }}>{{ $country->name }}</option>
             @endforeach
         </select>
     </div>
@@ -15,7 +15,7 @@
                 class="form-control custom-select d-block w-100">
                 <option value=''>Choose a city</option>
                 @foreach($cities as $city)
-                    <option value={{$city->cliente}}>{{ $city->cliente}}</option>
+                    <option value={{ $city->id }}>{{ $city->cliente }}</option>
                 @endforeach
             </select>
         </div>
@@ -27,7 +27,7 @@
                 class="form-control custom-select d-block w-100">
                 <option value=''>Choose a city</option>
                 @foreach($users as $user)
-                    <option value={{$user->name}}>{{ $user->name }}</option>
+                    <option value={{ $user->id }}>{{ $user->name }}</option>
                 @endforeach
             </select>
         </div>

@@ -76,16 +76,24 @@ class almacen_controller extends Controller
         } elseif ($request->tipo_recepcion === 'FINAL') {
 
             $recepcion_material = models\materiales::where('id', '=', $request->id)->first();
-            $cantidad_total = $recepcion_material->cantidad_recibida + $request->cantidad_recibida;
+            $material_entrada = intval($request->cantidad_recibida);
+            $material_historial = intval($recepcion_material->cantidad_recibida);
+            $material_solicitado = intval($recepcion_material->cantidad_solicitada);
 
-            if ($cantidad_total === $recepcion_material->cantidad) {
+            $cantidad_total = $material_historial + $material_entrada;
+
+
+            if ($cantidad_total == $material_solicitado) {
                 $recepcion_material->estatus = 'RECIBIDA';
                 $recepcion_material->fecha_almacen = $date;
                 $recepcion_material->cantidad_recibida = $cantidad_total;
                 $recepcion_material->personal_almacen = Auth::user()->name;
                 $recepcion_material->save();
+              
             } else {
-                return back()->with('mensaje-success', '¡La cantidad no es igual a la solicitada!');
+              
+
+                return back()->with('mensaje-error', 'Las cantidades no coinciden, no puede ser salida final!');
             }
         }
 
@@ -106,7 +114,6 @@ class almacen_controller extends Controller
 
             $produccion = models\production::where('ot', '=', $request->ot)->first();
             if ($produccion->estatus === 'REGISTRADA') {
-
                 $produccion->estatus = "L.PRODUCCION";
                 $produccion->save();
             }

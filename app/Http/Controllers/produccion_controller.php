@@ -336,6 +336,8 @@ class produccion_controller extends Controller
         }
     }
 
+
+    //Para checar logica aqui
     public function salida_produccion(Request $request)
     {
 
@@ -356,6 +358,7 @@ class produccion_controller extends Controller
                 $salida_produccion->cliente = $request->cliente;
                 $salida_produccion->tipo_salida = $request->tipo_salida;
                 $salida_produccion->cantidad = $request->cantidad;
+                $salida_produccion->estatus = "P/CALIDAD";
                 if ($request->tipo_salida === 'SALIDA PARCIAL') {
 
                     $registro_jets = new models\jets_registros();
@@ -364,8 +367,12 @@ class produccion_controller extends Controller
                     $registro_jets->responsable = Auth::user()->name;
                     $registro_jets->save();
 
+                    $salida_produccion->save();
+
                     return back()->with('mensaje-success', '¡Validacion parcial registrada con exito!');
-                } else {
+                }                
+                 if ($request->tipo_salida === 'SALIDA FINAL') {
+
 
                     $ruta = models\jets_rutas::where('ot', '=', $request->ot)->first();
                     $ruta->sistema_produccion = 'DONE';

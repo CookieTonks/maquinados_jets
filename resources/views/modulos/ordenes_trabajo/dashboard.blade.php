@@ -129,7 +129,7 @@
                                 Facturación
                             </a>
                             <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                <a class="dropdown-item" href="{{route ('dashboard_produccion')}}">Módulo Facturación</a>
+                            <a class="dropdown-item" href="{{route ('dashboard_facturacion')}}">Módulo Facturación</a>
                                 <a class="dropdown-item" href="{{route ('buscador_facturacion')}}">Buscador Facturación</a>
                             </div>
                         </li>
@@ -329,18 +329,9 @@
                                 <form action="{{route('dashboard_ordenes_register')}}" method="post" enctype="multipart/form-data">
                                     @csrf
 
-                                    <div class="row">
-                                        <div class="col-md-12 form-group">
-                                            <label for="empresa">Empresa</label>
-                                            <select name="empresa" class="form-control custom-select d-block w-100" id="empresa" required>
-                                                <option value="">Selecciona una opcion...</option>
-                                                <option value="JETS">JETS</option>
-                                                <option value="JETSA">JETSA</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                               
 
-                                    <livewire:country-dropdown />
+                                  <livewire:country-dropdown> 
 
 
                                     <div class="row">
@@ -521,7 +512,7 @@
             var complex_html = [
                 '<br>',
                 '<div class="form-inline">',
-                '<select style="width:210px;" class="input-small form-control" id="proceso-selector" name="Proceso[]">',
+                '<select style="width:200px;" class="input-small form-control" id="proceso-selector" name="Proceso[]">',
                 ' <option value="TORNEADO">TORNEADO</option>',
                 ' <option value="FRESADO">FRESADO</option>', ' <option value="RECTIFICADO">RECTIFICADO</option>',
                 '<option value="CNC">CNC</option>',

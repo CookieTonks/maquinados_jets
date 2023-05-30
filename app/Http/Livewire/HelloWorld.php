@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Livewire;
-use App\Models;
+
 use Livewire\Component;
 
-class CountryDropdown extends Component
+use App\Models;
+
+class HelloWorld extends Component
 {
+
     public $country;
     public $cities = [];
     public $city;
@@ -15,12 +18,12 @@ class CountryDropdown extends Component
     public function render()
     {
         if (!empty($this->country)) {
-            $this->cities = Models\cliente::where('empresa', $this->country)->get();
+            $this->cities = Models\cliente::where('empresa_id', $this->country)->get();
         }
         if (!empty($this->city)) {
-            $this->users = Models\usuarios::where('cliente', $this->city)->get();
+            $this->users = Models\usuarios::where('cliente_id', $this->city)->get();
         }
-        return view('livewire.country-dropdown')
+        return view('livewire.hello-world')
             ->withCountries(Models\Empresas::orderBy('name')->get());
     }
 }
