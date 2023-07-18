@@ -101,6 +101,7 @@ class calidad_controller extends Controller
             }
 
 
+<<<<<<< HEAD
             //Liberacion de retrabajo
             $liberacion = models\salidas_produccion::where('id', '=', $request->id)->first();
             $produccion = models\production::where('ot', '=', $liberacion->ot)->first();
@@ -113,6 +114,8 @@ class calidad_controller extends Controller
             }
 
 
+=======
+>>>>>>> master
             //Carga de PDF liberación
 
             Storage::disk('public')->putFileAs('liberacion/' . $request->ot, $request->file('doc'), $request->ot . '.pdf');
@@ -151,6 +154,11 @@ class calidad_controller extends Controller
 
             $produccion = models\production::where('ot', '=', $request->ot)->first();
             $produccion->estatus = 'RETRABAJO';
+<<<<<<< HEAD
+=======
+                                    $produccion->pr = 0;
+
+>>>>>>> master
             $produccion->modalidad = 'RETRABAJO';
             $produccion->save();
 
@@ -204,6 +212,11 @@ class calidad_controller extends Controller
 
             $produccion = models\production::where('ot', '=', $request->ot)->first();
             $produccion->estatus = "REGISTRADA";
+<<<<<<< HEAD
+=======
+                        $produccion->pr = 0;
+
+>>>>>>> master
             $produccion->modalidad = "SCRAP";
             $produccion->save();
 

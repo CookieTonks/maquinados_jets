@@ -283,8 +283,13 @@
                                                 <th>DESCRIPCION</th>
                                                 <th>OC</th>
                                                 <th>PROVEEDOR</th>
+<<<<<<< HEAD
                                                 <th>CANTIDAD SOLICITADA</th>
                                                 <th>CANTIDAD ALMACEN</th>
+=======
+                                                <th>CANTIDAD OT</th>
+                                                <th>CANTIDAD SOLICITADA</th>
+>>>>>>> master
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -315,8 +320,13 @@
                                                 <th>DESCRIPCION</th>
                                                 <th>OC</th>
                                                 <th>PROVEEDOR</th>
+<<<<<<< HEAD
                                                 <th>CANTIDAD SOLICITADA</th>
                                                 <th>CANTIDAD ALMACEN</th>
+=======
+                                                <th>CANTIDAD OT</th>
+                                                <th>CANTIDAD SOLICITADA</th>
+>>>>>>> master
                                             </tr>
                                         </tfoot>
                                     </table>

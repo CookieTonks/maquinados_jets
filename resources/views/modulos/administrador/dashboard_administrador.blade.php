@@ -177,7 +177,11 @@ License: You must have a valid license purchased only from templatemonster to le
                             </a>
                             <div class="dropdown-divider"></div>
                             @endforeach
+<<<<<<< HEAD
                          
+=======
+
+>>>>>>> master
                         </div>
                     </div>
                 </li>
@@ -232,6 +236,11 @@ License: You must have a valid license purchased only from templatemonster to le
                                                 </div>
                                             </div>
                                             <div>
+<<<<<<< HEAD
+=======
+                                            <span class="d-block display-4 text-dark mb-5"><span class="counter-anim">{{$conteo_clientes}}</span></span>
+                                                <small class="d-block"></small>
+>>>>>>> master
                                             </div>
                                         </div>
                                     </div>
@@ -249,7 +258,11 @@ License: You must have a valid license purchased only from templatemonster to le
                                                 </div>
                                             </div>
                                             <div>
+<<<<<<< HEAD
                                                 <span class="d-block display-4 text-dark mb-5"><span class="counter-anim">{{$ordenes_finalizadas}}</span></span>
+=======
+                                                <span class="d-block display-4 text-dark mb-5"><span class="counter-anim">{{$conteo_usuarios}}</span></span>
+>>>>>>> master
                                                 <small class="d-block"></small>
                                             </div>
                                         </div>
@@ -268,7 +281,11 @@ License: You must have a valid license purchased only from templatemonster to le
                                                 </div>
                                             </div>
                                             <div>
+<<<<<<< HEAD
                                                 <span class="d-block display-4 text-dark mb-5">{{$ordenes_pendientes}}</span>
+=======
+                                                <span class="d-block display-4 text-dark mb-5">{{$conteo_proveedores}}</span>
+>>>>>>> master
                                                 <small class="d-block"></small>
                                             </div>
                                         </div>
@@ -281,12 +298,22 @@ License: You must have a valid license purchased only from templatemonster to le
                                                     <span class="d-block font-15 text-dark font-weight-500">Alta maquina</span>
                                                 </div>
                                                 <div>
+<<<<<<< HEAD
                                                 <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alta_maquina">
                                                         <i class="icon-plus"></i>
                                                     </button>                                                </div>
                                             </div>
                                             <div>
                                                 <span class="d-block display-4 text-dark mb-5">{{$maquinas}}</span>
+=======
+                                                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alta_maquina">
+                                                        <i class="icon-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span class="d-block display-4 text-dark mb-5">{{$conteo_maquinas}}</span>
+>>>>>>> master
                                                 <small class="d-block"></small>
                                             </div>
                                         </div>
@@ -555,6 +582,19 @@ License: You must have a valid license purchased only from templatemonster to le
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-12 form-group">
+<<<<<<< HEAD
+=======
+                                            <select name="empresa" wire:model="empresa" class="form-control custom-select d-block w-100">
+                                                <option value=''>Selecciona una empresa</option>
+                                                @foreach($empresas as $empresa)
+                                                <option value='{{ $empresa->name}}'>{{ $empresa->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+>>>>>>> master
                                             <label for="nombre">Razon social</label>
                                             <input name="nombre" class="form-control" id="nombre" placeholder="" value="" type="text">
                                         </div>
@@ -585,7 +625,11 @@ License: You must have a valid license purchased only from templatemonster to le
                                             <select name="cliente" class="form-control custom-select d-block w-100" id="cliente">
                                                 <option value="">Selecciona una opcion...</option>
                                                 @foreach ($clientes as $cliente)
+<<<<<<< HEAD
                                                 <option value="{{$cliente->cliente}}">{{$cliente->cliente}}</option>
+=======
+                                                <option value="{{$cliente->id}}">{{$cliente->cliente}}</option>
+>>>>>>> master
                                                 @endforeach
                                             </select>
                                         </div>

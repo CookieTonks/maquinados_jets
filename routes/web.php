@@ -32,7 +32,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+<<<<<<< HEAD
 Route::view('states-city','livewire.home');
+=======
+Route::view('states-city', 'livewire.home');
+>>>>>>> master
 
 
 // Route::get('/dashboard_administrador', [App\Http\Controllers\admin_controller::class, 'dashboard'])->name('dashboard_administrador');
@@ -73,6 +77,10 @@ Route::post('/carga_certificado/', [App\Http\Controllers\compras_controller::cla
 
 Route::get('/filtro_almacen', [App\Http\Controllers\almacen_controller::class, 'filtro_almacen'])->name('filtro_almacen')->middleware('almacen_middleware');
 Route::post('/envio_material', [App\Http\Controllers\almacen_controller::class, 'envio_material'])->name('envio_material')->middleware('almacen_middleware');
+<<<<<<< HEAD
+=======
+Route::post('/material_stock', [App\Http\Controllers\almacen_controller::class, 'material_stock'])->name('material_stock')->middleware('almacen_middleware');
+>>>>>>> master
 
 
 Route::get('/dashboard_almacen', [App\Http\Controllers\almacen_controller::class, 'dashboard_almacen'])->name('dashboard_almacen')->middleware('almacen_middleware');
@@ -132,3 +140,10 @@ Route::controller(admin_controller::class)->group(function () {
     Route::get('fullcalender', 'index');
     Route::post('fullcalenderAjax', 'ajax');
 });
+<<<<<<< HEAD
+=======
+
+Route::get('/exportar_produccion', [App\Http\Controllers\ExportController::class, 'exportar_produccion'])->name('exportar_produccion');
+Route::get('/exportar_ordenes', [App\Http\Controllers\ExportController::class, 'exportar_ordenes'])->name('exportar_ordenes');
+Route::get('/exportar_embarques', [App\Http\Controllers\ExportController::class, 'exportar_embarques'])->name('exportar_embarques');
+>>>>>>> master

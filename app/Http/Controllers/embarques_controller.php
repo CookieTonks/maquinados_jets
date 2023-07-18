@@ -28,6 +28,10 @@ class embarques_controller extends Controller
 
         $ordenes = models\salidas_produccion::where('estatus', '=', 'P/EMBARQUES')->get();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
         $notificaciones = Models\notifications::all();
 
 
@@ -45,13 +49,25 @@ class embarques_controller extends Controller
     {
         $notificaciones = Models\notifications::all();
 
+<<<<<<< HEAD
         $ordenes_salidas = models\salidas_embarques::all();
+=======
+        $ordenes_salidas = models\salidas_embarques::join('orders', 'salidas_embarques.ot', '=', 'orders.id')
+        ->select('orders.cliente', 'salidas_embarques.*')
+        ->get();
+    
+
+>>>>>>> master
 
         return view('modulos.embarques.buscador_embarques', compact('ordenes_salidas', 'notificaciones'));
     }
 
     public function salida_tratamiento(Request $request)
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
         if ($request->tipo_salida == 'Remision') {
             $registro_jets = new models\jets_registros();
             $registro_jets->ot = $request->ot;
@@ -103,9 +119,14 @@ class embarques_controller extends Controller
 
 
 
+<<<<<<< HEAD
             $rutas_jets = models\jets_rutas::where('ot', '=', $request->ot)->first();
             $rutas_jets->sistema_embarques = 'DONE';
             $rutas_jets->save();
+=======
+
+
+>>>>>>> master
 
             $orden = models\orders::where('id', '=', $request->ot)->first();
             $oc = $orden->cant_entregada;
@@ -114,7 +135,11 @@ class embarques_controller extends Controller
             $orden->cant_entregada = $suma;
             $orden->save();
 
+<<<<<<< HEAD
             $salida = models\salidas_produccion::where('id', '=', $salida_embarques->id)->first();
+=======
+            $salida = models\salidas_produccion::where('id', '=', $request->id)->first();
+>>>>>>> master
             $salida->estatus = "L/FACTURAR";
             $salida->save();
 
@@ -126,6 +151,7 @@ class embarques_controller extends Controller
             return $pdf->stream($request->ot . '.pdf');
         }
 
+<<<<<<< HEAD
 
         // if ($request->tipo_salida == 'Tratamiento') {
 
@@ -162,6 +188,16 @@ class embarques_controller extends Controller
         //     $pdf = PDF::loadView('modulos.embarques.tratamiento_embarques', compact('orden', 'salida'));
         //     return $pdf->stream($request->ot . '.pdf');
         // }
+=======
+        $rutas_jets = models\jets_rutas::where('ot', '=', $request->ot)->first();
+        $rutas_jets->sistema_embarques = 'DONE';
+        $rutas_jets->save();
+
+
+        // if ($request->tipo_salida == 'Tratamiento') {
+
+
+>>>>>>> master
     }
 
     public function regreso_tratamiento($orden_tratamiento)

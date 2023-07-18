@@ -66,6 +66,12 @@ class almacen_controller extends Controller
         $registro_material->fecha_recepcion = $date;
         $registro_material->save();
 
+<<<<<<< HEAD
+=======
+        $produccion = models\production::where('ot', '=', $request->ot)->first();
+
+
+>>>>>>> master
         if ($request->tipo_recepcion === 'PARCIAL') {
             $recepcion_material = models\materiales::where('id', '=', $request->id)->first();
             $recepcion_material->fecha_almacen = $date;
@@ -74,7 +80,10 @@ class almacen_controller extends Controller
             $recepcion_material->personal_almacen = Auth::user()->name;
             $recepcion_material->save();
         } elseif ($request->tipo_recepcion === 'FINAL') {
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
             $recepcion_material = models\materiales::where('id', '=', $request->id)->first();
             $material_entrada = intval($request->cantidad_recibida);
             $material_historial = intval($recepcion_material->cantidad_recibida);
@@ -82,6 +91,7 @@ class almacen_controller extends Controller
 
             $cantidad_total = $material_historial + $material_entrada;
 
+<<<<<<< HEAD
 
             if ($cantidad_total == $material_solicitado) {
                 $recepcion_material->estatus = 'RECIBIDA';
@@ -97,6 +107,24 @@ class almacen_controller extends Controller
             }
         }
 
+=======
+            if ($registro_material->tipo_entrega === 'PRODUCCION' && $produccion->modalidad === 'SCRAP') {
+                $recepcion_material->estatus = 'RECIBIDA';
+            } else {
+                if ($cantidad_total != $material_solicitado) {
+                    return back()->with('mensaje-error', 'Las cantidades no coinciden, no puede ser salida final!');
+                }
+                $recepcion_material->estatus = 'RECIBIDA';
+            }
+
+            $recepcion_material->fecha_almacen = $date;
+            $recepcion_material->cantidad_recibida = $cantidad_total;
+            $recepcion_material->personal_almacen = Auth::user()->name;
+            $recepcion_material->save();
+        }
+
+
+>>>>>>> master
         if ($registro_material->tipo_entrega === 'PRODUCCION') {
 
             $registro_jets = new models\jets_registros();
@@ -112,8 +140,12 @@ class almacen_controller extends Controller
             $ruta->save();
 
 
+<<<<<<< HEAD
             $produccion = models\production::where('ot', '=', $request->ot)->first();
             if ($produccion->estatus === 'REGISTRADA') {
+=======
+            if ($produccion->estatus === 'REGISTRADA' || $produccion->estatus === 'E.CALIDAD') {
+>>>>>>> master
                 $produccion->estatus = "L.PRODUCCION";
                 $produccion->save();
             }
@@ -162,7 +194,11 @@ class almacen_controller extends Controller
         $registro_material->ot = $request->ot;
         $registro_material->descripcion = $request->descripcion;
         $registro_material->cantidad = $request->cantidad;
+<<<<<<< HEAD
         $registro_material->tipo_recepcion = 'STOCK ALMACEN';
+=======
+        $registro_material->tipo_recepcion = 'SOLICITADA';
+>>>>>>> master
         $registro_material->personal = $request->personal;
         $registro_material->fecha_recepcion = $date;
         $registro_material->save();
@@ -190,6 +226,7 @@ class almacen_controller extends Controller
         $registro_jets->responsable = Auth::user()->name;
         $registro_jets->save();
 
+<<<<<<< HEAD
         if ($registro_material->tipo_entrega == 'produccion') {
             $produccion = models\production::where('ot', '=', $request->ot)->first();
 
@@ -199,6 +236,57 @@ class almacen_controller extends Controller
                 $produccion->save();
             }
         }
+=======
+
+
+        return back()->with('mensaje-success', '¡Alta de material registrada!');
+    }
+
+
+    public function material_stock(Request $request)
+    {
+
+        $date = Carbon::now();
+
+        $registro_material = new models\registros_almacen();
+        $registro_material->id_material = $request->id;
+        $registro_material->ot = $request->ot;
+        $registro_material->descripcion = $request->descripcion;
+        $registro_material->cantidad = $request->cantidad;
+        $registro_material->tipo_recepcion = 'STOCK ALMACEN';
+        $registro_material->personal = $request->personal;
+        $registro_material->fecha_recepcion = $date;
+        $registro_material->save();
+
+
+        $recepcion_material = models\materiales::where('id', '=', $request->id)->first();
+        $recepcion_material->estatus = 'STOCK ALMACEN';
+        $recepcion_material->cantidad_almacen = $request->cantidad_almacen;
+        $recepcion_material->fecha_almacen = $date;
+        $recepcion_material->personal_almacen = Auth::user()->name;
+        $recepcion_material->save();
+
+
+
+        $ruta = models\jets_rutas::where('ot', '=', $request->ot)->first();
+        $ruta->sistema_almacen = 'DONE';
+        $ruta->save();
+
+        $registro_jets = new models\jets_registros();
+        $registro_jets->ot = $request->ot;
+        $registro_jets->movimiento = 'ALMACEN - PRODUCCION';
+        $registro_jets->responsable = Auth::user()->name;
+        $registro_jets->save();
+
+
+        $produccion = models\production::where('ot', '=', $request->ot)->first();
+        $produccion->estatus = "L.PRODUCCION";
+        $produccion->save();
+
+
+
+
+>>>>>>> master
         return back()->with('mensaje-success', '¡Alta de material registrada!');
     }
 

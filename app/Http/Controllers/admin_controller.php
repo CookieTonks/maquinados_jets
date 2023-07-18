@@ -22,11 +22,23 @@ class admin_controller extends Controller
         $fecha = $date->format('Y-m-d');
         $notificaciones =  Models\notifications::all();
 
+<<<<<<< HEAD
+=======
+        $empresas = models\Empresas::all();
+
+>>>>>>> master
         $ordenes_asignadas = models\production::where('tiempo_asignada', 'LIKE', '%' . $fecha . '%')->count();
         $ordenes_finalizadas = models\production::where('tiempo_asignada', 'LIKE', '%' . $fecha . '%')->where('tiempo_final', 'LIKE', '%' . $fecha . '%')->count();
         $ordenes_pendientes = models\production::where('tiempo_asignada', 'LIKE', '%' . $fecha . '%')->where('estatus', '<>', 'Finalizada')->count();
         $maquinas = models\maquinas::where('estatus', '=', 'ACTIVA')->count();
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> master
         $datos_ordena = models\production::where('tiempo_asignada', 'LIKE', '%' . $fecha . '%')->get();
         $datos_ordenf = models\production::where('tiempo_asignada', 'LIKE', '%' . $fecha . '%')->where('tiempo_final', 'LIKE', '%' . $fecha . '%')->get();
         $datos_ordenp = models\production::where('tiempo_asignada', 'LIKE', '%' . $fecha . '%')->where('estatus', '<>', 'Finalizada')->get();
@@ -39,10 +51,21 @@ class admin_controller extends Controller
         $clientes = models\cliente::all();
 
 
+<<<<<<< HEAD
 
         $ordenes_trabajadas = models\production::where('tiempo_asignada', 'LIKE', '%' . $fecha . '%')->count();
 
         return view('modulos.administrador.dashboard_administrador', compact('notificaciones','clientes', 'tecnicos', 'datos_maquina', 'fecha', 'datos_ordenf', 'datos_ordena', 'datos_ordenp', 'maquinas', 'ordenes_asignadas', 'ordenes_finalizadas', 'ordenes_pendientes', 'clientes_ordenes'));
+=======
+        $conteo_clientes = models\cliente::all()->count();
+        $conteo_proveedores = models\proveedor::all()->count();
+        $conteo_usuarios = models\usuarios::all()->count();
+        $conteo_maquinas = models\maquinas::all()->count();
+
+        $ordenes_trabajadas = models\production::where('tiempo_asignada', 'LIKE', '%' . $fecha . '%')->count();
+
+        return view('modulos.administrador.dashboard_administrador', compact('conteo_clientes','conteo_proveedores','conteo_usuarios', 'conteo_maquinas','empresas','notificaciones','clientes', 'tecnicos', 'datos_maquina', 'fecha', 'datos_ordenf', 'datos_ordena', 'datos_ordenp', 'maquinas', 'ordenes_asignadas', 'ordenes_finalizadas', 'ordenes_pendientes', 'clientes_ordenes'));
+>>>>>>> master
     }
     public function index(Request $request)
     {
@@ -95,6 +118,11 @@ class admin_controller extends Controller
     public function alta_cliente(Request $request)
     {
         $cliente = new models\cliente();
+<<<<<<< HEAD
+=======
+        $cliente->empresa = $request->empresa;
+
+>>>>>>> master
         $cliente->cliente = $request->nombre;
         $cliente->save();
         return back()->with('mensaje-success', '¡Nuevo cliente registrado con éxito!');
@@ -104,7 +132,11 @@ class admin_controller extends Controller
     {
         $usuario = new models\usuarios();
         $usuario->cliente = $request->cliente;
+<<<<<<< HEAD
         $usuario->nombre = $request->usuario;
+=======
+        $usuario->name = $request->usuario;
+>>>>>>> master
         $usuario->save();
         return back()->with('mensaje-success', '¡Nuevo usuario registrado con éxito!');
     }

@@ -231,7 +231,11 @@
                     </script>
                 </div>
                 @endif
+<<<<<<< HEAD
                 <form action="{{route ('material_oc_alta')}}" method="post" enctype="multipart/form-data">
+=======
+                <form action="{{route ('material_oc_alta')}}" method="post" enctype="multipart/form-data"  target="_blank">
+>>>>>>> master
                     @csrf
                     <div class="row">
                         <div class="col-md-2 form-group">

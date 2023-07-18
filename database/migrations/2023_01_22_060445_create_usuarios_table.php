@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
+<<<<<<< HEAD
             $table->string('name');
             $table->integer('cliente_id');
+=======
+>>>>>>> master
             $table->timestamps();
         });
     }

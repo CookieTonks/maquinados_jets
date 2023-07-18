@@ -26,11 +26,27 @@ class embarques_middleware
             return $next($request);
         }
 
+<<<<<<< HEAD
             if (Auth::user()->role == 'Embarques') {
                 return $next($request);
             } else {
                 return redirect()->route('dashboard');
             }
         
+=======
+        if (Auth::user()->role == 'Facturista') {
+            return $next($request);
+        }
+        
+        
+
+
+
+        if (Auth::user()->role == 'Embarques') {
+            return $next($request);
+        } else {
+            return redirect()->route('dashboard');
+        }
+>>>>>>> master
     }
 }

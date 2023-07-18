@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Exports\ordenes_exports;
+<<<<<<< HEAD
+=======
+use App\Exports\Produccion;
+>>>>>>> master
 use Illuminate\Database\Events\ModelsPruned;
 use Illuminate\Http\Request;
 use App\Models;
@@ -16,6 +20,11 @@ use Illuminate\Support\Facades\Storage;
 use finfo;
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
+<<<<<<< HEAD
+=======
+use Illuminate\Support\Facades\Hash;
+
+>>>>>>> master
 
 
 class ordenes_controller extends Controller
@@ -28,6 +37,12 @@ class ordenes_controller extends Controller
 
     public function dashboard_ordenes()
     {
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> master
         $notificaciones =  Models\notifications::all();
         $orders = Models\orders::all();
         $clientes = models\cliente::orderBy('cliente', 'ASC')->get();
@@ -39,7 +54,17 @@ class ordenes_controller extends Controller
 
     public function buscador_ordenes()
     {
+<<<<<<< HEAD
         $orders = Models\orders::all();
+=======
+       // $orders = Models\orders::all();
+
+        $orders = Models\orders::join('productions', 'productions.ot', '=', 'orders.id')
+            ->select('orders.*', 'productions.tiempo_asignado', 'productions.tiempo_progreso')
+            ->get();
+
+
+>>>>>>> master
         $notificaciones =  Models\notifications::all();
 
 
@@ -47,9 +72,18 @@ class ordenes_controller extends Controller
     }
     public function dashboard_ordenes_register(Request $request)
     {
+<<<<<<< HEAD
         $alta_orden = new Models\orders;
         $alta_orden->empresa = $request->empresa;
         $alta_orden->cliente = $request->cliente;
+=======
+
+        $cliente = models\cliente::where('id', '=', $request->cliente)->first();
+
+        $alta_orden = new Models\orders;
+        $alta_orden->empresa = $request->empresa;
+        $alta_orden->cliente = $cliente->cliente;
+>>>>>>> master
         $alta_orden->usuario = $request->usuario;
         $alta_orden->oc = $request->oc;
         $alta_orden->partida = $request->partida;
@@ -66,7 +100,11 @@ class ordenes_controller extends Controller
         $alta_orden->estatus = "Iniciada";
         $alta_orden->tratamiento = $request->tratamiento;
         $alta_orden->progreso = 0;
+<<<<<<< HEAD
         $alta_orden->procesos = implode(", ",$request->Proceso);
+=======
+        $alta_orden->procesos = implode(", ", $request->Proceso);
+>>>>>>> master
         $alta_orden->tipo_material = $request->tipo_material;
         $alta_orden->tipo_entrega_factura = $request->tipo_entrega_factura;
         $alta_orden->tipo_entrega_remision = $request->tipo_entrega_remision;
@@ -102,7 +140,11 @@ class ordenes_controller extends Controller
             $alta_proceso->minutos = $minutos_totales;
             $alta_proceso->save();
 
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> master
 
             $minutos_ot = $minutos_ot + $minutos_totales;
 
@@ -135,9 +177,16 @@ class ordenes_controller extends Controller
         $alta_ruta->save();
 
 
+<<<<<<< HEAD
         $alta_produccion = new models\production();
         $alta_produccion->ot = $alta_orden->id;
         $alta_produccion->cliente = $alta_orden->cliente;
+=======
+
+        $alta_produccion = new models\production();
+        $alta_produccion->ot = $alta_orden->id;
+        $alta_produccion->cliente = $cliente->cliente;
+>>>>>>> master
         $alta_produccion->descripcion = $alta_orden->descripcion;
         $alta_produccion->maquina_asignada = '-';
         $alta_produccion->tiempo_asignado = $minutos_ot;
@@ -190,6 +239,7 @@ class ordenes_controller extends Controller
         ];
 
 
+<<<<<<< HEAD
 if($alta_orden->tipo_dibujo == 'Cliente')
 {
      Storage::disk('public')->putFileAs('dibujos/' . $alta_orden->id, $request->file('dibujo'), $alta_orden->id . '.pdf');
@@ -237,6 +287,47 @@ if($alta_orden->prioridad == 'Urgente')
         Mail::to('miriamdominguez.e@gmail.com')->send(new DemoMail($mailData, $orden));
     
 }
+=======
+        if ($alta_orden->tipo_dibujo == 'Cliente') {
+            Storage::disk('public')->putFileAs('dibujos/' . $alta_orden->id, $request->file('dibujo'), $alta_orden->id . '.pdf');
+
+            $alta_ruta = models\jets_rutas::where('ot', '=', $alta_orden->id)->first();
+            $alta_ruta->sistema_ingenieria = 'DONE';
+            $alta_ruta->save();
+        }
+
+        if ($alta_orden->tipo_material == 'Cliente') {
+
+            $registro_jets = new models\jets_registros();
+            $registro_jets->ot = $alta_orden->id;
+            $registro_jets->movimiento = 'VENDEDOR - PRODUCCION';
+            $registro_jets->responsable = Auth::user()->name;
+            $registro_jets->save();
+
+            $ruta = models\jets_rutas::where('ot', '=', $alta_orden->id)->first();
+            $ruta->sistema_almacenr = 'DONE';
+            $ruta->sistema_compras = 'DONE';
+            $ruta->sistema_almacen = 'DONE';
+            $ruta->save();
+
+
+            $produccion = models\production::where('ot', '=', $alta_orden->id)->first();
+
+            $produccion->estatus = "L.PRODUCCION";
+            $produccion->save();
+        }
+
+
+        if ($alta_orden->prioridad == 'Urgente') {
+            $orden = models\orders::where('id', '=', $alta_orden->id)->first();
+
+            Mail::to('faciljets@gmail.com')->send(new DemoMail($mailData, $orden));
+            Mail::to('progjets01@gmail.com')->send(new DemoMail($mailData, $orden));
+            Mail::to('almacenjets@gmail.com')->send(new DemoMail($mailData, $orden));
+            Mail::to('calidadjets@gmail.com')->send(new DemoMail($mailData, $orden));
+            Mail::to('miriamdominguez.e@gmail.com')->send(new DemoMail($mailData, $orden));
+        }
+>>>>>>> master
 
 
 
@@ -391,7 +482,13 @@ if($alta_orden->prioridad == 'Urgente')
         return view('modulos.ordenes_trabajo.ruta_ot', compact('notificaciones', 'ordenes', 'registros', 'produccion'));
     }
 
+<<<<<<< HEAD
     public function ordenes_exports(){
         return Excel::download(new ordenes_exports, 'ordenes.xlsx');
+=======
+    public function ordenes_exports()
+    {
+        return Excel::download(new Produccion(), 'ordenes.xlsx');
+>>>>>>> master
     }
 }

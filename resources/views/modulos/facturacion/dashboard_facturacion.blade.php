@@ -119,7 +119,11 @@
                                 Facturación
                             </a>
                             <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+<<<<<<< HEAD
                             <a class="dropdown-item" href="{{route ('dashboard_facturacion')}}">Módulo Facturación</a>
+=======
+                                <a class="dropdown-item" href="{{route ('dashboard_facturacion')}}">Módulo Facturación</a>
+>>>>>>> master
                                 <a class="dropdown-item" href="{{route ('buscador_facturacion')}}">Buscador Facturación</a>
                             </div>
                         </li>
@@ -300,13 +304,21 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
+<<<<<<< HEAD
                                 <h5 class="modal-title">Nueva: Carga de dibujo.</h5>
+=======
+                                <h5 class="modal-title">Nueva: Carga de número de factura SAT.</h5>
+>>>>>>> master
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
                             <div class="modal-body">
+<<<<<<< HEAD
                                 <form action="{{route('registro_factura')}}" method="post" enctype="multipart/form-data">
+=======
+                                <form action="{{ route('registro_factura') }}" method="post" enctype="multipart/form-data" target="_blank">
+>>>>>>> master
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-6 form-group">
@@ -332,7 +344,11 @@
 
                                     <div class="row">
                                         <div class="col-md-12 form-group">
+<<<<<<< HEAD
                                             <label for="oc">Factura</label>
+=======
+                                            <label for="oc">Factura/Remision</label>
+>>>>>>> master
                                             <input class="form-control" id="factura" name="factura" placeholder="" value="" type="text" required>
                                         </div>
 
@@ -389,7 +405,11 @@
 
 
                 var modal = $(this)
+<<<<<<< HEAD
                 modal.find('.modal-title').text('Carga de dibujo de OT')
+=======
+                modal.find('.modal-title').text('Carga de número de factura SAT.')
+>>>>>>> master
                 modal.find('#ot').val(ot)
                 modal.find('#cliente').val(cliente)
                 modal.find('#oc').val(oc)

@@ -119,7 +119,11 @@
                                 Facturación
                             </a>
                             <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+<<<<<<< HEAD
                             <a class="dropdown-item" href="{{route ('dashboard_facturacion')}}">Módulo Facturación</a>
+=======
+                                <a class="dropdown-item" href="{{route ('dashboard_facturacion')}}">Módulo Facturación</a>
+>>>>>>> master
                                 <a class="dropdown-item" href="{{route ('buscador_facturacion')}}">Buscador Facturación</a>
                             </div>
                         </li>
@@ -420,7 +424,11 @@
                         </section>
                         <!-- Modal forms-->
                     </div>
+<<<<<<< HEAD
                     
+=======
+
+>>>>>>> master
                 </div>
 
 
@@ -443,11 +451,19 @@
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             <label for="ot">OT</label>
+<<<<<<< HEAD
                                             <input class="form-control" id="ot" name="ot" placeholder="" value="" type="number" onlyread>
                                         </div>
                                         <div class="col-md-6 form-group">
                                             <label for="ot">Cliente</label>
                                             <input class="form-control" id="cliente" name="cliente" placeholder="" value="" type="text" onlyread>
+=======
+                                            <input class="form-control" id="ot" name="ot" placeholder="" value="" type="number" readonly>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label for="ot">Cliente</label>
+                                            <input class="form-control" id="cliente" name="cliente" placeholder="" value="" type="text" readonly>
+>>>>>>> master
                                         </div>
 
                                     </div>
@@ -455,8 +471,13 @@
                                         <div class="col-md-12 form-group">
                                             <label for="Salida">Tipo de inspeccion</label>
                                             <select name="tipo_inspeccion" id="tipo_inspeccion" class="form-control" required>
+<<<<<<< HEAD
                                             <option value="LIBERADO" class="form-control" name="produccion"> LIBERADO </option>
                                             <option value="SCRAP" class="form-control" name="-"> SCRAP</option>
+=======
+                                                <option value="LIBERADO" class="form-control" name="produccion"> LIBERADO </option>
+                                                <option value="SCRAP" class="form-control" name="-"> SCRAP</option>
+>>>>>>> master
                                                 <option value="RETRABAJO" class="form-control" name="almacen"> RETRABAJO</option>
                                             </select>
                                         </div>
@@ -471,7 +492,11 @@
                                     <div class="row">
                                         <div class="col-md-4 form-group">
                                             <label for="">Cant. Scrap</label>
+<<<<<<< HEAD
                                             <input required class="form-control" id="cant_scrap" name="cant_scrap" placeholder="" value=""  type="number" onlyread>
+=======
+                                            <input required class="form-control" id="cant_scrap" name="cant_scrap" placeholder="" value="" type="number" onlyread>
+>>>>>>> master
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label for="ot">Cant. Retrabajo</label>
@@ -487,9 +512,15 @@
                                     <div class="row">
                                         <div class="col-md-12 form-group">
                                             <label for="Salida">Servicio externo</label>
+<<<<<<< HEAD
                                             <select required name="servicio_externo" id="servicio_externo" class="form-control">
                                                 <option value="REQUERIDO" class="form-control"> REQUERIDO</option>
                                                 <option value="NO REQUERIDO" class="form-control"> NO REQUERIDO</option>
+=======
+                                            <select required name="servicio_externo" id="servicio_externo" class="form-control" onchange="toggleCodigoField()">
+                                                <option value="REQUERIDO">REQUERIDO</option>
+                                                <option value="NO REQUERIDO">NO REQUERIDO</option>
+>>>>>>> master
                                             </select>
                                         </div>
                                     </div>
@@ -497,8 +528,12 @@
                                     <div class="row">
                                         <div class="col-md-12 form-group">
                                             <label for="Salida">Código</label>
+<<<<<<< HEAD
                                             <input required class="form-control" id="codigo" name="codigo" placeholder="" value="" type="text">
 
+=======
+                                            <input required class="form-control" id="codigo" name="codigo" placeholder="" value="" type="text" disabled>
+>>>>>>> master
                                         </div>
                                     </div>
                                     <hr>
@@ -536,7 +571,11 @@
                                     <div class="row">
                                         <div class="col-md-12 form-group">
                                             <label for="disposicion">Disposicion</label>
+<<<<<<< HEAD
                                             <input  required class="form-control" id="disposicion" name="disposicion" placeholder="" value="" type="text">
+=======
+                                            <input required class="form-control" id="disposicion" name="disposicion" placeholder="" value="" type="text">
+>>>>>>> master
                                         </div>
 
                                     </div>
@@ -580,6 +619,22 @@
     <!-- /HK Wrapper -->
 
 
+<<<<<<< HEAD
+=======
+
+    <script>
+        function toggleCodigoField() {
+            var servicioExterno = document.getElementById("servicio_externo");
+            var codigoField = document.getElementById("codigo");
+
+            if (servicioExterno.value === "REQUERIDO") {
+                codigoField.disabled = false;
+            } else {
+                codigoField.disabled = true;
+            }
+        }
+    </script>
+>>>>>>> master
     <script>
         $(document).ready(function() {
             $('#nueva_inspeccion').on('show.bs.modal', function(event) {
@@ -589,7 +644,11 @@
                 var cliente = button.data('cliente')
                 var cantpro = button.data('cantpro')
 
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> master
 
                 var modal = $(this)
                 modal.find('.modal-title').text('Nueva inspeccion de calidad')
@@ -605,6 +664,23 @@
 
     <script>
         $(function() {
+<<<<<<< HEAD
+=======
+
+            $("#cant_scrap").prop("disabled", true);
+            $("#cant_retrabajo").prop("disabled", true);
+            $("#cant_liberada").prop("disabled", false);
+            $("#operador").prop("disabled", true);
+            $("#analisis").prop("disabled", true);
+            $("#origen").prop("disabled", true);
+            $("#disposicion").prop("disabled", true);
+            $("#num_parte").prop("disabled", true);
+            $("#descripcion").prop("disabled", true);
+            $("#servicio_externo").prop("disabled", false);
+            $("#codigo").prop("disabled", false);
+
+            
+>>>>>>> master
             $("#tipo_inspeccion").change(function() {
                 if ($(this).val() == "SCRAP") {
                     $("#cant_scrap").prop("disabled", false);
@@ -650,6 +726,7 @@
         });
     </script>
 
+<<<<<<< HEAD
     <script>
         $(function() {
             $("#servicio_externo").change(function() {
@@ -663,6 +740,9 @@
             });
         });
     </script>
+=======
+
+>>>>>>> master
 
     <!-- Select2 JavaScript -->
     <script src="../plantilla/vendors/select2/dist/js/select2.full.min.js"></script>

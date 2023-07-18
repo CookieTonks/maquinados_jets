@@ -129,7 +129,11 @@
                                 Facturación
                             </a>
                             <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+<<<<<<< HEAD
                             <a class="dropdown-item" href="{{route ('dashboard_facturacion')}}">Módulo Facturación</a>
+=======
+                                <a class="dropdown-item" href="{{route ('dashboard_facturacion')}}">Módulo Facturación</a>
+>>>>>>> master
                                 <a class="dropdown-item" href="{{route ('buscador_facturacion')}}">Buscador Facturación</a>
                             </div>
                         </li>
@@ -249,7 +253,11 @@
 
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800"> </h1>
+<<<<<<< HEAD
                     <a href="{{route('ordenes_exports')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generar reporte</a>
+=======
+                    <a href="{{route('exportar_ordenes')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> Generar reporte</a>
+>>>>>>> master
                 </div>
                 <!-- /Title -->
                 <div class="row">
@@ -329,6 +337,7 @@
                                 <form action="{{route('dashboard_ordenes_register')}}" method="post" enctype="multipart/form-data">
                                     @csrf
 
+<<<<<<< HEAD
                                
 
                                   <livewire:country-dropdown> 
@@ -470,6 +479,150 @@
 
                                     <br>
                                     <button type="submit" class="btn btn-block btn-primary">Registrar</button>
+=======
+
+
+                                    <livewire:country-dropdown>
+
+
+                                        <div class="row">
+                                            <div class="col-md-6 form-group">
+                                                <label for="oc">OC</label>
+                                                <input name="oc" class="form-control" id="oc" placeholder="" value="" type="text" required>
+                                            </div>
+                                            <div class="col-md-6 form-group">
+                                                <label for="partida">Partida</label>
+                                                <input name="partida" class="form-control" id="partida" placeholder="" value="" type="number" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4 form-group">
+                                                <label for="cantidad">Cantidad</label>
+                                                <input name="cantidad" class="form-control" id="cantidad" placeholder="" value="" required type="number">
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                <label for="descripcion">Descripcion</label>
+                                                <input name="descripcion" class="form-control" id="descripcion" placeholder="" required value="" type="text">
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="container">
+                                            <div class="row" id="proceso_dinamico">
+                                                <div class="form-group form-horizontal">
+                                                    <label class="control-label">Tiempo por pieza</label>
+                                                    <div class="form-inline">
+                                                        <select style="width:210px;" class="input-small form-control" id="proceso-selector" name="Proceso[]">
+                                                            <option value="TORNEADO">TORNEADO</option>
+                                                            <option value="FRESADO">FRESADO</option>
+                                                            <option value="RECTIFICADO">RECTIFICADO</option>
+                                                            <option value="CNC">CNC</option>
+                                                            <option value="TORNO CNC">TORNO CNC</option>
+                                                            <option value="CEPILLADO">CEPILLADO</option>
+                                                            <option value="SOLDADURA">SOLDADURA</option>
+                                                            <option value="PINTURA">PINTURA</option>
+                                                            <option value="ENSAMBLE">ENSAMBLE</option>
+                                                        </select>
+                                                        <input style="width:95px; margin-left:5px;" type="number" class="input-small form-control" id="hora" name="hora[]" step="any" placeholder="(H)" required>
+                                                        <input style="width:95px; margin-left:5px;" type="number" class="input-small form-control" id="minutos" name="minutos[]" placeholder="(M)" required>
+                                                        <button style="margin-left:5px" type="button" class="btn btn-success btn-add" id="proceso_add">
+                                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-md-12 form-group">
+                                                <label for="tratamiento">Tratamiento</label>
+                                                <input class="form-control" id="tratamiento" name="tratamiento" placeholder="" value="" type="text required">
+                                            </div>
+                                        </div>
+
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-md-4 form-group">
+                                                <label for="Monto">P/U</label>
+                                                <input class="form-control" id="monto" name="monto" placeholder="" value="" type="number" required>
+                                            </div>
+                                            <div class="col-md-4 form-group">
+                                                <label for="Moneda">Moneda</label>
+                                                <select name="moneda" class="form-control custom-select d-block w-100" id="moneda">
+                                                    <option value="">Selecciona una opcion...</option>
+                                                    <option>USD</option>
+                                                    <option>MXN</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4 form-group">
+                                                <label for="Vendedor">Vendedor</label>
+                                                <select name="vendedor" class="form-control custom-select d-block w-100" id="vendedor">
+                                                    <option value="">Selecciona una opcion...</option>
+                                                    @foreach ($vendedores as $vendedor)
+                                                    <option value="{{$vendedor->name}}"> {{$vendedor->name}} </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-md-6 form-group">
+                                                <label for="tipo_dibujo">Tipo dibujo</label>
+                                                <select class="form-control custom-select d-block w-100" name="tipo_dibujo" id="tipo_dibujo">
+                                                    <option value="">Selecciona una opcion...</option>
+                                                    <option>Cliente</option>
+                                                    <option>Ingenieria</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-6 form-group">
+                                                <label for="Comentarios">Comentarios</label>
+                                                <input class="form-control" id="comentarios_diseno" name="comentarios_diseno" placeholder="" value="" type="text" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12 form-group">
+                                                <label for="Dibujo">Dibujo</label>
+                                                <input type="file" placeholder="Solo archivos en PDF" class="form-control" name="dibujo" accept="application/pdf" id="dibujo">
+
+                                            </div>
+                                        </div>
+                                        <hr />
+
+                                        <div class="row">
+                                            <div class="col-md-6 form-group">
+                                                <label for="Salidad de produccion">Salida de produccion</label>
+                                                <input class="form-control" id="salida_produccion" name="salida_produccion" placeholder="" value="" type="date" required>
+                                            </div>
+                                            <div class="col-md-6 form-group">
+                                                <label for="Salida de cliente">Salida de cliente</label>
+                                                <input class="form-control" id="salida_cliente" name="salida_cliente" placeholder="" value="" type="date" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6 form-group">
+                                                <label for="prioridad">Prioridad</label>
+                                                <select class="form-control custom-select d-block w-100" name="prioridad" id="prioridad">
+                                                    <option value="">Selecciona una opcion...</option>
+                                                    <option>Normal</option>
+                                                    <option>Urgente</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6 form-group">
+                                                <label for="tipo_material">Material</label>
+                                                <select class="form-control custom-select d-block w-100" name="tipo_material" id="tipo_material">
+                                                    <option value="">Selecciona una opcion...</option>
+                                                    <option>Jets</option>
+                                                    <option>Cliente</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <br>
+                                        <button type="submit" class="btn btn-block btn-primary">Registrar</button>
+>>>>>>> master
                                 </form>
                             </div>
                         </div>
@@ -506,15 +659,25 @@
     </div>
 
     <!-- /HK Wrapper -->
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     <script>
         function getHTMLString() {
             var complex_html = [
                 '<br>',
                 '<div class="form-inline">',
+<<<<<<< HEAD
                 '<select style="width:200px;" class="input-small form-control" id="proceso-selector" name="Proceso[]">',
                 ' <option value="TORNEADO">TORNEADO</option>',
                 ' <option value="FRESADO">FRESADO</option>', ' <option value="RECTIFICADO">RECTIFICADO</option>',
+=======
+                '<select style="width:160px;" class="input-small form-control" name="Proceso[]">',
+                ' <option value="TORNEADO">TORNEADO</option>',
+                ' <option value="FRESADO">FRESADO</option>',
+                ' <option value="RECTIFICADO">RECTIFICADO</option>',
+>>>>>>> master
                 '<option value="CNC">CNC</option>',
                 '<option value="TORNO CNC">TORNO CNC</option>',
                 '<option value="CEPILLADO">CEPILLADO</option>',
@@ -522,8 +685,16 @@
                 '<option value="PINTURA">PINTURA</option>',
                 '<option value="ENSAMBLE">ENSAMBLE</option>',
                 '</select> ',
+<<<<<<< HEAD
                 '<input style="width:120px; margin-left:5px;" type="number" class="input-small form-control" id="hora"  name="hora[]" step="any" placeholder="(H)"> ',
                 '<input style="width:120px; margin-left:5px;" type="text" class="input-small form-control"  id="minuto" name="minutos[]"  placeholder="(M)"> ',
+=======
+                '<input style="width:120px; margin-left:5px;" type="number" class="input-small form-control" name="hora[]" step="any" placeholder="(H)"> ',
+                '<input style="width:120px; margin-left:5px;" type="text" class="input-small form-control" name="minutos[]" placeholder="(M)"> ',
+                '<button style="margin-left:5px" type="button" class="btn btn-danger btn-remove">',
+                '<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>',
+                '</button>',
+>>>>>>> master
                 '</div>',
             ].join('');
             return complex_html;
@@ -531,16 +702,33 @@
 
         $(document).ready(function() {
             var formCount = 0;
+<<<<<<< HEAD
             $("#proceso_add").on('click', function() {
 
+=======
+
+            function removeForm() {
+                $(this).parent().remove();
+                formCount--;
+            }
+
+            $("#proceso_add").on('click', function() {
+>>>>>>> master
                 if (formCount < 10) {
                     var html = getHTMLString();
                     var element = $(html);
 
+<<<<<<< HEAD
                     $('#proceso_dinamico').append(html);
                     formCount++;
                 } else {
                     return;
+=======
+                    element.find('.btn-remove').click(removeForm);
+
+                    $('#proceso_dinamico').append(element);
+                    formCount++;
+>>>>>>> master
                 }
             });
         });

@@ -16,12 +16,17 @@ class programador_middleware
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     public function handle(Request $request, Closure $next)
     {
         if (!Auth::check()) {
             return redirect()->route('login');
         }
 
+<<<<<<< HEAD
         if (Auth::user()->role == 'Administrador') {
             return $next($request);
 
@@ -33,6 +38,15 @@ class programador_middleware
             } else {
                 return redirect()->route('dashboard');
             }
+=======
+        $user = Auth::user();
+        $allowedRoles = ['Administrador', 'Supervisor producci¨®n', 'Programador'];
+
+        if (in_array($user->role, $allowedRoles)) {
+            return $next($request);
+        } else {
+            return redirect()->route('dashboard');
+>>>>>>> master
         }
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class cliente extends Model
 {
     use HasFactory;
+<<<<<<< HEAD
 
     public function usuarios()
     {
@@ -18,4 +19,6 @@ class cliente extends Model
     {
         return $this->belongsTo(Empresas::class);
     }
+=======
+>>>>>>> master
 }

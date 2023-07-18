@@ -51,6 +51,7 @@ class facturacion_controller extends Controller
         $registro_factura = models\orders::where('id', '=', $request->ot)->first();
 
 
+<<<<<<< HEAD
         $salidas = models\salidas_embarques::where('ot', '=', $request->ot)
             ->where('tipo_salida', '=', 'Factura')
             ->orwhere('tipo_salida', '=', 'Remision')
@@ -58,6 +59,19 @@ class facturacion_controller extends Controller
 
         $salidas = (int)$salidas;
         $oc = (int)$registro_factura->cantidad;
+=======
+$salidas = models\salidas_embarques::where('ot', '=', $request->ot)
+            ->where(function ($query) {
+                $query->where('tipo_salida', '=', 'Remision')
+                      ->orWhere('tipo_salida', '=', 'Factura');
+            })
+            ->sum('cantidad');
+
+
+        $salidas = (int)$salidas;
+        $oc = (int)$registro_factura->cantidad;
+        
+>>>>>>> master
 
         if ($salidas === $oc) {
 

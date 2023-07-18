@@ -26,6 +26,15 @@
     <!-- Custom CSS -->
     <link href="../plantilla/dist/css/style.css" rel="stylesheet" type="text/css">
     <link href="../plantilla/vendors/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
+<<<<<<< HEAD
+=======
+
+    <style>
+        tr:hover td .enlace-blanco {
+            color: white;
+        }
+    </style>
+>>>>>>> master
 </head>
 
 <body>
@@ -35,6 +44,11 @@
 
         </div>
     </div>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> master
     <!-- /Preloader -->
 
     <!-- HK Wrapper -->
@@ -121,7 +135,11 @@
                                 Facturación
                             </a>
                             <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+<<<<<<< HEAD
                             <a class="dropdown-item" href="{{route ('dashboard_facturacion')}}">Módulo Facturación</a>
+=======
+                                <a class="dropdown-item" href="{{route ('dashboard_facturacion')}}">Módulo Facturación</a>
+>>>>>>> master
                                 <a class="dropdown-item" href="{{route ('buscador_facturacion')}}">Buscador Facturación</a>
                             </div>
                         </li>
@@ -238,7 +256,11 @@
                 </div>
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800"> </h1>
+<<<<<<< HEAD
                     <a href="{{route('ordenes_exports')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generar reporte</a>
+=======
+                    <a href="{{route('exportar_produccion')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Generar reporte</a>
+>>>>>>> master
                 </div>
                 <!-- /Title -->
                 <div class="row">
@@ -283,7 +305,11 @@
                                                             <i class="icon-check"></i>
                                                         </button>
                                                     </th>
+<<<<<<< HEAD
                                                     <td> <a target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->id}}</a></td>
+=======
+                                                    <td> <a target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf" class="enlace-blanco">{{$orden->id}}</a></td>
+>>>>>>> master
                                                     <td>{{$orden->cliente}}</td>
                                                     <td>{{$orden->maquina_asignada}}</td>
                                                     <td>{{$orden->persona_asignada}}</td>
@@ -314,7 +340,11 @@
                                                         </button>
 
                                                     </th>
+<<<<<<< HEAD
                                                     <td> <a target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf">{{$orden->id}}</a></td>
+=======
+                                                    <td> <a target="_blank" href="public/storage/dibujos/{{$orden->id}}/{{$orden->id}}.pdf" class="enlace-blanco">{{$orden->id}}</a></td>
+>>>>>>> master
                                                     <td>{{$orden->cliente}}</td>
                                                     <td>{{$orden->maquina_asignada}}</td>
                                                     <td>{{$orden->persona_asignada}}</td>
